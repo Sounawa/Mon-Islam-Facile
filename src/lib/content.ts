@@ -298,12 +298,21 @@ Si cette personne (qui a oublié un wâjib de l'ablution) a prié, sa prière se
 3. Le manquement volontaire à l'enchaînement
 Si ce manquement concerne un Wâjib (un des piliers des actes de l'ablution), et s'il ne le fait qu'après un long moment (déjà indiqué), son ablution devient invalide et il faut la refaire depuis le début.
 S'il le fait de suite avant le long moment, là il est considéré comme le cas de l'oubli : il devra accomplir la partie manquante puis toutes les parties suivantes.`,
-  resumeEnfant: `⏱️ L'enchaînement = faire les ablutions sans pause :
-• C'est obligatoire si on peut le faire sans oublier
-• Si on perd l'eau → la retrouver VITE = continuer où on en était 🏃
-• Si on perd l'eau → la retrouver TARD = recommencer depuis le début 🔄
-• Si on oublie une étape → la faire + reprendre tout ce qui suit ⬅️
-• Si on a prié avec une ablution incomplète → prière non valide ❌`,
+  resumeEnfant: `⏱️ L'enchaînement = faire tes ablutions d'une traite, sans t'arrêter !
+
+📌 C'est OBLIGATOIRE, mais seulement si tu peux le faire sans oublier.
+
+🔥 3 cas à retenir :
+
+1️⃣ Tu perds l'eau et tu la retrouves TOUT DE SUITE → Continue où tu en étais ✅
+
+2️⃣ Tu perds l'eau et tu la retrouves BIEN PLUS TARD → Recommence tout depuis le début 🔄
+
+3️⃣ Tu t'aperçois que tu as OUBLIÉ une étape obligatoire :
+   → Tout de suite ? Fais l'étape manquante, puis reprends tout ce qui suit ⬅️
+   → Plus tard ? Fais juste l'étape manquante ✏️
+
+⚠️ Attention : si tu as prié avec une ablution incomplète (il manquait un pilier), ta prière n'est pas valide. Refais-la ! ❌`,
 };
 
 export const actesAnnulentAblutions = {
