@@ -23,6 +23,7 @@ import {
   Trophy,
   GraduationCap,
   Quote,
+  RefreshCw,
   Home,
 } from "lucide-react";
 import {
@@ -98,8 +99,247 @@ const statutIcons: Record<string, React.ReactNode> = {
 };
 
 // ========================================
+// DAILY VERSES DATABASE
+// ========================================
+
+const dailyVerses = [
+  {
+    arabe: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+    fr: "Au nom d'Allah, le Tout Miséricordieux, le Très Miséricordieux.",
+    source: "Al-Fâtiha 1:1",
+  },
+  {
+    arabe: "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+    fr: "Louange à Allah, Seigneur des mondes.",
+    source: "Al-Fâtiha 1:2",
+  },
+  {
+    arabe: "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
+    fr: "C'est Toi que nous adorons, et c'est Toi dont nous implorons le secours.",
+    source: "Al-Fâtiha 1:5",
+  },
+  {
+    arabe: "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
+    fr: "Dirige-nous vers le sentier droit.",
+    source: "Al-Fâtiha 1:6",
+  },
+  {
+    arabe: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ",
+    fr: "Allah ! Point de divinité à part Lui, le Vivant, Celui qui subsiste par Lui-même.",
+    source: "Al-Baqara 2:255 (Ayat al-Kursî)",
+  },
+  {
+    arabe: "وَمَنْ يَتَّقِ اللَّهَ يَجْعَلْ لَهُ مَخْرَجًا",
+    fr: "Et quiconque craint Allah, Il lui donnera une issue favorable.",
+    source: "At-Talâq 65:2",
+  },
+  {
+    arabe: "وَمَنْ يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ",
+    fr: "Et quiconque place sa confiance en Allah, Il lui suffit.",
+    source: "At-Talâq 65:3",
+  },
+  {
+    arabe: "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا",
+    fr: "Avec la difficulté vient certes la facilité.",
+    source: "Ash-Sharh 94:6",
+  },
+  {
+    arabe: "إِنَّ مَعَ الْعُسْرِ يُسْرًا",
+    fr: "Oui, avec la difficulté vient la facilité.",
+    source: "Ash-Sharh 94:6",
+  },
+  {
+    arabe: "وَلَسَوْفَ يُعْطِيكَ رَبُّكَ فَتَرْضَىٰ",
+    fr: "Et ton Seigneur te donnera, et tu seras satisfait.",
+    source: "Ad-Duha 93:5",
+  },
+  {
+    arabe: "قُلْ هُوَ اللَّهُ أَحَدٌ",
+    fr: "Dis : Lui, Allah est Un.",
+    source: "Al-Ikhlâs 112:1",
+  },
+  {
+    arabe: "اللَّهُ الصَّمَدُ",
+    fr: "Allah, Le Seul à être imploré pour ce que nous désirons.",
+    source: "Al-Ikhlâs 112:2",
+  },
+  {
+    arabe: "لَمْ يَلِدْ وَلَمْ يُولَدْ",
+    fr: "Il n'a pas engendré et Il n'a pas été engendré.",
+    source: "Al-Ikhlâs 112:3",
+  },
+  {
+    arabe: "وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ",
+    fr: "Et nul ne Lui est égal.",
+    source: "Al-Ikhlâs 112:4",
+  },
+  {
+    arabe: "وَقُلْ رَبِّ زِدْنِي عِلْمًا",
+    fr: "Et dis : Ô mon Seigneur, accrois mes connaissances.",
+    source: "Tâ-Hâ 20:114",
+  },
+  {
+    arabe: "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+    fr: "Seigneur, donne-nous le bien ici-bas et dans l'au-delà, et préserve-nous du châtiment du Feu.",
+    source: "Al-Baqara 2:201",
+  },
+  {
+    arabe: "وَمَا خَلَقْتُ الْجِنَّ وَالْإِنْسَ إِلَّا لِيَعْبُدُونِ",
+    fr: "Je n'ai créé les djinns et les hommes que pour qu'ils M'adorent.",
+    source: "Adh-Dhâriyât 51:56",
+  },
+  {
+    arabe: "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",
+    fr: "Certes Allah est avec les patients.",
+    source: "Al-Baqara 2:153",
+  },
+  {
+    arabe: "وَأَحْسِنُوا إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ",
+    fr: "Et faites le bien, car Allah aime les bienfaiteurs.",
+    source: "Al-Baqara 2:195",
+  },
+  {
+    arabe: "ادْعُونِي أَسْتَجِبْ لَكُمْ",
+    fr: "Invoquez-Moi, Je vous répondrai.",
+    source: "Ghâfir 40:60",
+  },
+  {
+    arabe: "فَاذْكُرُونِي أَذْكُرْكُمْ",
+    fr: "Souvenez-vous de Moi, Je Me souviendrai de vous.",
+    source: "Al-Baqara 2:152",
+  },
+  {
+    arabe: "إِنَّ الصَّلَاةَ تَنْهَىٰ عَنِ الْفَحْشَاءِ وَالْمُنْكَرِ",
+    fr: "La prière empêche les actes indécents et le blâmable.",
+    source: "Al-'Ankabût 29:45",
+  },
+  {
+    arabe: "وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِنْ مُدَّكِرٍ",
+    fr: "Nous avons rendu le Coran facile pour le rappel. Y a-t-il donc quelqu'un pour réfléchir ?",
+    source: "Al-Qamar 54:17",
+  },
+  {
+    arabe: "تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ",
+    fr: "Béni soit Celui dans la main Duquel est la royauté, et qui est Omnipotent.",
+    source: "Al-Mulk 67:1",
+  },
+  {
+    arabe: "وَأَوْصَانِي بِالصَّلَاةِ وَالزَّكَاةِ مَا دُمْتُ حَيًّا",
+    fr: "Et il m'a recommandé la prière et la Zakât tant que je serai vivant.",
+    source: "Maryam 19:31",
+  },
+  {
+    arabe: "وَاسْتَغْفِرُوا رَبَّكُمْ ثُمَّ تُوبُوا إِلَيْهِ",
+    fr: "Et implorez le pardon de votre Seigneur, puis repentez-vous à Lui.",
+    source: "Hûd 11:3",
+  },
+  {
+    arabe: "إِنَّ رَحْمَتَ اللَّهِ قَرِيبٌ مِنَ الْمُحْسِنِينَ",
+    fr: "La miséricorde d'Allah est proche des bienfaisants.",
+    source: "Al-A'râf 7:56",
+  },
+  {
+    arabe: "وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ",
+    fr: "Et entraidez-vous dans l'accomplissement des bonnes œuvres et de la piété.",
+    source: "Al-Mâ'ida 5:2",
+  },
+  {
+    arabe: "وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَأَنْتُمُ الْأَعْلَوْنَ إِنْ كُنْتُمْ مُؤْمِنِينَ",
+    fr: "Ne vous laissez pas abattre, ne vous affligez pas alors que vous êtes les supérieurs, si vous êtes de vrais croyants.",
+    source: "Âl 'Imrân 3:139",
+  },
+  {
+    arabe: "شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ",
+    fr: "Allah témoigne qu'il n'y a de divinité que Lui.",
+    source: "Âl 'Imrân 3:18",
+  },
+];
+
+function getDailyVerse() {
+  const today = new Date();
+  const dayOfYear = Math.floor(
+    (today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / 86400000
+  );
+  return dailyVerses[dayOfYear % dailyVerses.length];
+}
+
+// ========================================
 // UTILITY COMPONENTS
 // ========================================
+
+function DailyVerseCard() {
+  const [verse, setVerse] = useState(() => getDailyVerse());
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const refreshVerse = () => {
+    setIsAnimating(true);
+    setTimeout(() => {
+      // Pick a random verse different from current
+      let next;
+      do {
+        next = dailyVerses[Math.floor(Math.random() * dailyVerses.length)];
+      } while (next.source === verse.source && dailyVerses.length > 1);
+      setVerse(next);
+      setIsAnimating(false);
+    }, 300);
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.2 }}
+    >
+      <Card className="border-0 shadow-lg shadow-emerald-100/50 dark:shadow-emerald-950/20 rounded-2xl overflow-hidden">
+        <CardHeader className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white pb-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <BookOpen className="w-5 h-5" />
+              <CardTitle className="text-base font-semibold">
+                🕌 Verset du jour
+              </CardTitle>
+            </div>
+            <button
+              onClick={refreshVerse}
+              className="p-1.5 rounded-full hover:bg-white/20 transition-colors"
+              aria-label="Autre verset"
+            >
+              <RefreshCw className="w-4 h-4" />
+            </button>
+          </div>
+        </CardHeader>
+        <CardContent className="pt-5">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={verse.source}
+              initial={{ opacity: isAnimating ? 0 : 1, y: isAnimating ? 10 : 0 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="bg-emerald-50 dark:bg-emerald-950/40 rounded-xl p-6 mb-3 border border-emerald-100 dark:border-emerald-800">
+                <p
+                  className="text-2xl md:text-4xl text-gray-800 dark:text-gray-100 leading-loose text-right font-medium"
+                  dir="rtl"
+                >
+                  {verse.arabe}
+                </p>
+              </div>
+              <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-3">
+                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed italic">
+                  {verse.fr}
+                </p>
+                <p className="text-xs text-emerald-500 dark:text-emerald-400 font-semibold mt-2">
+                  {verse.source}
+                </p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </CardContent>
+      </Card>
+    </motion.div>
+  );
+}
 
 function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -327,40 +567,7 @@ export default function HomePage() {
 
           <div className="max-w-5xl mx-auto px-4 py-8 space-y-10">
             {/* Daily Verse */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-            >
-              <Card className="border-0 shadow-lg shadow-emerald-100/50 dark:shadow-emerald-950/20 rounded-2xl overflow-hidden">
-                <CardHeader className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white pb-3">
-                  <div className="flex items-center gap-2">
-                    <BookOpen className="w-5 h-5" />
-                    <CardTitle className="text-base font-semibold">
-                      Verset du jour — La Fâtiha
-                    </CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="pt-5">
-                  <div className="bg-emerald-50 dark:bg-emerald-950/40 rounded-xl p-5 mb-3 border border-emerald-100 dark:border-emerald-800">
-                    <p
-                      className="text-2xl md:text-3xl text-gray-800 dark:text-gray-100 leading-loose text-right font-medium"
-                      dir="rtl"
-                    >
-                      {fatiha.arabe}
-                    </p>
-                  </div>
-                  <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-3">
-                    <p className="text-xs text-gray-400 dark:text-gray-500 font-semibold mb-1 uppercase tracking-wide">
-                      Traduction
-                    </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line italic">
-                      {fatiha.traduction}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
+            <DailyVerseCard />
 
             {/* Daily Wisdom + Imam Malik Row */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
