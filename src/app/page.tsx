@@ -840,7 +840,7 @@ export default function HomePage() {
                   Mon Islam Facile
                 </h1>
                 <p className="text-base md:text-lg text-emerald-50 max-w-2xl mx-auto leading-relaxed">
-                  Assalamou&apos;alaykoum — Découvre les bases de ta religion selon
+                  Découvre les bases de ta religion selon
                   l&apos;école Malikite
                 </p>
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
@@ -913,9 +913,7 @@ export default function HomePage() {
                   <CardContent className="space-y-3">
                     <div className="flex items-center gap-3">
                       <div className="w-14 h-14 rounded-full bg-gradient-to-br from-teal-100 to-emerald-100 dark:from-teal-900 dark:to-emerald-900 flex items-center justify-center flex-shrink-0 border-2 border-teal-200 dark:border-teal-700">
-                        <span className="text-2xl" dir="rtl">
-                          م
-                        </span>
+                        <GraduationCap className="w-7 h-7 text-teal-600 dark:text-teal-400" />
                       </div>
                       <div>
                         <p className="font-semibold text-gray-800 dark:text-gray-200">
