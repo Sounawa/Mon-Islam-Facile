@@ -1,12 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "standalone",
+  output: "export",
+  basePath: "/Mon-Islam-Facile",
   /* config options here */
   typescript: {
     ignoreBuildErrors: true,
   },
   reactStrictMode: false,
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
