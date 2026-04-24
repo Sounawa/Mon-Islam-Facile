@@ -1,0 +1,309 @@
+- generic
+  - generic
+    - generic
+      - StaticText "Poster sur : "
+      - link "Facebook" [ref=e5]
+        - image "Facebook"
+      - StaticText " "
+      - link "Twitter" [ref=e6]
+        - image "Twitter"
+    - LineBreak "\n"
+  - generic
+    - link "Connectez-vous" [ref=e3]
+    - link "S'inscrire" [ref=e4]
+- LayoutTable
+  - LayoutTableRow
+    - LayoutTableCell "OK"
+      - generic
+        - textbox [ref=e15]
+        - button "OK" [ref=e16]
+  - LayoutTableRow
+    - LayoutTableCell " Présentation Les deux principales sources du Fiqh Pourquoi une doctrine L'Imâm Mâlik et son école Grands savants malikites Conditions de la Fatwa L'auteur du Matn (Ibn 'âshir) Le dogme (al-'aqîda) Le Culte (al-'ibâdât) Le Comportement (al-mu'âmala) La Spiritualité Autres sujets Importants Miséricorde et Sagesse dans l'école prophètique Dialogue interreligieux New: Finance Islamique Publications: coup de coeur du mois Sagesses de la révélation Forum Ouvrages conseillés Liens favoris Données personnelles http://www.wmaker.net/malikite/index.php?action=newsletter zoomer l'image"
+      - generic
+        - list
+          - listitem [level=1]
+            - link " Présentation" [ref=e17]
+          - listitem [level=1]
+            - link " Les deux principales sources du Fiqh" [ref=e18]
+          - listitem [level=1]
+            - link " Pourquoi une doctrine" [ref=e19]
+          - listitem [level=1]
+            - link " L'Imâm Mâlik et son école" [ref=e20]
+          - listitem [level=1]
+            - link " Grands savants malikites" [ref=e21]
+          - listitem [level=1]
+            - link " Conditions de la Fatwa" [ref=e22]
+          - listitem [level=1]
+            - link " L'auteur du Matn (Ibn 'âshir)" [ref=e23]
+          - listitem [level=1]
+            - link " Le dogme (al-'aqîda)" [ref=e24]
+          - listitem [level=1]
+            - link " Le Culte (al-'ibâdât)" [ref=e25]
+          - listitem [level=1]
+            - link " Le Comportement (al-mu'âmala)" [ref=e26]
+          - listitem [level=1]
+            - link " La Spiritualité" [ref=e27]
+          - listitem [level=1]
+            - link " Autres sujets Importants" [ref=e28]
+          - listitem [level=1]
+            - link " Miséricorde et Sagesse dans l'école prophètique" [ref=e29]
+          - listitem [level=1]
+            - link " Dialogue interreligieux" [ref=e30]
+          - listitem [level=1]
+            - link " New: Finance Islamique" [ref=e31]
+          - listitem [level=1]
+            - link " Publications: coup de coeur du mois" [ref=e32]
+          - listitem [level=1]
+            - link " Sagesses de la révélation" [ref=e33]
+          - listitem [level=1]
+            - link " Forum" [ref=e34]
+          - listitem [level=1]
+            - link " Ouvrages conseillés" [ref=e35]
+          - listitem [level=1]
+            - link " Liens favoris" [ref=e36]
+          - listitem [level=1]
+            - link " Données personnelles" [ref=e37]
+      - link "http://www.wmaker.net/malikite/index.php?action=newsletter" [ref=e11]
+        - image "http://www.wmaker.net/malikite/index.php?action=newsletter"
+      - LayoutTable
+        - LayoutTableRow
+          - LayoutTableCell
+            - image
+        - LayoutTableRow
+          - LayoutTableCell "zoomer l'image Ibn 'âshir: \"L'essentiel de la religion musulmane: Tawhîd, Fiqh et spiritualité, 2éme édition\" (Al-murshid Al-mu'în 'alâ Ad-Darûrî Min 'Ulûm ed-Dîn d'Ibn 'âshir) zoomer l'image d'Ibn Abî Zayd Al-qirâwânî Biographie: L'Imam Mâlik - Sa vie et son époque, ses opinions et son fiqh d'Abou Zahra aux éditions Al-qalam"
+            - LayoutTable
+              - LayoutTableRow
+                - LayoutTableCell "zoomer l'image"
+                  - paragraph
+                    - link [ref=e62]
+                      - image
+                  - paragraph
+                    - link [ref=e63]
+                  - link "zoomer l'image" [ref=e64]
+                    - image "zoomer l'image"
+                  - link [ref=e60]
+                - LayoutTableCell
+                - LayoutTableCell
+                  - image
+              - LayoutTableRow
+                - LayoutTableCell "Ibn 'âshir: \"L'essentiel de la religion musulmane: Tawhîd, Fiqh et spiritualité, 2éme édition\" (Al-murshid Al-mu'în 'alâ Ad-Darûrî Min 'Ulûm ed-Dîn d'Ibn 'âshir)"
+                  - paragraph
+                    - StaticText "Ibn 'âshir: \"L'essentiel de la religion musulmane: Tawhîd, Fiqh et spiritualité, 2éme édition\""
+                  - paragraph
+                    - LineBreak "\n"
+                    - StaticText "(Al-murshid Al-mu'în 'alâ Ad-Darûrî Min 'Ulûm ed-Dîn d'Ibn 'âshir)"
+              - LayoutTableRow
+                - LayoutTableCell
+                - LayoutTableCell
+                - LayoutTableCell
+              - LayoutTableRow
+                - LayoutTableCell "zoomer l'image"
+                  - paragraph
+                    - link [ref=e65]
+                      - image
+                  - paragraph
+                    - link [ref=e66]
+                  - link "zoomer l'image" [ref=e67]
+                    - image "zoomer l'image"
+                  - link [ref=e61]
+                - LayoutTableCell
+                - LayoutTableCell
+                  - image
+              - LayoutTableRow
+                - LayoutTableCell "d'Ibn Abî Zayd Al-qirâwânî Biographie: L'Imam Mâlik - Sa vie et son époque, ses opinions et son fiqh d'Abou Zahra aux éditions Al-qalam"
+                  - paragraph
+                    - StaticText "d'Ibn Abî Zayd Al-qirâwânî"
+                    - LineBreak "\n"
+                    - LineBreak "\n"
+                    - StaticText "Biographie:"
+                  - paragraph
+                    - StaticText "L'Imam Mâlik - Sa vie et son époque, ses opinions et son fiqh d'Abou Zahra aux éditions Al-qalam"
+      - LayoutTable
+        - LayoutTableRow
+          - LayoutTableCell
+            - image
+        - LayoutTableRow
+          - LayoutTableCell "Nous remercions l'aimable partenariat:  Des éditions Iqra Iqrafrance.com  De Imusk imusk.fr  De El bab éditions elbab-distribution.fr  Et de l'édition Selsabil SELSABIL"
+            - paragraph
+              - StaticText "Nous remercions l'aimable partenariat:"
+            - paragraph
+            - StaticText "Des éditions Iqra "
+            - link "Iqrafrance.com" [ref=e38]
+            - paragraph
+            - paragraph
+              - StaticText "De Imusk "
+              - link "imusk.fr" [ref=e56]
+            - paragraph
+            - StaticText "De El bab éditions "
+            - link "elbab-distribution.fr" [ref=e39]
+            - paragraph
+            - paragraph
+              - StaticText "Et de l'édition Selsabil "
+              - link "SELSABIL" [ref=e57]
+    - LayoutTableCell "Accueil > Le Culte (al-'ibâdât) > La prière canonique > Introduction Page Muqaddima Dieu dit dans le Coran : « La prière est sûrement une obligation minutée (chaque prière a son temps défini) prescrite aux Croyants »[1]. Et Il dit : « Fais correctement la prière car la prière détourne (éloigne) des actes immoraux et désavouables, et l’invocation de Dieu est bien plus grande encore »[2] Il est écrit dans le Muwattaa : Chapitre XXIV de la prière : Yahia Ibn Saïd a dit : « On me fait savoir que la prière(Salât) sera la première à être examiner (juger) [le jour de résurrection] parmi les œuvres du serviteur ; si elle sera acceptée, on passera à ses autres oeuvres, mais si elle ne le sera pas, on ne tiendra pas compte de ses autres œuvres ». La prière est l’épine dorsale de la religion. C’est le seul pilier de l’Islam qui fut révélé directement par Allah (exalté soit-Il) à son bien aimé Prophète (paix et salut sur lui) sans l’intermédiaire de l’ange, par dessus des sept cieux au terme de la nuit de l’ascension (layalatu al-mi‘râj) où le Prophète (paix et salut sur lui) fut l’invité d’honneur du Seigneur (exalté soit-Il). Après avoir rempli toutes les conditions nécessaires pour la prière -c'est-à-dire faire l'ablution, purifier l’endroit sur lequel on fait la prière,ainsi que l’habit et le corps de toute souillure (najâsa), couvrir sa nudité[3], se diriger vers la Qibla et respecter l'heure de la prière- le fidèle formule l'intention(dans le coeur) d'accomplir sa prière et se tient debout face à la Qibla (direction de la Mecque) : dans le cas d’impossibilité de trouver la direction de la Mecque (la direction de la Mecque est: approximativement en utilisant la position du lever du soleil, vers le sud Est 'pour la France'), pour le cas d'impossibilité de trouver la Qibla et pour sa recherche voir: lien Qibla Il faut faire la prière en son temps, et si on ne peut pas la faire debout (impossibilité physique), on peut l’accomplir assis, si on ne peut pas la faire assis, on peut la faire en position couchée sinon avec les yeux (voir ici les conditions pour ces dérogations: C’est la liaison (Silatun) entre le serviteur et son Seigneur qui ne doit pas être rompue (délaissée). Notez bien: En doctrine malikite, la prière surérogatoire et le sujûd at-tilâwa sont interdits (Harâm) dans les temps suivants : 1. Au moment du lever du soleil (à partir de son lever jusqu’à ce qu’il se lève complètement) 2. Au moment de son coucher (à partir de son coucher jusqu’à ce qu’il se couche complètement) En effet le Prophète (paix et salut sur lui) a dit à ce propos : « Ne visez pas par votre prière le lever du soleil et son coucher car il se lève avec les cornes de Satan » La prière sur le mort ne se fera pas non plus dans ces temps sauf si on a peur que le corps du défunt soit altéré à cause de l’attente ou d’un climat hostile. 3. Au moment du prêche du vendredi 4. Au moment où l’Imam entre pour faire son prêche 5. Quand il ne reste plus assez de temps pour faire la prière obligatoire en son temps. "
+      - generic
+        - link "Accueil" [ref=e7]
+        - StaticText " > "
+        - link "Le Culte (al-'ibâdât)" [ref=e8]
+        - StaticText " > "
+        - link "La prière canonique" [ref=e9]
+        - StaticText " > "
+        - link "Introduction" [ref=e10]
+      - generic
+        - StaticText "Page"
+        - generic
+          - heading "Muqaddima" [level=1, ref=e12]
+          - LineBreak "\n"
+          - LineBreak "\n"
+          - generic
+            - generic
+              - StaticText "Dieu dit dans le Coran : « La prière est sûrement une obligation minutée (chaque prière a son temps défini) prescrite aux Croyants »[1]."
+              - LineBreak "\n"
+              - StaticText "Et Il dit : « Fais correctement la prière car la prière détourne (éloigne) des actes immoraux et désavouables, et l’invocation de Dieu est bien plus grande encore »[2]"
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "Il est écrit dans le Muwattaa : Chapitre XXIV de la prière :"
+              - LineBreak "\n"
+              - StaticText "Yahia Ibn Saïd a dit : « On me fait savoir que la prière(Salât) sera la première à être examiner (juger) [le jour de résurrection] parmi les œuvres du serviteur ; si elle sera acceptée, on passera à ses autres oeuvres, mais si elle ne le sera pas, on ne tiendra pas compte de ses autres œuvres »."
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "La prière est l’épine dorsale de la religion."
+              - LineBreak "\n"
+              - StaticText "C’est le seul pilier de l’Islam qui fut révélé directement par Allah (exalté soit-Il) à son bien aimé Prophète (paix et salut sur lui) sans l’intermédiaire de l’ange, par dessus des sept cieux au terme de la nuit de l’ascension (layalatu al-mi‘râj) où le Prophète (paix et salut sur lui) fut l’invité d’honneur du Seigneur (exalté soit-Il)."
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "Après avoir rempli toutes les conditions nécessaires pour la prière -c'est-à-dire faire l'ablution, purifier l’endroit sur lequel on fait la prière,ainsi que l’habit et le corps de toute souillure (najâsa), couvrir sa nudité[3], se diriger vers la Qibla et respecter l'heure de la prière- le fidèle formule l'intention(dans le coeur) d'accomplir sa prière et se tient debout face à la Qibla (direction de la Mecque) : dans le cas d’impossibilité de trouver la direction de la Mecque (la direction de la Mecque est: approximativement en utilisant la position du lever du soleil, vers le sud Est 'pour la France'), pour le cas d'impossibilité de trouver la Qibla et pour sa recherche voir: "
+              - link "lien Qibla" [ref=e58]
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "Il faut faire la prière en son temps, et si on ne peut pas la faire debout (impossibilité physique), on peut l’accomplir assis, si on ne peut pas la faire assis, on peut la faire en position couchée sinon avec les yeux ("
+              - link "voir ici les conditions pour ces dérogations" [ref=e59]
+              - StaticText ": C’est la liaison (Silatun) entre le serviteur et son Seigneur qui ne doit pas être rompue (délaissée)."
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "Notez bien:"
+              - LineBreak "\n"
+              - StaticText "En doctrine malikite, la prière surérogatoire et le sujûd at-tilâwa sont interdits (Harâm) dans les temps suivants :"
+              - LineBreak "\n"
+              - StaticText "1. Au moment du lever du soleil (à partir de son lever jusqu’à ce qu’il se lève complètement)"
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "2. Au moment de son coucher (à partir de son coucher jusqu’à ce qu’il se couche complètement)"
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "En effet le Prophète (paix et salut sur lui) a dit à ce propos :"
+              - LineBreak "\n"
+              - StaticText "« Ne visez pas par votre prière le lever du soleil et son coucher car il se lève avec les cornes de Satan »"
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "La prière sur le mort ne se fera pas non plus dans ces temps sauf si on a peur que le corps du défunt soit altéré à cause de l’attente ou d’un climat hostile."
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "3. Au moment du prêche du vendredi"
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "4. Au moment où l’Imam entre pour faire son prêche"
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "5. Quand il ne reste plus assez de temps pour faire la prière obligatoire en son temps."
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "6. Quand on se rappelle qu’on n’a pas fait une prière obligatoire (manquée), il faudra la faire de suite avant de faire les prières Nafl."
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "7. Quand l’Iqâma est faite pour accomplir une prière obligatoire derrière l’Imam officiel."
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "La prière surérogatoire est détestable (Makrûh) dans les temps suivants :"
+              - LineBreak "\n"
+              - StaticText "1. Depuis l’aube jusqu’à un peu avant le lever du soleil (sauf la Raghîba du Fadjr, on la fera avant d’accomplir la prière du Subh : sinon si on la rate on la fera le jour :elle sera à rattraper jusqu’au zénith (az-zawâl), la prière du Witr manquée peut se rattraper aussi avant de prier Subh (avant de prier Fadjr): ceci si on dispose d'assez de temps pour faire Subh avant le lever du soleil)"
+              - LineBreak "\n"
+              - StaticText "Pour le Sujûd at-tilâwa il est détestable de le faire après Al-isfâr (la première clarté) et il est autorisé de le faire avant cela."
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "2. Après que le soleil soit complètement levé jusqu’à l’écoulement de 3 quarts d’heure environ (quand le soleil s’est levé dans le ciel d’environ une fléche)."
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "3. Après avoir prier le ‘Asr jusqu’à un peu avant le coucher du soleil"
+              - LineBreak "\n"
+              - StaticText "Pour le Sujûd at-tilâwa il est possible de le faire avant la pâleur du soleil et il est détestable après (jusqu’à ce que la prière du Maghreb soit accomplie)."
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "4.Après que le soleil soit complètement couché jusqu’à l’accomplissement da la prière du Maghreb."
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "5.Avant la prière de la fête ou après (dans le Musallâ : terrain vague où se déroule cette prière)"
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "Par contre, on peut accomplir ou rattraper des prières obligatoires pendant ces temps là sans aucun problème."
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "Il y a aussi une exception: la prière sunna du Fadjr et du Witr: ces prières peuvent être rattrapées avant Subh si on dispose d'assez de temps avant le lever du soleil."
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "Notes:"
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "[1] Sourate 4, verset : 103."
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "[2] Sourate 29, verset : 45."
+              - LineBreak "\n"
+              - LineBreak "\n"
+              - StaticText "[3] Pour la femme, il faut couvrir tout le corps sauf le visage et les mains."
+              - LineBreak "\n"
+          - LineBreak "\n"
+          - LineBreak "\n"
+          - generic
+            - link "Accueil Accueil" [ref=e40]
+              - image "Accueil"
+              - StaticText "Accueil"
+            - StaticText "  "
+            - link "Envoyer à un ami Envoyer à un ami" [ref=e41]
+              - image "Envoyer à un ami"
+              - StaticText "Envoyer à un ami"
+            - StaticText "  "
+            - link "Imprimer Imprimer" [ref=e42]
+              - image "Imprimer"
+              - StaticText "Imprimer"
+            - StaticText "  "
+            - link "Grand texte Grand texte" [ref=e43]
+              - image "Grand texte"
+              - StaticText "Grand texte"
+            - StaticText "  "
+            - link "Petit texte Petit texte" [ref=e44]
+              - image "Petit texte"
+              - StaticText "Petit texte"
+          - paragraph
+            - link "Introduction" [ref=e45]
+            - StaticText " | "
+            - link "Les temps des prières" [ref=e46]
+            - StaticText " | "
+            - link "Façon de faire la prière" [ref=e47]
+            - StaticText " | "
+            - link "Les obligations,Sunanes et Mandûb de la prière selon Ibn 'âshir" [ref=e48]
+            - StaticText " | "
+            - link "Choses détestables dans la prière" [ref=e49]
+            - StaticText " | "
+            - link "Prière du retardataire" [ref=e50]
+            - StaticText " | "
+            - link "La réduction et le regroupement de la prière" [ref=e51]
+            - StaticText " | "
+            - link "Réparation de la prière" [ref=e52]
+            - StaticText " | "
+            - link "Ce qui rend la prière invalide" [ref=e53]
+            - StaticText " | "
+            - link "Direction de la prière" [ref=e54]
+            - StaticText " |  "
+            - link "Prière du vendredi" [ref=e55]
+  - LayoutTableRow
+    - LayoutTableCell
+      - paragraph
+        - image
+          - link [ref=e13]
+          - link "6" [ref=e14]
+- link [ref=e1]
+- link [ref=e2]

@@ -285,28 +285,29 @@ La femme ne fait pas l'Adhân.`,
 // LA FÂTIHA - source exacte du site
 export const fatiha = {
   titre: "La Fâtiha (le premier chapitre du Coran)",
-  arabe: `AL HAMDU LI-LLÂHI RABBI-L'ÂLAMÎN
-ARRAHMÂNI-RRAHÎM
-MALIKI YAWMI-DDÎN
-IYYÂKA NA'BUDU WA IYYÂKA NASTA'ÎN
-IHDINA-SSIRÂTA-L MUSTAQÎM
-SIRÂTA-LLADHÎNA AN 'AMATA 'ALAYHIM GHAYRI-L MAGHZÛBI 'ALAYHIM WA LÂ-DDÂLLÎN. ÂMÎN`,
+  arabe: `ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ ﴿٢﴾
+ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ ﴿٣﴾
+مَـٰلِكِ يَوْمِ ٱلدِّينِ ﴿٤﴾
+إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ﴿٥﴾
+ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ ﴿٦﴾
+صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ ﴿٧﴾`,
   traduction: `(Louange à Dieu, Seigneur des mondes)
 (le Clément, le Miséricordieux)
 (Le Roi du Jour du Jugement)
 (C'est Toi que nous adorons et c'est Toi dont nous implorons le secours)
 (Dirige-nous vers le sentier droit)
-(Le sentier de ceux que Tu as comblés de bienfaits) (Non pas le sentier de ceux qui encourent Ta colère) (Ni celui des égarés) (Amen).`,
+(Le sentier de ceux que Tu as comblés de bienfaits) (Non pas le sentier de ceux qui encourent Ta colère) (Ni celui des égarés).`,
   remarqueAmîn: `(dire «âmîn» (à voix basse) sauf pour l'Imâm quand il lit la Fâtiha à voix haute, il ne dira pas « âmîn », ce sont les gens dirigés qui diront « âmin »).`,
 };
 
 // SOURATES SUPPLÉMENTAIRES
 export const sourateIkhlas = {
   titre: "Sourate Al-Ikhlâs",
-  arabe: `QUL HUWA-LLÂHU AHAD
-ALLÂHU-SSAMAD
-LAM YALID WA LAM YÛLAD
-WA LAM YAKUN LAHU KUFU AN AHAD`,
+  arabe: `بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
+قُلْ هُوَ ٱللَّهُ أَحَدٌ ﴿١﴾
+ٱللَّهُ ٱلصَّمَدُ ﴿٢﴾
+لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾
+وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌ ﴿٤﴾`,
   traduction: `(Dis : Lui Dieu, est un)
 (Dieu, le Transcendant)
 (Il n'engendre pas. Et Il n'est pas engendré)
@@ -315,20 +316,20 @@ WA LAM YAKUN LAHU KUFU AN AHAD`,
 
 export const sourateNasr = {
   titre: "Sourate An-Nasr",
-  arabe: `IDHÂ DJÂA NASRU-LLÂHI WA-L FATHU
-WA RAAYTA-NNÂSA YADKHULÛNA FÎ DÎNI-LLÂHI AFWÂDJANE
-FASABBIH BIHAMDI RABBIKA WA-STAGHFIRHU
-INNAHU KÂNA TAWWÂBÂ`,
+  arabe: `بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
+إِذَا جَآءَ نَصْرُ ٱللَّهِ وَٱلْفَتْحُ ﴿١﴾
+وَرَأَيْتَ ٱلنَّاسَ يَدْخُلُونَ فِى دِينِ ٱللَّهِ أَفْوَاجًا ﴿٢﴾
+فَسَبِّحْ بِحَمْدِ رَبِّكَ وَٱسْتَغْفِرْهُ ۚ إِنَّهُۥ كَانَ تَوَّابًا ﴿٣﴾`,
   traduction: `(Lorsque viennent le secours de Dieu et la victoire)
 (Lorsque tu vois les hommes entrer en masse dans la religion de Dieu)
 (Célèbre alors les louanges de ton Seigneur et demande-Lui pardon)
 (Car Il est celui qui revient sans cesse vers le repentant).`,
 };
 
-// TASHAHHUD DU MILIEU - source exacte du site
+// TASHAHHUD DU MILIEU
 export const tashahhudMilieu = {
   titre: "Le Tashahhud du milieu",
-  arabe: `"At-tahiyyâtu lillâhi, azzâkiyâtu lillâhi, at-tayyibâtu as-salawâtu lillâhi, as-salâmu 'alayka ayyuhan-nabiyyu wa rahmatu Allahi wa barakâtuhu, as-salâmu 'alaynâ wa 'alâ 'ibâdi Allahi-s-sâlihîna, ash-hadu an lâ ilâha illa Allah wahdahu lâ sharîka lah, wa ash-hadu anna Muhammadan 'abduhu wa Rasûluhu"`,
+  arabe: `ٱلتَّحِيَّاتُ لِلَّهِ ٱلزَّاكِيَاتُ لِلَّهِ ٱلطَّيِّبَاتُ ٱلصَّلَوَاتُ لِلَّهِ، ٱلسَّلَامُ عَلَيْكَ أَيُّهَا ٱلنَّبِىُّ وَرَحْمَةُ ٱللَّهِ وَبَرَكَـٰتُهُ، ٱلسَّلَامُ عَلَيْنَا وَعَلَىٰ عِبَادِ ٱللَّهِ ٱلصَّـٰلِحِينَ، أَشْهَدُ أَن لَّآ إِلَـٰهَ إِلَّا ٱللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ`,
   sourceIbnAshir: `وأما المختار من التشهد، فإن مالكا رحمه الله اختار تشهد عمر رضي الله عنه الذي كان يعلمه الناس على المنبر، وهو: التحيات لله الزاكيات لله الطيبات الصلوات لله، السلام عليك أيها النبي، ورحمة الله وبركاته، السلام علينا وعلى عباد الله الصالحين أشهد أن لا إله إلا الله وحده لا شريك له، وأشهد أن محمدا عبده ورسوله`,
   explication: `(Cela s'appelle le Tashahhud du milieu. C'est le tashahhud choisi par l'Imâm Mâlik (qu'Allah lui fasse miséricorde) : c'est le tashahhud de 'Umar (qu'Allah l'agrée) qu'il enseignait aux gens depuis le minbar.)`,
 };
@@ -336,15 +337,16 @@ export const tashahhudMilieu = {
 // PRIÈRE D'ABRAHAM (As-salâtu al-ibrâhîmiyyah)
 export const priereAbraham = {
   titre: "La prière sur le Prophète (As-salâtu al-ibrâhîmiyyah)",
-  arabe: `"Allahuma salli 'alâ Muhammad wa 'alâ âli Muhammad kamâ sallayta 'alâ Ibrâhîm wa 'alâ âli Ibrâhîm, wa bârik 'alâ Muhammad wa 'alâ âli Muhammad kamâ bârakta 'alâ Ibrâhîm wa 'alâ âli Ibrâhîm fi-l-'âlamîna innaka hamîdun majîd"`,
+  arabe: `ٱللَّهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَىٰ إِبْرَٰهِيمَ وَعَلَىٰ آلِ إِبْرَٰهِيمَ، وَبَارِكْ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَىٰ إِبْرَٰهِيمَ وَعَلَىٰ آلِ إِبْرَٰهِيمَ فِى ٱلْعَـٰلَمِينَ إِنَّكَ حَمِيدٌ مَّجِيدٌ`,
   traduction: `(Ô mon Dieu, prie sur Muhammad, sur la famille de Muhammad comme Tu as prié sur Abraham et sur la famille d'Abraham, répands Tes bénédictions sur Muhammad, sur la famille de Muhammad comme Tu les as répandues sur Abraham et sur la famille d'Abraham. À Toi vont les louanges et la gloire.)`,
 };
 
 // TASHAHHUD FINAL COMPLET (tashahhud + prière sur le prophète)
 export const tashahhudFinal = {
   titre: "Le Tashahhud final (complet)",
-  arabe: `"At-tahiyyâtu lillâhi, azzâkiyâtu lillâhi, at-tayyibâtu as-salawâtu lillâhi, as-salâmu 'alayka ayyuhan-nabiyyu wa rahmatu Allahi wa barakâtuhu, as-salâmu 'alaynâ wa 'alâ 'ibâdi Allahi-s-sâlihîna, ash-hadu an lâ ilâha illa Allah wahdahu lâ sharîka lahu wa ash-hadu anna Muhammadan 'abduhu wa Rasûluhu.
-Allahuma salli 'alâ Muhammad wa 'alâ âli Muhammad kamâ sallayta 'alâ Ibrâhîm wa 'alâ âli Ibrâhîm, wa bârik 'alâ Muhammad wa 'alâ âli Muhammad kamâ bârakta 'alâ Ibrâhîm wa 'alâ âli Ibrâhîm fi-l-'âlamîna innaka hamîdun majîd"`,
+  arabe: `ٱلتَّحِيَّاتُ لِلَّهِ ٱلزَّاكِيَاتُ لِلَّهِ ٱلطَّيِّبَاتُ ٱلصَّلَوَاتُ لِلَّهِ، ٱلسَّلَامُ عَلَيْكَ أَيُّهَا ٱلنَّبِىُّ وَرَحْمَةُ ٱللَّهِ وَبَرَكَـٰتُهُ، ٱلسَّلَامُ عَلَيْنَا وَعَلَىٰ عِبَادِ ٱللَّهِ ٱلصَّـٰلِحِينَ، أَشْهَدُ أَن لَّآ إِلَـٰهَ إِلَّا ٱللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ.
+
+ٱللَّهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَىٰ إِبْرَٰهِيمَ وَعَلَىٰ آلِ إِبْرَٰهِيمَ، وَبَارِكْ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَىٰ إِبْرَٰهِيمَ وَعَلَىٰ آلِ إِبْرَٰهِيمَ فِى ٱلْعَـٰلَمِينَ إِنَّكَ حَمِيدٌ مَّجِيدٌ`,
   explication: `Dans la doctrine malikite, il est préférable pendant la lecture du tashahhud de bouger l'index.
 
 Le Salâm (As-salâmu 'Alaykum) une fois est Fard (obligatoire), le fait de le dire à voix haute "à droite" est un mandûb (sunna moins appuyée) et le fait de répondre au salâm de l'Imâm (c'est à dire faire le salâm en face) et au salâm de celui qui est à gauche (en faisant le salâm à gauche) est également mandûb (sunna).

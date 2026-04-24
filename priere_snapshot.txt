@@ -1,0 +1,497 @@
+- generic
+  - generic
+    - generic
+      - StaticText "Poster sur : "
+      - link "Facebook" [ref=e5]
+        - image "Facebook"
+      - StaticText " "
+      - link "Twitter" [ref=e6]
+        - image "Twitter"
+    - LineBreak "\n"
+  - generic
+    - link "Connectez-vous" [ref=e3]
+    - link "S'inscrire" [ref=e4]
+- LayoutTable
+  - LayoutTableRow
+    - LayoutTableCell "OK"
+      - generic
+        - textbox [ref=e14]
+        - button "OK" [ref=e15]
+  - LayoutTableRow
+    - LayoutTableCell " Présentation Les deux principales sources du Fiqh Pourquoi une doctrine L'Imâm Mâlik et son école Grands savants malikites Conditions de la Fatwa L'auteur du Matn (Ibn 'âshir) Le dogme (al-'aqîda) Le Culte (al-'ibâdât) Le Comportement (al-mu'âmala) La Spiritualité Autres sujets Importants Miséricorde et Sagesse dans l'école prophètique Dialogue interreligieux New: Finance Islamique Publications: coup de coeur du mois Sagesses de la révélation Forum Ouvrages conseillés Liens favoris Données personnelles http://www.wmaker.net/malikite/index.php?action=newsletter zoomer l'image"
+      - generic
+        - list
+          - listitem [level=1]
+            - link " Présentation" [ref=e16]
+          - listitem [level=1]
+            - link " Les deux principales sources du Fiqh" [ref=e17]
+          - listitem [level=1]
+            - link " Pourquoi une doctrine" [ref=e18]
+          - listitem [level=1]
+            - link " L'Imâm Mâlik et son école" [ref=e19]
+          - listitem [level=1]
+            - link " Grands savants malikites" [ref=e20]
+          - listitem [level=1]
+            - link " Conditions de la Fatwa" [ref=e21]
+          - listitem [level=1]
+            - link " L'auteur du Matn (Ibn 'âshir)" [ref=e22]
+          - listitem [level=1]
+            - link " Le dogme (al-'aqîda)" [ref=e23]
+          - listitem [level=1]
+            - link " Le Culte (al-'ibâdât)" [ref=e24]
+          - listitem [level=1]
+            - link " Le Comportement (al-mu'âmala)" [ref=e25]
+          - listitem [level=1]
+            - link " La Spiritualité" [ref=e26]
+          - listitem [level=1]
+            - link " Autres sujets Importants" [ref=e27]
+          - listitem [level=1]
+            - link " Miséricorde et Sagesse dans l'école prophètique" [ref=e28]
+          - listitem [level=1]
+            - link " Dialogue interreligieux" [ref=e29]
+          - listitem [level=1]
+            - link " New: Finance Islamique" [ref=e30]
+          - listitem [level=1]
+            - link " Publications: coup de coeur du mois" [ref=e31]
+          - listitem [level=1]
+            - link " Sagesses de la révélation" [ref=e32]
+          - listitem [level=1]
+            - link " Forum" [ref=e33]
+          - listitem [level=1]
+            - link " Ouvrages conseillés" [ref=e34]
+          - listitem [level=1]
+            - link " Liens favoris" [ref=e35]
+          - listitem [level=1]
+            - link " Données personnelles" [ref=e36]
+      - link "http://www.wmaker.net/malikite/index.php?action=newsletter" [ref=e11]
+        - image "http://www.wmaker.net/malikite/index.php?action=newsletter"
+      - LayoutTable
+        - LayoutTableRow
+          - LayoutTableCell
+            - image
+        - LayoutTableRow
+          - LayoutTableCell "zoomer l'image Ibn 'âshir: \"L'essentiel de la religion musulmane: Tawhîd, Fiqh et spiritualité, 2éme édition\" (Al-murshid Al-mu'în 'alâ Ad-Darûrî Min 'Ulûm ed-Dîn d'Ibn 'âshir) zoomer l'image d'Ibn Abî Zayd Al-qirâwânî Biographie: L'Imam Mâlik - Sa vie et son époque, ses opinions et son fiqh d'Abou Zahra aux éditions Al-qalam"
+            - LayoutTable
+              - LayoutTableRow
+                - LayoutTableCell "zoomer l'image"
+                  - paragraph
+                    - link [ref=e53]
+                      - image
+                  - paragraph
+                    - link [ref=e54]
+                  - link "zoomer l'image" [ref=e55]
+                    - image "zoomer l'image"
+                  - link [ref=e51]
+                - LayoutTableCell
+                - LayoutTableCell
+                  - image
+              - LayoutTableRow
+                - LayoutTableCell "Ibn 'âshir: \"L'essentiel de la religion musulmane: Tawhîd, Fiqh et spiritualité, 2éme édition\" (Al-murshid Al-mu'în 'alâ Ad-Darûrî Min 'Ulûm ed-Dîn d'Ibn 'âshir)"
+                  - paragraph
+                    - StaticText "Ibn 'âshir: \"L'essentiel de la religion musulmane: Tawhîd, Fiqh et spiritualité, 2éme édition\""
+                  - paragraph
+                    - LineBreak "\n"
+                    - StaticText "(Al-murshid Al-mu'în 'alâ Ad-Darûrî Min 'Ulûm ed-Dîn d'Ibn 'âshir)"
+              - LayoutTableRow
+                - LayoutTableCell
+                - LayoutTableCell
+                - LayoutTableCell
+              - LayoutTableRow
+                - LayoutTableCell "zoomer l'image"
+                  - paragraph
+                    - link [ref=e56]
+                      - image
+                  - paragraph
+                    - link [ref=e57]
+                  - link "zoomer l'image" [ref=e58]
+                    - image "zoomer l'image"
+                  - link [ref=e52]
+                - LayoutTableCell
+                - LayoutTableCell
+                  - image
+              - LayoutTableRow
+                - LayoutTableCell "d'Ibn Abî Zayd Al-qirâwânî Biographie: L'Imam Mâlik - Sa vie et son époque, ses opinions et son fiqh d'Abou Zahra aux éditions Al-qalam"
+                  - paragraph
+                    - StaticText "d'Ibn Abî Zayd Al-qirâwânî"
+                    - LineBreak "\n"
+                    - LineBreak "\n"
+                    - StaticText "Biographie:"
+                  - paragraph
+                    - StaticText "L'Imam Mâlik - Sa vie et son époque, ses opinions et son fiqh d'Abou Zahra aux éditions Al-qalam"
+      - LayoutTable
+        - LayoutTableRow
+          - LayoutTableCell
+            - image
+        - LayoutTableRow
+          - LayoutTableCell "Nous remercions l'aimable partenariat:  Des éditions Iqra Iqrafrance.com  De Imusk imusk.fr  De El bab éditions elbab-distribution.fr  Et de l'édition Selsabil SELSABIL"
+            - paragraph
+              - StaticText "Nous remercions l'aimable partenariat:"
+            - paragraph
+            - StaticText "Des éditions Iqra "
+            - link "Iqrafrance.com" [ref=e37]
+            - paragraph
+            - paragraph
+              - StaticText "De Imusk "
+              - link "imusk.fr" [ref=e41]
+            - paragraph
+            - StaticText "De El bab éditions "
+            - link "elbab-distribution.fr" [ref=e38]
+            - paragraph
+            - paragraph
+              - StaticText "Et de l'édition Selsabil "
+              - link "SELSABIL" [ref=e42]
+    - LayoutTableCell "Accueil > Le Culte (al-'ibâdât) > La prière canonique > Façon de faire la prière Taalîm As-salât Comment faire la prière : étape par étape? La prière en vidéo Taalîm As-salât Position de prosternation (sujûd) Position de prosternation (sujûd) Position assise Position assise Il est sunna pour l'homme et Mandûb pour la femme et l'enfant de commencer par réciter Al-iqâma tout de suite avant de rentrer dans la prière obligatoire(avant chaque prière obligatoire même s'il s'agit de son rattrapage):voici sa formule (à réciter à voix basse pour l'homme s'il prie seul et secrétement pour la femme (qui la fera pour elle même)): \"Allahu akbar, Allahu akbar Ashhadu anlâ ilâha Illa Allah Ashhadu Anna Muhammadan rasûlu Allah Hayya 'Ala as-salâti Hayya 'alâ al-falâh qad qâmati as-salât Allahu akbar, Allahu akbar Lâ ilâha Illa Allah\" (cette version est celle de la Mudawwana de Sahnûn) Remarques importantes par rapport à la Iqâma: S’il y a un homme (pubére) ou plus avec la femme ou l’enfant (pour cette prière) : c’est l’homme qui fait la Iqâma. Elle n’est plus mandûb pour cet enfant ou cette femme dans ce cas. En effet la femme ne dirige pas la prière et ne fait pas la Iqâma pour les autres. Pour l'homme qui prie seul, il fera la Iqâma à voix basse: ceci selon la Mudawwana de Sahnûn : عن حيوة بن شريح عن زهرة بن معبد القرشي أنه سمع سعيد بن المسيب ومحمد بن المنكدر يقولان إذا صلى الرجل وحده فليؤذن بالاقامة سرا في نفسه Si l’homme va prier en groupe il fera la Iqâma à voix haute pour cette prière. Toujours selon la Mudawwana : celui qui oubli la Iqâma, sa prière reste valide. S’il la délaisse volontairement sa prière reste valide aussi, mais il demandera pardon à Dieu. قال ابن القاسم وسألت مالكا فيمن صلى بغير اقامة ناسيا قال لا شئ عليه(قال) قلت فان تعمد قال فليستغفر الله ولا شئ عليه "
+      - generic
+        - link "Accueil" [ref=e7]
+        - StaticText " > "
+        - link "Le Culte (al-'ibâdât)" [ref=e8]
+        - StaticText " > "
+        - link "La prière canonique" [ref=e9]
+        - StaticText " > "
+        - link "Façon de faire la prière" [ref=e10]
+      - generic
+        - heading "Taalîm As-salât" [level=1, ref=e39]
+        - heading " Comment faire la prière : étape par étape? La prière en vidéo" [level=3, ref=e40]
+          - LineBreak "\n"
+          - StaticText "Comment faire la prière : étape par étape?"
+          - LineBreak "\n"
+          - StaticText "La prière en vidéo"
+        - LineBreak "\n"
+        - LineBreak "\n"
+        - generic
+          - image "Taalîm As-salât"
+        - LineBreak "\n"
+        - generic
+          - generic
+            - image "Position de prosternation (sujûd)"
+            - StaticText "Position de prosternation (sujûd)"
+        - LineBreak "\n"
+        - generic
+          - generic
+            - image "Position assise"
+            - StaticText "Position assise"
+        - LineBreak "\n"
+        - generic
+          - generic
+            - StaticText "Il est sunna pour l'homme et Mandûb pour la femme et l'enfant de commencer par réciter Al-iqâma tout de suite avant de rentrer dans la prière obligatoire(avant chaque prière obligatoire même s'il s'agit de son rattrapage):voici sa formule (à réciter à voix basse pour l'homme s'il prie seul et secrétement pour la femme (qui la fera pour elle même)):"
+            - LineBreak "\n"
+            - StaticText "\"Allahu akbar, Allahu akbar"
+            - LineBreak "\n"
+            - StaticText "Ashhadu anlâ ilâha Illa Allah"
+            - LineBreak "\n"
+            - StaticText "Ashhadu Anna Muhammadan rasûlu Allah"
+            - LineBreak "\n"
+            - StaticText "Hayya 'Ala as-salâti"
+            - LineBreak "\n"
+            - StaticText "Hayya 'alâ al-falâh"
+            - LineBreak "\n"
+            - StaticText "qad qâmati as-salât"
+            - LineBreak "\n"
+            - StaticText "Allahu akbar, Allahu akbar"
+            - LineBreak "\n"
+            - StaticText "Lâ ilâha Illa Allah\""
+            - LineBreak "\n"
+            - StaticText "(cette version est celle de la Mudawwana de Sahnûn)"
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "Remarques importantes par rapport à la Iqâma:"
+            - LineBreak "\n"
+            - StaticText "S’il y a un homme (pubére) ou plus avec la femme ou l’enfant (pour cette prière) : c’est l’homme qui fait la Iqâma. Elle n’est plus mandûb pour cet enfant ou cette femme dans ce cas. En effet la femme ne dirige pas la prière et ne fait pas la Iqâma pour les autres."
+            - LineBreak "\n"
+            - StaticText "Pour l'homme qui prie seul, il fera la Iqâma à voix basse: ceci selon la Mudawwana de Sahnûn :"
+            - LineBreak "\n"
+            - StaticText "عن حيوة بن شريح عن زهرة بن معبد القرشي أنه سمع سعيد بن المسيب ومحمد بن المنكدر يقولان إذا صلى الرجل وحده فليؤذن بالاقامة سرا في نفسه"
+            - LineBreak "\n"
+            - StaticText "Si l’homme va prier en groupe il fera la Iqâma à voix haute pour cette prière."
+            - LineBreak "\n"
+            - StaticText "Toujours selon la Mudawwana : celui qui oubli la Iqâma, sa prière reste valide. S’il la délaisse volontairement sa prière reste valide aussi, mais il demandera pardon à Dieu."
+            - LineBreak "\n"
+            - StaticText "قال ابن القاسم وسألت مالكا فيمن صلى بغير اقامة ناسيا قال لا شئ عليه(قال) قلت فان تعمد قال فليستغفر الله ولا شئ عليه"
+            - LineBreak "\n"
+            - StaticText "Ne pas confondre l’Iqâma avec le Adhân :"
+            - LineBreak "\n"
+            - StaticText "L’Adhân (l’appel à la prière) est sunnah pour un groupe qui vient faire une prière obligatoire (wâjib) en son temps et souhaite que d'autres s’y joignent également. Le Adhân est une obligation communautaire (fard kifâya) pour les musulmans d’une ville (agglomération : أهل المصر) où la prière du vendredi se fait."
+            - LineBreak "\n"
+            - StaticText "La femme ne fait pas l’Adhân."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "Suite de l'apprentissage de la prière:"
+            - LineBreak "\n"
+            - StaticText "On se met donc en direction de la Qibla et on émet l'intention(dans le coeur) de faire telle ou telle prière (Subh ou Zuhr ou 'Asr...): (l’intention accompagne le début de la Takbîrat al-Ihrâm)"
+            - LineBreak "\n"
+            - StaticText "Puis la prière commence:"
+            - LineBreak "\n"
+            - StaticText "1.En position debout, il lève les mains au niveau des épaules et en les baissant il dit : \"ALLAAHU-AKBAR\" ce qui signifie: \"Dieu est le plus Grand\" et cela s'appelle \"TAKBÎRATU-LIHRÂM\"."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "Position des mains tout au long de la prière:"
+            - LineBreak "\n"
+            - link "http://www.doctrine-malikite.fr/forum/Poser-les-mains-sur-la-ppoitrine_m47174.html" [ref=e49]
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "Première Rak‘a"
+            - LineBreak "\n"
+            - StaticText "(La récitation des versets du Coran se fait obligatoirement en arabe, les essais de traductions sont ici donnés juste à titre informatif.)"
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "2. Puis il récite la première sourate (AL FÂTIHA):"
+            - LineBreak "\n"
+            - StaticText "AL HAMDU LI-LLÂHI RABBI-L‘ÂLAMÎN"
+            - LineBreak "\n"
+            - StaticText "(Louange à Dieu, Seigneur des mondes)"
+            - LineBreak "\n"
+            - StaticText "ARRAHMÂNI-RRAHÎM"
+            - LineBreak "\n"
+            - StaticText "(le Clément, le Miséricordieux)"
+            - LineBreak "\n"
+            - StaticText "MALIKI YAWMI-DDÎN"
+            - LineBreak "\n"
+            - StaticText "(Le Roi du Jour du Jugement)"
+            - LineBreak "\n"
+            - StaticText "IYYÂKA NA‘BUDU WA IYYÂKA NASTA‘ÎN"
+            - LineBreak "\n"
+            - StaticText "(C’est Toi que nous adorons et c'est Toi dont nous implorons le secours)"
+            - LineBreak "\n"
+            - StaticText "IHDINA-SSIRÂTA-L MUSTAQÎM"
+            - LineBreak "\n"
+            - StaticText "(Dirige-nous vers le sentier droit)"
+            - LineBreak "\n"
+            - StaticText "SIRÂTA-LLADHÎNA AN ‘AMATA ‘ALAYHIM GHAYRI-L MAGHZÛBI ‘ALAYHIM WA LÂ-DDÂLLÎN. ÂMÎN ( dire «âmîn» (à voix basse) sauf pour l'Imâm quand il lit la Fâtiha à voix haute, il ne dira pas « âmîn », ce sont les gens dirigés qui diront « âmin »)."
+            - LineBreak "\n"
+            - StaticText "(Le sentier de ceux que Tu as comblés de bienfaits) (Non pas le sentier de ceux qui encourent Ta colère) (Ni celui des égarés) (Amen)."
+            - LineBreak "\n"
+            - StaticText "Après la lecture de la (FÂTIHA) le fidèle récite quelques versets du Coran (cela lors des deux premières unités (Rak‘at) de prière seulement) comme :"
+            - LineBreak "\n"
+            - StaticText "SOURATE-AL IKHLÂS :"
+            - LineBreak "\n"
+            - StaticText "QUL HUWA-LLÂHU AHAD"
+            - LineBreak "\n"
+            - StaticText "(Dis : Lui Dieu, est un)"
+            - LineBreak "\n"
+            - StaticText "ALLÂHU-SSAMAD"
+            - LineBreak "\n"
+            - StaticText "(Dieu, le Transcendant)"
+            - LineBreak "\n"
+            - StaticText "LAM YALID WA LAM YÛLAD"
+            - LineBreak "\n"
+            - StaticText "(Il n'engendre pas. Et Il n'est pas engendré)"
+            - LineBreak "\n"
+            - StaticText "WA LAM YAKUN LAHU KUFU AN AHAD"
+            - LineBreak "\n"
+            - StaticText "(Nul ne Lui est égal)."
+            - LineBreak "\n"
+            - StaticText "Ou :"
+            - LineBreak "\n"
+            - StaticText "SOURATE-NNASR :"
+            - LineBreak "\n"
+            - StaticText "IDHÂ DJÂA NASRU-LLÂHI WA-L FATHU"
+            - LineBreak "\n"
+            - StaticText "(Lorsque viennent le secours de Dieu et la victoire)"
+            - LineBreak "\n"
+            - StaticText "WA RAAYTA-NNÂSA YADKHULÛNA FÎ DÎNI-LLÂHI AFWÂDJANE"
+            - LineBreak "\n"
+            - StaticText "(Lorsque tu vois les hommes entrer en masse dans la religion de Dieu)"
+            - LineBreak "\n"
+            - StaticText "FASABBIH BIHAMDI RABBIKA WA-STAGHFIRHU"
+            - LineBreak "\n"
+            - StaticText "(Célèbre alors les louanges de ton Seigneur et demande-Lui pardon)"
+            - LineBreak "\n"
+            - StaticText "INNAHU KÂNA TAWWÂBÂ"
+            - LineBreak "\n"
+            - StaticText "(Car Il est celui qui revient sans cesse vers le repentant)."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "3.Après la lecture de (AL FÂTIHA) et de la sourate, le fidèle s'incline en disant : \"ALLÂHU-AKBAR\" qui signifie : \"Dieu est le plus Grand.\" incliné, il dit 3 fois : \"SUBHÂNA RABBIYA-L‘AZÎM \" qui signifie : \"Gloire à mon Seigneur Tout-puissant.\""
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "4.Puis il se relève en disant : \"SAMI‘ A-LLÂHU LIMAN HAMIDAH\" ; \"RABBANÂ WA LAKA-L HAMD\" : qui signifie: \"Que Dieu entende celui qui le loue\" ;\"Seigneur, à Toi les louanges.\""
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "5.Puis il se prosterne, le front et le nez sur le sol (ainsi que les mains, les genoux et les pieds) en disant : \"ALLÂHU-AKBAR\" qui signifie : \"Dieu est le plus Grand.\" Prosterné il dit 3 fois : \"SUBHÂNA RABBIYA-L A ‘LÂ\" qui signifie : \"Gloire à Dieu le Très-Haut.\""
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "6.Il dira en relevant la tête pour la position assise : \"ALLÂHU-AKBAR\". Il s'assoit : il placera le pied droit en position verticale, la partie inférieure des orteils reposant sur le sol, il repliera le pied gauche et fera porter la fesse sur le sol en évitant de s'asseoir sur le pied gauche. S'il le veut, il inclinera le pied droit [préalablement] placé en position verticale et fera ainsi toucher terre au coté du gros orteil. Ces dispositions (façons de s’asseoir) n'ont aucun caractère strict."
+            - LineBreak "\n"
+            - StaticText "Assis ainsi, il peut dire : \"RABBI-GHFIR LI\" qui signifie : \"Seigneur pardonne-moi\" 1, 2 ou 3 fois."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "7.Puis il se prosterne à nouveau en disant : \"ALLÂHU-AKBAR\" Prosterné il dit 3 fois : \"SUBHÂNA RABBIYA-L A‘LÂ\"."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "8.puis il se met debout en disant : \"ALLÂHU-AKBAR\" et c'est ainsi que se termine la première RAK‘A et commence la deuxième unité."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "Deuxième Rak‘a (comme la première) :"
+            - LineBreak "\n"
+            - StaticText "Après s'être redressé en étant debout, le fidèle récite la (fâtiha) et quelques versets du Coran, puis il s'incline une fois, se lève et se prosterne deux fois comme il l'a fait lors de la première (rak‘at)."
+            - LineBreak "\n"
+            - StaticText "Puis, au lieu de se lever après la deuxième prosternation, le fidèle s'assoit une deuxième fois en disant \"Allâhu Akbar\" et récite la formule des Salutations (at-tashahhud) :"
+            - LineBreak "\n"
+            - StaticText "« At-tahiyyâtu lillâhi, azzâkiyâtu lillahi, attayyibâtu assalawâtu lillâhi, as-salâmu'alayka ayyuhannabiyyu wa rahmatuAllahi wa barakâtuhu, as-salâmu 'alaynâ wa ‘alâ ‘ibâdiAllahi-s-sâlihîna, ash-hadu an lâ ilâha illa Allah wahdahu lâ sharîka lah, wa ash-hadu anna Muhammadan ‘abduhu wa Rasûluhu »"
+            - LineBreak "\n"
+            - StaticText "وأما المختار من التشهد، فإن مالكا رحمه الله اختار تشهد عمر رضي الله عنه الذي كان يعلمه الناس على المنبر، وهو: التحيات لله الزاكيات لله الطيبات الصلوات لله، السلام عليك أيها النبي، ورحمة الله وبركاته، السلام علينا وعلى عباد الله الصالحين أشهد أن لا إله إلا الله وحده لا شريك له، وأشهد أن محمدا عبده ورسوله"
+            - LineBreak "\n"
+            - StaticText "Cela s’appelle le Tashahhud du milieu."
+            - LineBreak "\n"
+            - StaticText "Si la prière est de deux rak'a comme celle du Subh il continue en récitant les prières d'Abraham (as-salâtu al-ibrâhîmiyyah) : « Allahuma salli 'alâ Muhammad wa 'alâ âli Muhammad kamâ sallayta ‘alâ Ibrâhîm wa ‘alâ âli Ibrâhîm, wa bârik 'alâ Muhammad wa ‘alâ âli Muhammad kamâ bârakta 'alâ Ibrâhîm wa 'alâ âli Ibrâhîm fi-l-'âlamîna innaka hamîdun majîd » :"
+            - LineBreak "\n"
+            - StaticText "Essai de traduction de as-salâtu al-ibrâhîmiyyah:"
+            - LineBreak "\n"
+            - StaticText "(Ô mon Dieu, prie sur Muhammad, sur la famille de Muhammad comme Tu as prié sur Abraham et sur la famille d'Abraham, répands Tes bénédictions sur Muhammad, sur la famille de Muhammad comme Tu les as répandues sur Abraham et sur la famille d'Abraham. A Toi vont les louanges et la gloire.)"
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "Dans le malikisme, il est préférable pendant la lecture du tashahhud de bouger l’index."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "Enfin, et s'il s'agit d'une prière de deux Rak'at, après le Tashahhud final, il dit en tournant la tête à droite : « As-salâmu 'alaykum» (Que la paix soit sur vous):ce qu'on appelle le Salâm."
+            - LineBreak "\n"
+            - StaticText "Dans la prière en groupe dérrière l'Imâm, en plus de ce premier Salâm (qui est obligatoire), il est sunna de faire le Salâm en face(en direction de l'Imâm) puis à gauche( donc si on prie seul ou si on est Imâm,on s'arrêtera au Salâm à droite sans faire le deuxième Salâm à gauche ni en face)."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "* La première prière de la journée est celle du Subh (de l'aube) :"
+            - LineBreak "\n"
+            - StaticText "Elle contient deux rak‘at (unités) comme on les a décrites qui se font à voix haute quant à la récitation de la Fâtiha et de la Sourate. Elle est précédée par une prière très recommandée (raghîba) qui s’appelle le Fajr qui se fait en deux rak‘at à voix basse."
+            - LineBreak "\n"
+            - StaticText "Dans notre école la prière Sunna du Fadjr est faite avec la Fâtiha seulement, pour la récitation dans chacune de ces deux Rak’at :"
+            - LineBreak "\n"
+            - StaticText "Dans la Mudawwana de Sahnûn :"
+            - LineBreak "\n"
+            - StaticText "On demanda à l’Imâm Mâlik à propos de la sunna du Fadjr qu’elle ce qu’il lit dans les récitations de chaque Rak’at et il répondit : « Je lis uniquement la Fâtiha (dans les deux Rak’at du Fadjr) et rien de plus. En effet n’a tu pas entendu ce qu’a transmis Aïsha (que Dieu l’agrée) l’épouse du Prophète : le Prophète (paix et salut sur lui) allégeait les deux Rak’at de la prière du Fadjr au point que je me demandais s’il avait lu dans ces deux Rak’at avec la Fâtiha ou non. »"
+            - LineBreak "\n"
+            - StaticText "من المدونة الكبري للامام مالك التي رواها الامام سحنون بن سعيد التنوخي عن الامام عبد الرحمن بن القاسم العتقي عن امام دار الهجرة:"
+            - LineBreak "\n"
+            - StaticText "وسألنا مالكا عن ركعتي الفجر ما يقرأ فيهما فقال مالك الذي أفعل أنا لا أزيد على أم القرآن وحدها ألا ترى إلى قول عائشة زوج النبي صلى الله عليه وسلم ان كان رسول الله صلى الله عليه وسلم ليخفف ركعتي الفجر حتى أني لاقول أقرأ فيهما بأم القرآن أم لا"
+            - LineBreak "\n"
+            - StaticText "Si on rate la prière de Subh et qu'on se léve le matin après le lever du soleil: on commencera par rattraper le Subh avant de faire la sunna du Fajr"
+            - LineBreak "\n"
+            - StaticText "La sunna du Fadjr est la seule prière surérogatoire qui peut être rattrapée jusqu’au zénith (Az-zawâl)."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "* La deuxième prière est celle du milieu de la journée (Zuhr) :"
+            - LineBreak "\n"
+            - StaticText "Elle contient quatre rak‘at (unités) séparées par le Tashahhud du milieu,(c'est à dire après avoir réciter le Tashahhud du milieu, on se léve puis on dit \"Allâhu Akbar\" et on continue en faisant deux Rak'at avec la Fatiha sans la Sourate cette fois).Cette prière se fait à voix basse (silencieuse), les deux dernières Rak‘at se font avec la Fâtiha sans la Sourate. Le dernier Tashahhud (Tashahhud final) se fait en complétant le Tashahhud du milieu avec la prière sur le Prophète, voici la version complète du tashahhud (tashahhud + prière sur le prophète (paix et salut sur lui)) :"
+            - LineBreak "\n"
+            - StaticText "« At-tahiyyâtu lillâhi, azzâkiyâtu lillâhi, attayyibâtu assalawâtu lillâhi, as-salâmu'alayka ayyuhannabiyyu wa rahmatuAllahi wa barakâtuhu, as-salâmu 'alaynâ wa ‘alâ ‘ibâdiAllahi-s-sâlihîna, ash-hadu an lâ ilâha illa Allah wahdahu lâ sharîka lahu wa ash-hadu anna Muhammadan ‘abduhu wa Rasûluhu."
+            - LineBreak "\n"
+            - StaticText "Allahuma salli 'alâ Muhammad wa 'alâ âli Muhammad kamâ sallayta ‘alâ Ibrâhîm wa ‘alâ âli Ibrâhîm, wa bârik 'alâ Muhammad wa ‘alâ âli Muhammad kamâ bârakta 'alâ Ibrâhîm wa 'alâ âli Ibrâhîm fi-l-'âlamîna innaka hamîdun majîd »."
+            - LineBreak "\n"
+            - StaticText "Dans la doctrine malikite, il est préférable pendant la lecture du tashahhud de bouger l’index."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "Enfin, on dit en tournant la tête à droite : « As-salâmu 'alaykum »: ce qu'on appelle le Salâm."
+            - LineBreak "\n"
+            - StaticText "Dans la prière en groupe dérrière l'Imâm, en plus de ce premier Salâm (qui est obligatoire), il est sunna de faire le Salâm en face puis à gauche( donc si on prie seul ou si on est Imâm,on s'arrêtera au Salâm à droite sans faire le deuxième Salâm à gauche ni en face)."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "*La troisième prière est celle de L’‘Asr :"
+            - LineBreak "\n"
+            - StaticText "Elle se fait dans l’après midi exactement comme celle du Zuhr."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "*La quatrième prière est celle du Maghrib (coucher du soleil) :"
+            - LineBreak "\n"
+            - StaticText "On fait deux premières Rak‘at comme ceux du Subh (la première prière) à voix haute pour les récitations de la Fâtiha et de la Sourate, puis le Tashahhud du milieu puis on remonte, on fait \"Allâhu Akbar\" et on fait une dernière Rak’at avec la Fâtiha en lecture silencieuse sans la Sourate et on fait le Tashahhud final et le salut final(le Salâm): cela fait au total trois Rak’at séparées par le Tashahhud du milieu."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "* La cinquième prière : est celle de l’’Ishâ (de la nuit)"
+            - LineBreak "\n"
+            - StaticText "Elle se compose de quatre Rak‘at, elle se fait exactement comme la deuxième et la troisième prière sauf que dans les deux premières Rak‘at, la Fâtiha et la Sourate sont récitées à voix haute."
+            - LineBreak "\n"
+            - StaticText "Remarque : Après cette prière, il est préférable de faire deux Rak‘at à voix haute (comme Subh) (avec Fâtiha, Sourate à voix haute, le Tashahhud final et le salut) (ce qu’on appelle la prière du Shaf‘a) puis une prière unitaire (avec Fâtiha,Sourate à voix haute, le Tashahhud final et le salut) ce qu’on appelle la prière du Witr. Le Witr est une sunna (tradition prophétique) d’un grand mérite."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "IMPORTANT"
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "Lorsqu’on dit Sourate ici, cela veut dire : un verset du Coran (au choix) au minimum tout simplement. On peut remarquer que les prières du jour sont silencieuses(sauf les prières qui ont un sermon (Khutba) et la prière du Subh) et celles de la nuit à voix haute (pour les deux premières rak‘at seulement) ; à voix haute pour les hommes veut dire : se faire entendre et faire entendre celui qui est à côté (sans crier ! ou déranger le voisin !)[1]. A voix basse pour les hommes veut dire : silencieusement sans faire entendre mais en bougeant obligatoirement la langue (la limite supérieure de la voix basse pour l'homme consiste à se faire entendre soi-même et la limite inférieure de cette voix basse pour lui consiste à bouger la langue). Pour la femme, réciter à voix haute signifie qu’elle se fait entendre elle-même sans faire entendre les autres. Réciter à voix basse pour la femme signifie bouger la langue sans faire entendre ou se faire entendre elle-même."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "Pendant la prosternation(Sujûd), il faut que le front, le nez et les paumes des mains touchent le sol."
+            - LineBreak "\n"
+            - StaticText "Parmi les sunnas moins appuyées de la prière, il faut mentionner : l'Appel avant de commencer la prière (iqâma), le fait que pendant la prosternation, les paumes des mains soient en contact avec le sol, tout comme les extrémités des pieds (c.-à-d. les orteils) et les genoux."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "Pour les hommes, il est préférable de ne pas joindre les pieds pendant la prière (en position debout), et de ne pas coller le ventre contre les cuisses, ni approcher les coudes aux genoux dans la position de prosternation.Pour la femme en position de prosternation:elle doit de préférence rassembler ses membres en se recroquevillant..."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "Pour la position assise:"
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "Dans la doctrine malikite aussi, il est préférable pendant la lecture du tashahhud de bouger l'index (de la main droite bien sûr), tout en tendant le pouce, l'index est tendu (allongé pointant vers l’avant) et bougeant seul, et en maintenant les mains posées sur les cuisses prés des genoux."
+            - LineBreak "\n"
+            - StaticText "Les mains sont posées à plat sur les cuisses, les doigts proches des genous. Lors du tashahhoud, l'index et le pouce de la main droite sont dressés (tendus), la main droite tournée de telle sorte que le pouce et le côté (gauche) de l'index soient face à nous (les trois derniers doigts de la main droite sont fermés)."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "Comment s'assoire:"
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "Il est écrit dans le Muwattaa : Chapitre XII comment doit-on s’asseoir pendant la prière :"
+            - LineBreak "\n"
+            - StaticText "Yahia Ibn Saïd a rapporté que Al-Kassem Ibn Muhammad montra aux fidèles la façon de s’asseoir pour faire le Tashahhud : il dressa son pied droit, plia le gauche, s’assit sur sa hanche gauche,et ne s’asseoit pas sur son pied (gauche). Puis il dit : « Abdullah Ibn Omar m’a montré cela en disant qu’il a vu son père faire de même »."
+            - LineBreak "\n"
+            - StaticText "Selon Ibn abî Zayd dans sa Risâla chapitre 10 :"
+            - LineBreak "\n"
+            - StaticText "Il placera le pied droit en position verticale, la partie inférieure des orteils reposant sur le sol, il repliera le pied gauche et fera porter la fesse sur le sol en évitant de s’asseoir sur le pied gauche. S’il le veut, il inclinera le pied droit [préalablement] placé en position verticale et fera ainsi toucher terre au coté du gros orteil . En effet, ces dispositions n’ont aucun caractère strict."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "Le Salâm(As-salâmu 'Alaykum) une fois est Fard(obligatoire)[2], le fait de le dire à voix haute \"à droite\" est un mandûb(sunna moins appuyée) et le fait de répondre au salâm de l'Imâm (c'est à dire faire le salâm en face) et au salâm de celui qui est à gauche (en faisant le salâm à gauche) est également mandûb(sunna)."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "Le salâm à gauche n'est pas à faire pour celui qui dirige (l'Imâm) ,ni par celui qui prie seul (Al-fadh)."
+            - LineBreak "\n"
+            - StaticText "Il est sunna de le faire à gauche si on est dirigé et on a quelqu'un à notre gauche qui a fait avec nous dérriére l'Imam une Rak'at ou plus."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "Le qunût (des invocations spéciales) après la Sourate de la deuxième rak‘at du Subh et avant l’inclinaison (rukû‘) de celle-ci : est recommandé (mandûb)."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "Notes:"
+            - LineBreak "\n"
+            - StaticText "[1] La limite inférieure de la voix haute pour l’homme est le fait de faire entendre celui qui est à côté."
+            - LineBreak "\n"
+            - StaticText "Il n’y a pas de limite supérieure à la voix haute chez l’homme (voir al-Fiqh ‘alâ al-madhâhib al-arba’a d’Al-jazîrî tome I page 238)."
+            - LineBreak "\n"
+            - LineBreak "\n"
+            - StaticText "[2]La mère des croyants Aïsha (que Dieu l'agrée), parmi d'autres, a noté que le Prophète ( paix et salut sur lui) prononçait une seule fois le salut (le Salâm) (pour finir la prière):(Rapporté par At-tirmidhî,Ibn Khuzayma,Al-hâkim,Ibn al-mundhir et Ad-dâraqutnî: Al-It-hâf:tome II page 485.)"
+            - LineBreak "\n"
+            - StaticText "Anas (que Dieu l'agrée) rapporte de même que le prophète(paix et salut sur lui) faisait un seul Salâm.(Rapporté par Al-bayhaqî tome II page 79)."
+            - LineBreak "\n"
+        - generic
+          - LineBreak "\n"
+          - heading "La prière en vidéo" [level=2, ref=e43]
+        - Iframe [ref=e50]
+        - generic
+        - LineBreak "\n"
+        - LineBreak "\n"
+        - generic
+          - link "Accueil Accueil" [ref=e44]
+            - image "Accueil"
+            - StaticText "Accueil"
+          - StaticText "  "
+          - link "Envoyer à un ami Envoyer à un ami" [ref=e45]
+            - image "Envoyer à un ami"
+            - StaticText "Envoyer à un ami"
+          - StaticText "  "
+          - link "Imprimer Imprimer" [ref=e46]
+            - image "Imprimer"
+            - StaticText "Imprimer"
+          - StaticText "  "
+          - link "Grand texte Grand texte" [ref=e47]
+            - image "Grand texte"
+            - StaticText "Grand texte"
+          - StaticText "  "
+          - link "Petit texte Petit texte" [ref=e48]
+            - image "Petit texte"
+            - StaticText "Petit texte"
+  - LayoutTableRow
+    - LayoutTableCell
+      - paragraph
+        - image
+          - link [ref=e12]
+          - link "6" [ref=e13]
+- link [ref=e1]
+- link [ref=e2]

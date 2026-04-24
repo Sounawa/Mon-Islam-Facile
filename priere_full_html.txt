@@ -1,0 +1,1 @@
+"\n\t\t <a href=\"http://www.wmaker.net/malikite/index.php?action=newsletter\" target=\"_blank\" data-cmp-ab=\"2\"> <img src=\"/photo/mod-1107985.png?v=1184027621\" class=\"image\" alt=\"http://www.wmaker.net/malikite/index.php?action=newsletter\" style=\"width:232px\" data-cmp-info=\"10\"></a>\n\t "

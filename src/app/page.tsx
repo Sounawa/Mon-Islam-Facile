@@ -136,9 +136,6 @@ export default function HomePage() {
                   <Badge variant="secondary" className="bg-white/20 text-white border-0 text-sm px-3 py-1">
                     Doctrine Malikite
                   </Badge>
-                  <Badge variant="secondary" className="bg-white/20 text-white border-0 text-sm px-3 py-1">
-                    Contenu vérifié
-                  </Badge>
                 </div>
               </motion.div>
             </div>
@@ -197,29 +194,7 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* Source */}
-          <section className="bg-amber-50 border-t border-amber-200 py-6 px-4">
-            <div className="max-w-4xl mx-auto text-center text-sm text-amber-700">
-              <p className="flex items-center justify-center gap-2">
-                <Star className="w-4 h-4" />
-                <strong>Source :</strong> Tout le contenu de cette application provient
-                exclusivement du site{" "}
-                <a
-                  href="http://www.doctrine-malikite.fr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline font-semibold hover:text-amber-900"
-                >
-                  doctrine-malikite.fr
-                </a>
-                <Star className="w-4 h-4" />
-              </p>
-              <p className="mt-1 text-amber-600">
-                Aucune modification ni ajout du contenu original. Adaptation de la
-                présentation pour les enfants de 7 à 12 ans.
-              </p>
-            </div>
-          </section>
+
         </main>
         <Footer />
       </div>
@@ -574,7 +549,7 @@ export default function HomePage() {
               </CardHeader>
               <CardContent>
                 <div className="bg-emerald-50 rounded-xl p-4 mb-3">
-                  <p className="text-base text-gray-800 leading-relaxed whitespace-pre-line font-medium">
+                  <p className="text-xl text-gray-800 leading-loose text-right font-medium" dir="rtl">
                     {fatiha.arabe}
                   </p>
                 </div>
@@ -598,7 +573,7 @@ export default function HomePage() {
                 </CardHeader>
                 <CardContent>
                   <div className="bg-blue-50 rounded-lg p-3 mb-2">
-                    <p className="text-sm text-gray-800 leading-relaxed whitespace-pre-line">
+                    <p className="text-lg text-gray-800 leading-loose text-right" dir="rtl">
                       {sourateIkhlas.arabe}
                     </p>
                   </div>
@@ -613,7 +588,7 @@ export default function HomePage() {
                 </CardHeader>
                 <CardContent>
                   <div className="bg-blue-50 rounded-lg p-3 mb-2">
-                    <p className="text-sm text-gray-800 leading-relaxed whitespace-pre-line">
+                    <p className="text-lg text-gray-800 leading-loose text-right" dir="rtl">
                       {sourateNasr.arabe}
                     </p>
                   </div>
@@ -695,7 +670,7 @@ export default function HomePage() {
                   <p className="text-sm font-semibold text-amber-700 mb-2">
                     Tashahhud du milieu (choisi par l&apos;Imâm Mâlik) :
                   </p>
-                  <p className="text-base text-gray-800 leading-relaxed whitespace-pre-line font-medium">
+                  <p className="text-xl text-gray-800 leading-loose text-right font-medium" dir="rtl">
                     {tashahhudMilieu.arabe}
                   </p>
                 </div>
@@ -713,7 +688,7 @@ export default function HomePage() {
               </CardHeader>
               <CardContent>
                 <div className="bg-sky-50 rounded-xl p-4 mb-3">
-                  <p className="text-base text-gray-800 leading-relaxed whitespace-pre-line font-medium">
+                  <p className="text-xl text-gray-800 leading-loose text-right font-medium" dir="rtl">
                     {priereAbraham.arabe}
                   </p>
                 </div>
@@ -744,7 +719,7 @@ export default function HomePage() {
                   <p className="text-sm font-semibold text-emerald-700 mb-2">
                     Le Tashahhud final complet (Tashahhud + Prière sur le Prophète) :
                   </p>
-                  <p className="text-base text-gray-800 leading-relaxed whitespace-pre-line font-medium">
+                  <p className="text-xl text-gray-800 leading-loose text-right font-medium" dir="rtl">
                     {tashahhudFinal.arabe}
                   </p>
                 </div>
@@ -1076,30 +1051,14 @@ function Header() {
 
 function Footer() {
   return (
-    <footer className="bg-emerald-50 border-t border-emerald-200 py-6 px-4 mt-auto">
+    <footer className="bg-emerald-50 border-t border-emerald-200 py-4 px-4 mt-auto">
       <div className="max-w-4xl mx-auto text-center">
-        <div className="flex items-center justify-center gap-2 mb-2">
-          <BookOpen className="w-5 h-5 text-emerald-600" />
+        <div className="flex items-center justify-center gap-2">
+          <BookOpen className="w-4 h-4 text-emerald-600" />
           <span className="font-semibold text-emerald-700 text-sm">
             Mon Islam Facile
           </span>
         </div>
-        <p className="text-xs text-gray-500 mb-2">
-          Contenu exclusif du site{" "}
-          <a
-            href="http://www.doctrine-malikite.fr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-emerald-600 underline hover:text-emerald-800"
-          >
-            doctrine-malikite.fr
-          </a>
-        </p>
-        <p className="text-xs text-gray-400">
-          Aucune modification ni ajout du contenu original.
-          <br />
-          Adaptation de la présentation pour les enfants de 7 à 12 ans.
-        </p>
       </div>
     </footer>
   );
