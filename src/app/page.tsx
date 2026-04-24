@@ -355,11 +355,15 @@ const dailyVerses = [
 ];
 
 function getDailyVerse() {
+  // Use UTC date string to be deterministic across server/client
   const today = new Date();
-  const dayOfYear = Math.floor(
-    (today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / 86400000
-  );
-  return dailyVerses[dayOfYear % dailyVerses.length];
+  const dayStr = `${today.getUTCFullYear()}-${today.getUTCMonth()}-${today.getUTCDate()}`;
+  // Simple hash to get a stable index
+  let hash = 0;
+  for (let i = 0; i < dayStr.length; i++) {
+    hash = (hash * 31 + dayStr.charCodeAt(i)) | 0;
+  }
+  return dailyVerses[Math.abs(hash) % dailyVerses.length];
 }
 
 // ========================================
@@ -367,8 +371,13 @@ function getDailyVerse() {
 // ========================================
 
 function DailyVerseCard() {
-  const [verse, setVerse] = useState(() => getDailyVerse());
+  const [verse, setVerse] = useState(dailyVerses[0]);
   const [isAnimating, setIsAnimating] = useState(false);
+
+  // Set the daily verse on client mount to avoid hydration mismatch
+  useEffect(() => {
+    setVerse(getDailyVerse()); // eslint-disable-line react-hooks/set-state-in-effect
+  }, []);
 
   const refreshVerse = () => {
     setIsAnimating(true);
@@ -992,12 +1001,19 @@ function AssociationQuiz() {
   const { titre, paires } = quizAssociation;
   const pairesList = paires as AssociationPair[];
 
-  const [shuffledDefinitions, setShuffledDefinitions] = useState<string[]>(() => {
-    return [...pairesList.map((p) => p.definition)].sort(() => Math.random() - 0.5);
-  });
+  const [shuffledDefinitions, setShuffledDefinitions] = useState<string[]>(() =>
+    pairesList.map((p) => p.definition)
+  );
   const [matched, setMatched] = useState<Record<string, string>>({});
   const [selectedTerme, setSelectedTerme] = useState<string | null>(null);
   const [errors, setErrors] = useState<Set<string>>(new Set());
+
+  // Shuffle only on client after mount to avoid hydration mismatch
+  useEffect(() => {
+    const shuffled = [...pairesList.map((p) => p.definition)].sort(() => Math.random() - 0.5);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setShuffledDefinitions(shuffled);
+  }, []);
 
   if (pairesList.length === 0) return null;
 
@@ -1110,20 +1126,22 @@ function AssociationQuiz() {
 
 export default function HomePage() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
-  const [completedSections, setCompletedSections] = useState<string[]>(() => {
-    if (typeof window !== "undefined") {
-      try {
-        const saved = localStorage.getItem("islam-facile-progress");
-        return saved ? JSON.parse(saved) : [];
-      } catch {
-        return [];
-      }
-    }
-    return [];
-  });
+  const [completedSections, setCompletedSections] = useState<string[]>([]);
   const [glossaryOpen, setGlossaryOpen] = useState(false);
   const [revisionMode, setRevisionMode] = useState(false);
   const [activeBilan, setActiveBilan] = useState(false);
+
+  // Load progress from localStorage on client mount
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("islam-facile-progress");
+      if (saved) {
+        setCompletedSections(JSON.parse(saved)); // eslint-disable-line react-hooks/set-state-in-effect
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
 
   // Save progress to localStorage
   useEffect(() => {
