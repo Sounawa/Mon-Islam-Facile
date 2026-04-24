@@ -119,4 +119,7 @@
   body {
     @apply bg-background text-foreground;
   }
+  [dir="rtl"], .arabic-text {
+    font-family: var(--font-arabic), "Noto Naskh Arabic", "Traditional Arabic", "Arabic Typesetting", serif;
+  }
 }

@@ -285,12 +285,12 @@ La femme ne fait pas l'Adhân.`,
 // LA FÂTIHA - source exacte du site
 export const fatiha = {
   titre: "La Fâtiha (le premier chapitre du Coran)",
-  arabe: `ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ ﴿٢﴾
-ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ ﴿٣﴾
-مَـٰلِكِ يَوْمِ ٱلدِّينِ ﴿٤﴾
-إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ﴿٥﴾
-ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ ﴿٦﴾
-صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ ﴿٧﴾`,
+  arabe: `ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ
+ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
+مَـٰلِكِ يَوْمِ ٱلدِّينِ
+إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
+ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ
+صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ`,
   traduction: `(Louange à Dieu, Seigneur des mondes)
 (le Clément, le Miséricordieux)
 (Le Roi du Jour du Jugement)
@@ -304,10 +304,10 @@ export const fatiha = {
 export const sourateIkhlas = {
   titre: "Sourate Al-Ikhlâs",
   arabe: `بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
-قُلْ هُوَ ٱللَّهُ أَحَدٌ ﴿١﴾
-ٱللَّهُ ٱلصَّمَدُ ﴿٢﴾
-لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾
-وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌ ﴿٤﴾`,
+قُلْ هُوَ ٱللَّهُ أَحَدٌ
+ٱللَّهُ ٱلصَّمَدُ
+لَمْ يَلِدْ وَلَمْ يُولَدْ
+وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌ`,
   traduction: `(Dis : Lui Dieu, est un)
 (Dieu, le Transcendant)
 (Il n'engendre pas. Et Il n'est pas engendré)
@@ -317,9 +317,9 @@ export const sourateIkhlas = {
 export const sourateNasr = {
   titre: "Sourate An-Nasr",
   arabe: `بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
-إِذَا جَآءَ نَصْرُ ٱللَّهِ وَٱلْفَتْحُ ﴿١﴾
-وَرَأَيْتَ ٱلنَّاسَ يَدْخُلُونَ فِى دِينِ ٱللَّهِ أَفْوَاجًا ﴿٢﴾
-فَسَبِّحْ بِحَمْدِ رَبِّكَ وَٱسْتَغْفِرْهُ ۚ إِنَّهُۥ كَانَ تَوَّابًا ﴿٣﴾`,
+إِذَا جَآءَ نَصْرُ ٱللَّهِ وَٱلْفَتْحُ
+وَرَأَيْتَ ٱلنَّاسَ يَدْخُلُونَ فِى دِينِ ٱللَّهِ أَفْوَاجًا
+فَسَبِّحْ بِحَمْدِ رَبِّكَ وَٱسْتَغْفِرْهُ ۚ إِنَّهُۥ كَانَ تَوَّابًا`,
   traduction: `(Lorsque viennent le secours de Dieu et la victoire)
 (Lorsque tu vois les hommes entrer en masse dans la religion de Dieu)
 (Célèbre alors les louanges de ton Seigneur et demande-Lui pardon)

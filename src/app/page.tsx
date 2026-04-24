@@ -102,17 +102,22 @@ const statutIcons: Record<string, React.ReactNode> = {
 // ========================================
 
 function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  if (!resolvedTheme) return <div className="w-9 h-9" />;
+  useEffect(() => {
+    setMounted(true); // eslint-disable-line react-hooks/set-state-in-effect
+  }, []);
+
+  if (!mounted) return <div className="w-9 h-9" />;
 
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
       aria-label="Changer de thème"
     >
-      {theme === "dark" ? (
+      {resolvedTheme === "dark" ? (
         <Sun className="w-5 h-5 text-amber-500" />
       ) : (
         <Moon className="w-5 h-5 text-gray-600" />
