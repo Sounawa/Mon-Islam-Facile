@@ -24,7 +24,6 @@ import {
   GraduationCap,
   Quote,
   RefreshCw,
-  Home,
 } from "lucide-react";
 import {
   Card,
@@ -41,7 +40,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Separator } from "@/components/ui/separator";
+
 import {
   rubriques,
   statutsLegauxIntro,
@@ -349,15 +348,16 @@ function ThemeToggle() {
     setMounted(true); // eslint-disable-line react-hooks/set-state-in-effect
   }, []);
 
-  if (!mounted) return <div className="w-9 h-9" />;
-
   return (
     <button
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
       aria-label="Changer de thème"
+      suppressHydrationWarning
     >
-      {resolvedTheme === "dark" ? (
+      {!mounted ? (
+        <div className="w-5 h-5" />
+      ) : resolvedTheme === "dark" ? (
         <Sun className="w-5 h-5 text-amber-500" />
       ) : (
         <Moon className="w-5 h-5 text-gray-600" />
@@ -482,6 +482,28 @@ function ArabicBlock({ arabe, traduction, className = "" }: { arabe: string; tra
           </p>
         </div>
       )}
+    </div>
+  );
+}
+
+function ShortText({ short, full }: { short: string; full: string }) {
+  return (
+    <div>
+      <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+        {short}
+      </div>
+      <Accordion type="single" collapsible className="mt-3">
+        <AccordionItem value="full" className="border-0">
+          <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
+            📖 Texte complet
+          </AccordionTrigger>
+          <AccordionContent>
+            <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line bg-gray-50 dark:bg-gray-900 rounded-xl p-3">
+              {full}
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </div>
   );
 }
@@ -821,8 +843,8 @@ export default function HomePage() {
         <Card className="rounded-2xl border-emerald-200 dark:border-emerald-800">
           <CardContent className="pt-6">
             <ChildBubble text={statutsLegauxIntro.explicationEnfant} />
-            <div className="mt-4 text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-              {statutsLegauxIntro.contenu}
+            <div className="mt-4">
+              <ShortText short={statutsLegauxIntro.resumeEnfant} full={statutsLegauxIntro.contenu} />
             </div>
           </CardContent>
         </Card>
@@ -836,9 +858,7 @@ export default function HomePage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-              {statutsLegauxIntro.intention}
-            </div>
+            <ShortText short={statutsLegauxIntro.resumeIntention} full={statutsLegauxIntro.intention} />
           </CardContent>
         </Card>
 
@@ -870,8 +890,8 @@ export default function HomePage() {
                   </CardHeader>
                   <CardContent>
                     <ChildBubble text={item.data.explicationEnfant} />
-                    <div className="mt-3 text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-                      {item.data.contenu}
+                    <div className="mt-3">
+                      <ShortText short={item.data.resumeEnfant} full={item.data.contenu} />
                     </div>
                     {item.data.resumeCategories && (
                       <Accordion type="single" collapsible className="mt-4">
@@ -950,8 +970,22 @@ export default function HomePage() {
                         {etape.titre}
                       </h5>
                       <p className="text-sm text-gray-700 dark:text-gray-300 mt-1 leading-relaxed">
-                        {etape.detail}
+                        {etape.detailCourt || etape.detail}
                       </p>
+                      {etape.detail && etape.detailCourt && etape.detail !== etape.detailCourt && (
+                        <Accordion type="single" collapsible className="mt-1">
+                          <AccordionItem value="full" className="border-0">
+                            <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
+                              Détails
+                            </AccordionTrigger>
+                            <AccordionContent>
+                              <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line bg-gray-50 dark:bg-gray-900 rounded-xl p-3">
+                                {etape.detail}
+                              </div>
+                            </AccordionContent>
+                          </AccordionItem>
+                        </Accordion>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -959,28 +993,42 @@ export default function HomePage() {
             </div>
 
             {/* Remarques */}
-            <Accordion type="single" collapsible className="mt-6">
-              <AccordionItem value="remarques" className="border-0">
-                <AccordionTrigger className="text-sm text-amber-600 dark:text-amber-400 hover:no-underline py-2">
-                  Remarques importantes
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line bg-amber-50 dark:bg-amber-950/30 rounded-xl p-4">
-                    {lesAblutions.remarques}
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="coran" className="border-0">
-                <AccordionTrigger className="text-sm text-teal-600 dark:text-teal-400 hover:no-underline py-2">
-                  Toucher et lire le Coran
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line bg-teal-50 dark:bg-teal-950/30 rounded-xl p-4">
-                    {lesAblutions.remarquesCoran}
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+            <div className="mt-6 space-y-3">
+              <div className="bg-amber-50 dark:bg-amber-950/30 rounded-xl p-4 border border-amber-200 dark:border-amber-800">
+                <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+                  {lesAblutions.resumeRemarques}
+                </div>
+                <Accordion type="single" collapsible className="mt-2">
+                  <AccordionItem value="remarques-full" className="border-0">
+                    <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
+                      📖 Texte complet
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
+                        {lesAblutions.remarques}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </div>
+              <div className="bg-teal-50 dark:bg-teal-950/30 rounded-xl p-4 border border-teal-200 dark:border-teal-800">
+                <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+                  {lesAblutions.resumeRemarquesCoran}
+                </div>
+                <Accordion type="single" collapsible className="mt-2">
+                  <AccordionItem value="coran-full" className="border-0">
+                    <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
+                      📖 Texte complet
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
+                        {lesAblutions.remarquesCoran}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </div>
+            </div>
           </CardContent>
         </Card>
 
@@ -994,12 +1042,8 @@ export default function HomePage() {
           </CardHeader>
           <CardContent>
             <ChildBubble text={piliersAblutions.explicationEnfant} />
-            <div className="mt-4 space-y-3">
-              {piliersAblutions.versets.map((v, i) => (
-                <div key={i} className="bg-emerald-50 dark:bg-emerald-950/30 rounded-xl p-3 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                  {v}
-                </div>
-              ))}
+            <div className="mt-4">
+              <ShortText short={piliersAblutions.resumeEnfant} full={piliersAblutions.versets.join('\n\n')} />
             </div>
           </CardContent>
         </Card>
@@ -1014,12 +1058,8 @@ export default function HomePage() {
           </CardHeader>
           <CardContent>
             <ChildBubble text={sunnasAblutions.explicationEnfant} />
-            <div className="mt-4 space-y-3">
-              {sunnasAblutions.versets.map((v, i) => (
-                <div key={i} className="bg-teal-50 dark:bg-teal-950/30 rounded-xl p-3 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                  {v}
-                </div>
-              ))}
+            <div className="mt-4">
+              <ShortText short={sunnasAblutions.resumeEnfant} full={sunnasAblutions.versets.join('\n\n')} />
             </div>
           </CardContent>
         </Card>
@@ -1033,9 +1073,7 @@ export default function HomePage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-              {enchainementAblutions.contenu}
-            </div>
+            <ShortText short={enchainementAblutions.resumeEnfant} full={enchainementAblutions.contenu} />
           </CardContent>
         </Card>
       </div>
@@ -1069,18 +1107,23 @@ export default function HomePage() {
                 {iqama.sourceNote}
               </p>
             </div>
-            <Accordion type="single" collapsible>
-              <AccordionItem value="remarques" className="border-0">
-                <AccordionTrigger className="text-sm text-teal-600 dark:text-teal-400 hover:no-underline py-2">
-                  Remarques importantes
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line bg-teal-50 dark:bg-teal-950/30 rounded-xl p-4">
-                    {iqama.remarques}
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+            <div className="bg-teal-50/70 dark:bg-teal-950/30 rounded-xl p-4">
+              <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+                {iqama.resumeEnfant}
+              </div>
+              <Accordion type="single" collapsible className="mt-2">
+                <AccordionItem value="remarques" className="border-0">
+                  <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
+                    📖 Texte complet
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
+                      {iqama.remarques}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </div>
           </CardContent>
         </Card>
 
@@ -1191,22 +1234,52 @@ export default function HomePage() {
                     </div>
                     <div>
                       <h5 className="font-semibold text-teal-800 dark:text-teal-200 text-sm">{etape.titre}</h5>
-                      <p className="text-sm text-gray-700 dark:text-gray-300 mt-1 leading-relaxed">{etape.detail}</p>
+                      <p className="text-sm text-gray-700 dark:text-gray-300 mt-1 leading-relaxed">{etape.detailCourt || etape.detail}</p>
+                      {etape.detail && etape.detailCourt && etape.detail !== etape.detailCourt && (
+                        <Accordion type="single" collapsible className="mt-1">
+                          <AccordionItem value="full" className="border-0">
+                            <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
+                              Détails
+                            </AccordionTrigger>
+                            <AccordionContent>
+                              <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line bg-gray-50 dark:bg-gray-900 rounded-xl p-3">
+                                {etape.detail}
+                              </div>
+                            </AccordionContent>
+                          </AccordionItem>
+                        </Accordion>
+                      )}
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <Separator className="my-4" />
+            <hr className="my-4 border-gray-200 dark:border-gray-700" />
 
             <div className="mb-6">
               <h4 className="font-bold text-teal-700 dark:text-teal-300 mb-3 flex items-center gap-2">
                 <span className="bg-teal-500 text-white rounded-full w-7 h-7 flex items-center justify-center text-sm">2</span>
                 {etapesPriere.deuxiemeRaka.titre}
               </h4>
-              <div className="bg-teal-50/70 dark:bg-teal-950/30 rounded-xl p-3 text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-                {etapesPriere.deuxiemeRaka.detail}
+              <div className="bg-teal-50/70 dark:bg-teal-950/30 rounded-xl p-3">
+                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                  {etapesPriere.deuxiemeRaka.detailCourt || etapesPriere.deuxiemeRaka.detail}
+                </p>
+                {etapesPriere.deuxiemeRaka.detail && etapesPriere.deuxiemeRaka.detailCourt && etapesPriere.deuxiemeRaka.detail !== etapesPriere.deuxiemeRaka.detailCourt && (
+                  <Accordion type="single" collapsible className="mt-2">
+                    <AccordionItem value="full" className="border-0">
+                      <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
+                        Détails
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
+                          {etapesPriere.deuxiemeRaka.detail}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                )}
               </div>
             </div>
           </CardContent>
@@ -1222,8 +1295,8 @@ export default function HomePage() {
           </CardHeader>
           <CardContent>
             <ChildBubble text={priereDhor.explicationEnfant} />
-            <div className="mt-4 text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-              {priereDhor.contenu}
+            <div className="mt-4">
+              <ShortText short={priereDhor.resumeEnfant} full={priereDhor.contenu} />
             </div>
             <div className="mt-6 space-y-4">
               {priereDhor.etapesDetaillees.map((rakat) => (
@@ -1277,31 +1350,64 @@ export default function HomePage() {
                     </AccordionTrigger>
                     <AccordionContent>
                       <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line pb-2 pl-11">
-                        {p.detail}
+                        {p.detailCourt || p.detail}
                       </div>
+                      {p.detail && p.detailCourt && p.detail !== p.detailCourt && (
+                        <Accordion type="single" collapsible className="pl-11">
+                          <AccordionItem value="full" className="border-0">
+                            <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
+                              📖 Texte complet
+                            </AccordionTrigger>
+                            <AccordionContent>
+                              <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line bg-gray-50 dark:bg-gray-900 rounded-xl p-3">
+                                {p.detail}
+                              </div>
+                            </AccordionContent>
+                          </AccordionItem>
+                        </Accordion>
+                      )}
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
               ))}
             </div>
 
-            <Separator className="my-4" />
-
-            <Accordion type="single" collapsible>
-              <AccordionItem value="notes" className="border-0">
-                <AccordionTrigger className="text-sm text-teal-600 dark:text-teal-400 hover:no-underline py-2">
-                  Notes sur la voix et la position assise
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line bg-teal-50 dark:bg-teal-950/30 rounded-xl p-4">
-                    {cinqPrieres.notesVoix}
-                  </div>
-                  <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line bg-gray-50 dark:bg-gray-800 rounded-xl p-4 mt-2">
-                    {cinqPrieres.positionAssise}
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+            <div className="my-4 space-y-3">
+              <div className="bg-teal-50 dark:bg-teal-950/30 rounded-xl p-4">
+                <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+                  {cinqPrieres.resumeVoix}
+                </div>
+                <Accordion type="single" collapsible className="mt-2">
+                  <AccordionItem value="voix-full" className="border-0">
+                    <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
+                      📖 Texte complet
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
+                        {cinqPrieres.notesVoix}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </div>
+              <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4">
+                <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+                  {cinqPrieres.resumePosition}
+                </div>
+                <Accordion type="single" collapsible className="mt-2">
+                  <AccordionItem value="position-full" className="border-0">
+                    <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
+                      📖 Texte complet
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
+                        {cinqPrieres.positionAssise}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </div>
+            </div>
           </CardContent>
         </Card>
       </div>
@@ -1318,8 +1424,8 @@ export default function HomePage() {
         <Card className="rounded-2xl border-emerald-200 dark:border-emerald-800">
           <CardContent className="pt-6">
             <ChildBubble text={zakatIntro.explicationEnfant} />
-            <div className="mt-4 text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-              {zakatIntro.contenu}
+            <div className="mt-4">
+              <ShortText short={zakatIntro.resumeEnfant} full={zakatIntro.contenu} />
             </div>
           </CardContent>
         </Card>
@@ -1332,9 +1438,7 @@ export default function HomePage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-              {zakatIntro.nisab}
-            </div>
+            <ShortText short={zakatIntro.resumeNisab} full={zakatIntro.nisab} />
           </CardContent>
         </Card>
 
@@ -1346,9 +1450,7 @@ export default function HomePage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-              {zakatIntro.exemplesCalcul}
-            </div>
+            <ShortText short={zakatIntro.resumeExemplesCalcul} full={zakatIntro.exemplesCalcul} />
           </CardContent>
         </Card>
 
@@ -1360,9 +1462,7 @@ export default function HomePage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-              {zakatIntro.aQuiDonner}
-            </div>
+            <ShortText short={zakatIntro.resumeAQuiDonner} full={zakatIntro.aQuiDonner} />
           </CardContent>
         </Card>
 
@@ -1374,9 +1474,7 @@ export default function HomePage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-              {zakatIntro.specificsMalikite}
-            </div>
+            <ShortText short={zakatIntro.resumeSpecificsMalikite} full={zakatIntro.specificsMalikite} />
           </CardContent>
         </Card>
       </div>

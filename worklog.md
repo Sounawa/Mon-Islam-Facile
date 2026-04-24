@@ -84,3 +84,88 @@ Stage Summary:
 - Design matches reference site (sounawa.github.io/maliki-fiqh-enfants/) format: Bismillah header, daily verse, hadith, Imam Malik card, 5 topic cards, progress tracking
 - Dark/light theme toggle functional
 - All 5 rubriques accessible: Statuts (27), Purification (28), Prière (29), Zakât (30), Jeûne (31)
+
+---
+Task ID: 2 (Fixes)
+Agent: Fix Agent
+Task: Fix technical issues - ThemeToggle hydration error, Arabic font, Arabic-Indic numerals
+
+Work Log:
+- Fixed ThemeToggle hydration mismatch in page.tsx: changed early return of `<div>` to always render `<button>` with conditional inner content + suppressHydrationWarning
+- Changed Arabic font from Noto_Naskh_Arabic to Amiri in layout.tsx (import, variable name, weights 400/700)
+- Updated globals.css font-family fallback from "Noto Naskh Arabic" to "Amiri"
+- Searched entire project for Arabic-Indic numerals (٠١٢٣٤٥٦٧٨٩) — none found, no changes needed
+- ESLint: 0 errors, 0 warnings
+- Dev log: successful compilation and HTTP 200 after all changes
+
+Stage Summary:
+- ThemeToggle hydration error resolved: always renders `<button>` element, content changes based on mounted state
+- Arabic font changed to Amiri (more traditional/classical look, better for Islamic educational content)
+- No Arabic-Indic numerals present in the project (all Arabic text is letters/diacritics only)
+
+---
+Task ID: 1
+Agent: Content Agent
+Task: Add resumeEnfant (child-friendly short summaries) to ALL content objects in content.ts
+
+Work Log:
+- Read full content.ts (641 lines) and worklog.md
+- Added resumeEnfant to statutsLegauxIntro (for contenu + resumeIntention for intention)
+- Added resumeEnfant to statutObligation, statutIllicite, statutRecommande, statutDetestable, statutPermis
+- Added resumeRemarques + resumeRemarquesCoran to lesAblutions
+- Added detailCourt to all 9 ablutions steps in lesAblutions.etapes[]
+- Added resumeEnfant to piliersAblutions (7 pillars in simple bullet points)
+- Added resumeEnfant to sunnasAblutions (7 sunnas + 11 fadîlahs bonus)
+- Added resumeEnfant to enchainementAblutions
+- Added resumeEnfant to iqama (for remarques)
+- Added detailCourt to all 8 prayer steps in etapesPriere.premiereRaka.etapes[]
+- Added detailCourt to etapesPriere.deuxiemeRaka
+- Added resumeEnfant to priereDhor (4-Rak'at summary)
+- Added detailCourt to all 5 prayers in cinqPrieres.prieres[]
+- Added resumeVoix to cinqPrieres (for notesVoix)
+- Added resumePosition to cinqPrieres (for positionAssise)
+- Added resumeEnfant + resumeNisab + resumeExemplesCalcul + resumeAQuiDonner + resumeSpecificsMalikite to zakatIntro
+- jeuneIntro: confirmed no content fields beyond explicationEnfant, nothing to add
+- Verified ALL existing contenu fields were NOT modified
+- ESLint: 0 errors, 0 warnings
+- Dev server compiles and returns HTTP 200
+
+Fields added (42 total):
+- resumeEnfant: 11 objects (statutsLegauxIntro, statutObligation, statutIllicite, statutRecommande, statutDetestable, statutPermis, piliersAblutions, sunnasAblutions, enchainementAblutions, iqama, priereDhor, zakatIntro) = 12
+- resumeIntention: 1 (statutsLegauxIntro)
+- detailCourt: 9 ablution steps + 8 prayer steps + 1 deuxiemeRaka + 5 cinqPrieres = 23
+- resumeRemarques: 1, resumeRemarquesCoran: 1
+- resumeVoix: 1, resumePosition: 1
+- resumeNisab: 1, resumeExemplesCalcul: 1, resumeAQuiDonner: 1, resumeSpecificsMalikite: 1
+
+Stage Summary:
+- All resumeEnfant fields use bullet-point format with emoji for visual appeal
+- Simple language appropriate for ages 7-12
+- All key information preserved in shortened format
+- Existing contenu fields left untouched (source content from doctrine-malikite.fr)
+- All detailCourt fields are 1-2 short sentences with emoji
+
+---
+Task ID: 2 (UI Update)
+Agent: UI Update Agent
+Task: Update page.tsx to show short summaries by default, full content in accordions
+
+Work Log:
+- Read full page.tsx (1407 lines) and content.ts to identify all new resumeEnfant/detailCourt fields
+- Added ShortText reusable component after ArabicBlock for short+accordion pattern
+- Removed unused Separator import (replaced remaining usage with <hr>)
+- Kept Volume2 import (still used for Iqama card icon)
+- Removed unused Home import
+- Updated STATUTS LEGAUX section: intro, intention, 5 statuts cards all use resumeEnfant with contenu in accordion
+- Updated PURIFICATION section: ablution steps use detailCourt with detail in accordion; remarques show resumeRemarques/resumeRemarquesCoran directly with full text in accordion; piliers/sunnas use resumeEnfant with versets in accordion; enchainement uses resumeEnfant with contenu in accordion
+- Updated PRIERE section: iqama shows resumeEnfant with remarques in accordion; prayer steps use detailCourt with detail in accordion; deuxiemeRaka uses detailCourt with detail in accordion; priereDhor uses resumeEnfant with contenu in accordion; 5 prayers show detailCourt with full detail in accordion; voix/position notes show resumeVoix/resumePosition with full text in accordion
+- Updated ZAKAT section: intro, nisab, exemplesCalcul, aQuiDonner, specificsMalikite all use resume versions with full versions in accordion
+- ESLint: 0 errors, 0 warnings
+- Dev server compiles and serves correctly (HTTP 200)
+
+Stage Summary:
+- All detail pages now show child-friendly short summaries by default
+- Full source text available via expandable "📖 Texte complet" accordions
+- Pattern: short summary always visible, full text hidden behind accordion
+- Home page (activeSection === null) was NOT modified
+- All utility components (DailyVerseCard, ThemeToggle, Header, Footer, ChildBubble, SectionHero, ArabicBlock) were NOT modified
