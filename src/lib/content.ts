@@ -308,12 +308,15 @@ S'il le fait de suite avant le long moment, là il est considéré comme le cas 
 
 2️⃣ Ton eau se renverse, et tu mets DU TEMPS avant d'en retrouver → Recommence tout depuis le début 🔄
 
-3️⃣ Tu t'aperçois que tu as OUBLIÉ un PILIER (étape obligatoire : visage, bras, tête, pieds) :
-   → Tout de suite ? Fais l'étape manquante, puis reprends tout ce qui suit ⬅️
-      Exemple : tu as sauté le visage et les bras, tu es passé à la tête et tu t'en rends compte → lave le visage, lave les bras, re-essuie la tête, puis lave les pieds
-   → Plus tard ? Fais juste l'étape manquante ✏️
+3️⃣ Tu t'aperçois que tu as OUBLIÉ une étape :
 
-💡 Si c'est une sunna que tu as oublié (bouche, nez, oreilles) : pas besoin de refaire ce qui suit, fais-la juste quand tu t'en rappelles !
+   a) Tu as oublié une SUNNA (bouche, nez, oreilles) :
+      Exemple : tu as fait bouche → visage → bras → tête, puis tu te rappelles que tu as oublié le nez → fais juste le nez, et continue normalement ✅
+
+   b) Tu as oublié un PILIER obligatoire (visage, bras, tête, pieds) :
+      Exemple : tu as sauté le visage et les bras, tu es passé à la tête et tu t'en rends compte → lave le visage, lave les bras, re-essuie la tête, puis lave les pieds ⬅️
+
+   💡 La différence : pour une sunna, tu la fais et c'est tout. Pour un pilier, tu dois la faire ET refaire tout ce qui suit !
 
 ⚠️ Attention : si tu as prié avec une ablution incomplète (il manquait un pilier), ta prière n'est pas valide. Refais-la ! ❌`,
 };
