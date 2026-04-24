@@ -310,7 +310,7 @@ S'il le fait de suite avant le long moment, là il est considéré comme le cas 
 
 3️⃣ Tu t'aperçois que tu as OUBLIÉ une étape obligatoire :
    → Tout de suite ? Fais l'étape manquante, puis reprends tout ce qui suit ⬅️
-      Exemple : tu viens d'essuyer ta tête et tu te rends compte que tu as oublié de laver tes bras → lave tes bras, puis re-essuie ta tête, puis lave tes pieds
+      Exemple : tu as sauté le visage et les bras, tu es passé à la tête et tu t'en rends compte → lave le visage, lave les bras, re-essuie la tête, puis lave les pieds
    → Plus tard ? Fais juste l'étape manquante ✏️
 
 ⚠️ Attention : si tu as prié avec une ablution incomplète (il manquait un pilier), ta prière n'est pas valide. Refais-la ! ❌`,
