@@ -205,3 +205,72 @@ Stage Summary:
 - Glossary accessible from any page via book icon in header
 - Each rubrique now has a 4-question quiz at the bottom of its detail page
 - 4 new concrete examples added to key sections for better understanding
+
+---
+Task ID: content-update
+Agent: Content Update Agent
+Task: Add couleur fields, quizVF, quizAssociation, bilan quiz, and exemplesEnfant fields to content.ts
+
+Work Log:
+- Read full content.ts (895 lines) and worklog.md to understand structure
+- Added `couleur` field to each rubrique in the `rubriques` array (line 802):
+  - statuts: "blue", purification: "teal", priere: "amber", zakat: "rose", jeune: "orange"
+- Added `quizVF` export (Record<string, { titre: string; questions: { affirmation: string; reponse: boolean; explication: string }[] }>)
+  with 5 rubriques × 4-5 questions each (23 total Vrai/Faux questions)
+- Added `AssociationPair` interface and `quizAssociation` export with 12 terme-définition pairs
+- Added `bilan` key to existing `quizzes` record with 8 cross-rubrique questions
+- Added `exemplesEnfant` field to `priereDhor` (5 concrete prayer examples)
+- Added `exemplesEnfant` field to `zakatIntro` (4 concrete Zakât examples)
+- Added `exemplesEnfant` field to `jeuneIntro` (5 concrete fasting examples)
+- No existing content or field values were modified
+- ESLint: 0 errors, 0 warnings
+- Dev server compiles and returns HTTP 200
+
+Stage Summary:
+- 7 changes applied to content.ts (now 1003 lines, up from 895)
+- 3 new exports: quizVF, quizAssociation, AssociationPair interface
+- 1 new quiz section: bilan (8 cross-rubrique questions in existing quizzes record)
+- 5 new rubrique color values for UI theming
+- 3 new exemplesEnfant fields with concrete, child-friendly examples
+
+---
+Task ID: frontend-update
+Agent: Frontend Update Agent
+Task: Update page.tsx with per-rubrique colors, localStorage persistence, revision mode, VraiFauxQuiz, AssociationQuiz, quiz bilan, and exemplesEnfant display
+
+Work Log:
+- Read full page.tsx (1776 lines), worklog.md, and checked content.ts exports (quizVF, quizAssociation, AssociationPair confirmed available)
+- Added `quizVF` and `quizAssociation` to content imports, added `AssociationPair` to type imports
+- Added `rubriqueColors` mapping object after `statutIcons` with 15 color tokens per rubrique (statuts=blue/indigo, purification=teal/cyan, priere=amber/orange, zakat=rose/pink, jeune=orange/red)
+- Updated `SectionHero` component: added `colorId` prop, uses dynamic gradient from rubriqueColors
+- Updated `ArabicBlock` component: added `colorId` prop, uses dynamic arabicBg/arabicBorder/bgLight for better contrast per section
+- Updated ALL `SectionHero` calls (5 sections) to pass correct colorId
+- Updated ALL `ArabicBlock` calls to pass corresponding colorId
+- Updated home page rubrique cards: dynamic hover border, icon background/text color, card background gradient per rubrique
+- Updated all section detail cards to use section-specific color borders (statuts=blue, purification=teal, priere=amber, zakat=rose, jeune=orange)
+- Added localStorage persistence for `completedSections` using initializer + useEffect save
+- Added `revisionMode` state with toggle button in section detail pages
+- When revision mode ON: hides all "Texte complet" accordions, detailed content blocks, extra cards; shows only ChildBubbles, short summaries, and quizzes
+- Created `VraiFauxQuiz` component with true/false buttons, progress bar, star-based scoring, explanations
+- Created `AssociationQuiz` component with term-definition matching, error animation, completion state
+- Added "Quiz Bilan" card on home page (before topic grid) that opens MiniQuiz with sectionId="bilan"
+- Added AssociationQuiz component to home page
+- Added VraiFauxQuiz + MiniQuiz to end of each section view (5 sections)
+- Added exemplesEnfant display via ChildBubble for priereDhor, zakatIntro, jeuneIntro sections
+- Updated `renderDetailPage` to accept `colorId` parameter, replaced Button-based back/complete with simpler text button + revision toggle
+
+Technical Notes:
+- ESLint: 0 errors, 0 warnings
+- Dev server compiles successfully (HTTP 200)
+- File grew from 1776 to 2238 lines
+- All existing functionality preserved (no breaking changes)
+- VraiFauxQuiz and AssociationQuiz safely return null when quiz data is not available
+- AssociationQuiz uses lazy useState initializer to avoid setState-in-effect lint error
+
+Stage Summary:
+- 10 features implemented: rubrique color system, localStorage persistence, revision mode, VraiFauxQuiz, AssociationQuiz, quiz bilan card, home page association quiz, section quiz additions, exemplesEnfant display, dynamic card colors
+- Each rubrique now has its own color theme: statuts=blue, purification=teal, priere=amber, zakat=rose, jeune=orange
+- Progress is saved to localStorage and restored on page reload
+- Revision mode lets students focus on summaries and quizzes only
+- Home page has Quiz Bilan card and Association Quiz game
+- All section views have both VraiFauxQuiz and MiniQuiz at the bottom

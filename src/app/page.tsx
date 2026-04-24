@@ -72,8 +72,10 @@ import {
   jeuneIntro,
   glossaire,
   quizzes,
+  quizVF,
+  quizAssociation,
 } from "@/lib/content";
-import type { QuizQuestion } from "@/lib/content";
+import type { QuizQuestion, AssociationPair } from "@/lib/content";
 
 // ========================================
 // CONSTANTS & MAPPINGS
@@ -101,6 +103,98 @@ const statutIcons: Record<string, React.ReactNode> = {
   recommande: <ThumbsUp className="w-6 h-6 text-teal-600" />,
   detestable: <AlertTriangle className="w-6 h-6 text-amber-600" />,
   permis: <Info className="w-6 h-6 text-purple-600" />,
+};
+
+// ========================================
+// RUBRIQUE COLOR SYSTEM
+// ========================================
+
+const rubriqueColors: Record<string, { gradient: string; bg: string; bgLight: string; border: string; text: string; textLight: string; badge: string; iconBg: string; iconText: string; hoverBorder: string; cardBg: string; quizBorder: string; quizBg: string; arabicBg: string; arabicBorder: string }> = {
+  statuts: {
+    gradient: "from-blue-500 to-indigo-500",
+    bg: "bg-blue-50 dark:bg-blue-950/20",
+    bgLight: "bg-blue-100/50 dark:bg-blue-900/20",
+    border: "border-blue-200 dark:border-blue-800",
+    text: "text-blue-600 dark:text-blue-400",
+    textLight: "text-blue-500",
+    badge: "text-blue-600 border-blue-200 dark:text-blue-400 dark:border-blue-700",
+    iconBg: "bg-blue-100 dark:bg-blue-900",
+    iconText: "text-blue-600 dark:text-blue-400",
+    hoverBorder: "hover:border-blue-300 dark:hover:border-blue-700",
+    cardBg: "bg-gradient-to-br from-blue-50/50 to-indigo-50/50 dark:from-blue-950/20 dark:to-indigo-950/20",
+    quizBorder: "border-blue-300 dark:border-blue-700",
+    quizBg: "bg-blue-50/50 dark:bg-blue-950/20",
+    arabicBg: "bg-blue-50 dark:bg-blue-950/40",
+    arabicBorder: "border-blue-200 dark:border-blue-800",
+  },
+  purification: {
+    gradient: "from-teal-500 to-cyan-500",
+    bg: "bg-teal-50 dark:bg-teal-950/20",
+    bgLight: "bg-teal-100/50 dark:bg-teal-900/20",
+    border: "border-teal-200 dark:border-teal-800",
+    text: "text-teal-600 dark:text-teal-400",
+    textLight: "text-teal-500",
+    badge: "text-teal-600 border-teal-200 dark:text-teal-400 dark:border-teal-700",
+    iconBg: "bg-teal-100 dark:bg-teal-900",
+    iconText: "text-teal-600 dark:text-teal-400",
+    hoverBorder: "hover:border-teal-300 dark:hover:border-teal-700",
+    cardBg: "bg-gradient-to-br from-teal-50/50 to-cyan-50/50 dark:from-teal-950/20 dark:to-cyan-950/20",
+    quizBorder: "border-teal-300 dark:border-teal-700",
+    quizBg: "bg-teal-50/50 dark:bg-teal-950/20",
+    arabicBg: "bg-teal-50 dark:bg-teal-950/40",
+    arabicBorder: "border-teal-200 dark:border-teal-800",
+  },
+  priere: {
+    gradient: "from-amber-500 to-orange-500",
+    bg: "bg-amber-50 dark:bg-amber-950/20",
+    bgLight: "bg-amber-100/50 dark:bg-amber-900/20",
+    border: "border-amber-200 dark:border-amber-800",
+    text: "text-amber-600 dark:text-amber-400",
+    textLight: "text-amber-500",
+    badge: "text-amber-600 border-amber-200 dark:text-amber-400 dark:border-amber-700",
+    iconBg: "bg-amber-100 dark:bg-amber-900",
+    iconText: "text-amber-600 dark:text-amber-400",
+    hoverBorder: "hover:border-amber-300 dark:hover:border-amber-700",
+    cardBg: "bg-gradient-to-br from-amber-50/50 to-orange-50/50 dark:from-amber-950/20 dark:to-orange-950/20",
+    quizBorder: "border-amber-300 dark:border-amber-700",
+    quizBg: "bg-amber-50/50 dark:bg-amber-950/20",
+    arabicBg: "bg-amber-50 dark:bg-amber-950/40",
+    arabicBorder: "border-amber-200 dark:border-amber-800",
+  },
+  zakat: {
+    gradient: "from-rose-500 to-pink-500",
+    bg: "bg-rose-50 dark:bg-rose-950/20",
+    bgLight: "bg-rose-100/50 dark:bg-rose-900/20",
+    border: "border-rose-200 dark:border-rose-800",
+    text: "text-rose-600 dark:text-rose-400",
+    textLight: "text-rose-500",
+    badge: "text-rose-600 border-rose-200 dark:text-rose-400 dark:border-rose-700",
+    iconBg: "bg-rose-100 dark:bg-rose-900",
+    iconText: "text-rose-600 dark:text-rose-400",
+    hoverBorder: "hover:border-rose-300 dark:hover:border-rose-700",
+    cardBg: "bg-gradient-to-br from-rose-50/50 to-pink-50/50 dark:from-rose-950/20 dark:to-pink-950/20",
+    quizBorder: "border-rose-300 dark:border-rose-700",
+    quizBg: "bg-rose-50/50 dark:bg-rose-950/20",
+    arabicBg: "bg-rose-50 dark:bg-rose-950/40",
+    arabicBorder: "border-rose-200 dark:border-rose-800",
+  },
+  jeune: {
+    gradient: "from-orange-500 to-red-500",
+    bg: "bg-orange-50 dark:bg-orange-950/20",
+    bgLight: "bg-orange-100/50 dark:bg-orange-900/20",
+    border: "border-orange-200 dark:border-orange-800",
+    text: "text-orange-600 dark:text-orange-400",
+    textLight: "text-orange-500",
+    badge: "text-orange-600 border-orange-200 dark:text-orange-400 dark:border-orange-700",
+    iconBg: "bg-orange-100 dark:bg-orange-900",
+    iconText: "text-orange-600 dark:text-orange-400",
+    hoverBorder: "hover:border-orange-300 dark:hover:border-orange-700",
+    cardBg: "bg-gradient-to-br from-orange-50/50 to-red-50/50 dark:from-orange-950/20 dark:to-red-950/20",
+    quizBorder: "border-orange-300 dark:border-orange-700",
+    quizBg: "bg-orange-50/50 dark:bg-orange-950/20",
+    arabicBg: "bg-orange-50 dark:bg-orange-950/40",
+    arabicBorder: "border-orange-200 dark:border-orange-800",
+  },
 };
 
 // ========================================
@@ -244,7 +338,7 @@ const dailyVerses = [
     source: "Al-A'râf 7:56",
   },
   {
-    arabe: "وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ",
+    arabe: "وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقَوَىٰ",
     fr: "Et entraidez-vous dans l'accomplissement des bonnes œuvres et de la piété.",
     source: "Al-Mâ'ida 5:2",
   },
@@ -279,7 +373,6 @@ function DailyVerseCard() {
   const refreshVerse = () => {
     setIsAnimating(true);
     setTimeout(() => {
-      // Pick a random verse different from current
       let next;
       do {
         next = dailyVerses[Math.floor(Math.random() * dailyVerses.length)];
@@ -443,15 +536,18 @@ function SectionHero({
   childExplanation,
   rubrique,
   icon,
+  colorId = "statuts",
 }: {
   title: string;
   childExplanation: string;
   rubrique: number;
   icon: React.ReactNode;
+  colorId?: string;
 }) {
+  const c = rubriqueColors[colorId] || rubriqueColors.statuts;
   return (
     <div className="mb-8">
-      <div className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-2xl p-6 mb-4">
+      <div className={`bg-gradient-to-r ${c.gradient} text-white rounded-2xl p-6 mb-4`}>
         <div className="flex items-center gap-3 mb-3">
           <div className="p-2 bg-white/20 rounded-xl">{icon}</div>
           <div>
@@ -464,7 +560,7 @@ function SectionHero({
         <div className="bg-white/10 rounded-xl p-4 mt-3">
           <div className="flex items-start gap-2">
             <Sparkles className="w-5 h-5 text-yellow-300 mt-0.5 flex-shrink-0" />
-            <p className="text-sm text-emerald-50 leading-relaxed">
+            <p className="text-sm text-white/90 leading-relaxed">
               {childExplanation}
             </p>
           </div>
@@ -474,19 +570,20 @@ function SectionHero({
   );
 }
 
-function ArabicBlock({ arabe, traduction, className = "" }: { arabe: string; traduction?: string; className?: string }) {
+function ArabicBlock({ arabe, traduction, className = "", colorId = "statuts" }: { arabe: string; traduction?: string; className?: string; colorId?: string }) {
+  const c = rubriqueColors[colorId] || rubriqueColors.statuts;
   return (
     <div className={className}>
-      <div className="bg-emerald-50 dark:bg-emerald-950/40 rounded-2xl p-5 mb-3 border border-emerald-100 dark:border-emerald-800">
+      <div className={`${c.arabicBg} rounded-2xl p-5 mb-3 border-l-4 ${c.arabicBorder} shadow-sm`}>
         <p
-          className="text-2xl md:text-3xl text-gray-800 dark:text-gray-100 leading-loose text-right font-medium"
+          className="text-2xl md:text-3xl text-gray-800 dark:text-gray-100 leading-loose text-right font-bold"
           dir="rtl"
         >
           {arabe}
         </p>
       </div>
       {traduction && (
-        <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-3">
+        <div className={`${c.bgLight} rounded-xl p-3`}>
           <p className="text-xs text-gray-400 dark:text-gray-500 font-semibold mb-1 uppercase tracking-wide">
             Traduction
           </p>
@@ -775,21 +872,278 @@ function MiniQuiz({ sectionId }: { sectionId: string }) {
 }
 
 // ========================================
+// VRAI/FAUX QUIZ COMPONENT
+// ========================================
+
+function VraiFauxQuiz({ sectionId }: { sectionId: string }) {
+  const data = quizVF?.[sectionId];
+  const [currentQ, setCurrentQ] = useState(0);
+  const [answered, setAnswered] = useState(false);
+  const [selected, setSelected] = useState<boolean | null>(null);
+  const [score, setScore] = useState(0);
+  const [finished, setFinished] = useState(false);
+
+  if (!data) return null;
+
+  const question = data.questions[currentQ];
+  const handleAnswer = (reponse: boolean) => {
+    if (answered) return;
+    setSelected(reponse);
+    setAnswered(true);
+    if (reponse === question.reponse) setScore((s) => s + 1);
+  };
+
+  const handleNext = () => {
+    if (currentQ < data.questions.length - 1) {
+      setCurrentQ((q) => q + 1);
+      setSelected(null);
+      setAnswered(false);
+    } else {
+      setFinished(true);
+    }
+  };
+
+  const handleRestart = () => {
+    setCurrentQ(0); setSelected(null); setScore(0); setFinished(false); setAnswered(false);
+  };
+
+  const percent = (score / data.questions.length) * 100;
+  const stars = percent >= 100 ? 3 : percent >= 75 ? 2 : percent >= 50 ? 1 : 0;
+
+  return (
+    <Card className="rounded-2xl border-2 border-dashed border-blue-300 dark:border-blue-700 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 dark:from-blue-950/20 dark:to-indigo-950/20 overflow-hidden">
+      <CardHeader className="pb-3">
+        <CardTitle className="text-lg flex items-center gap-2">
+          <CheckCircle2 className="w-5 h-5 text-blue-500" />
+          {data.titre}
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        {!finished ? (
+          <div>
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+                Question {currentQ + 1} / {data.questions.length}
+              </span>
+              <Progress value={((currentQ + 1) / data.questions.length) * 100} className="h-2 w-24" />
+            </div>
+            <p className="text-sm font-semibold text-gray-800 dark:text-gray-100 mb-4 leading-relaxed">
+              {question.affirmation}
+            </p>
+            <div className="grid grid-cols-2 gap-3">
+              <button
+                onClick={() => handleAnswer(true)}
+                disabled={answered}
+                className={`p-4 rounded-xl text-sm font-bold transition-all border-2 ${
+                  !answered ? "border-emerald-300 bg-emerald-50 dark:bg-emerald-950/30 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 cursor-pointer text-emerald-700 dark:text-emerald-300"
+                  : answered && question.reponse === true ? "border-emerald-400 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 ring-2 ring-emerald-400"
+                  : "border-gray-200 dark:border-gray-700 opacity-50"
+                }`}
+              >
+                ✓ Vrai
+              </button>
+              <button
+                onClick={() => handleAnswer(false)}
+                disabled={answered}
+                className={`p-4 rounded-xl text-sm font-bold transition-all border-2 ${
+                  !answered ? "border-red-300 bg-red-50 dark:bg-red-950/30 hover:bg-red-100 dark:hover:bg-red-900/50 cursor-pointer text-red-700 dark:text-red-300"
+                  : answered && question.reponse === false ? "border-red-400 bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 ring-2 ring-red-400"
+                  : "border-gray-200 dark:border-gray-700 opacity-50"
+                }`}
+              >
+                ✗ Faux
+              </button>
+            </div>
+            {answered && (
+              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-4 space-y-3">
+                <div className={`text-sm p-3 rounded-xl ${selected === question.reponse ? "bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-200 border border-emerald-200 dark:border-emerald-800" : "bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-200 border border-amber-200 dark:border-amber-800"}`}>
+                  {selected === question.reponse ? `Bravo ! ${question.explication}` : `Faux ! ${question.explication}`}
+                </div>
+                <Button onClick={handleNext} className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white">
+                  {currentQ < data.questions.length - 1 ? "Question suivante →" : "Voir le résultat 🏆"}
+                </Button>
+              </motion.div>
+            )}
+          </div>
+        ) : (
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-4 space-y-4">
+            <div className="text-4xl">{"⭐".repeat(stars)}{"☆".repeat(3 - stars)}</div>
+            <div>
+              <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">{score} / {data.questions.length}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                {stars === 3 ? "Parfait ! Tu maîtrises ce sujet ! 🎉" : stars === 2 ? "Très bien ! Continue comme ça ! 💪" : stars === 1 ? "Pas mal ! Relis la leçon et réessaie 📖" : "Essaie encore après avoir relu le cours ! 📚"}
+              </p>
+            </div>
+            <Button onClick={handleRestart} variant="outline" className="border-blue-300 dark:border-blue-700 text-blue-600 dark:text-blue-400">
+              <RefreshCw className="w-4 h-4 mr-1" /> Recommencer
+            </Button>
+          </motion.div>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
+
+// ========================================
+// ASSOCIATION QUIZ COMPONENT
+// ========================================
+
+function AssociationQuiz() {
+  const { titre, paires } = quizAssociation;
+  const pairesList = paires as AssociationPair[];
+
+  const [shuffledDefinitions, setShuffledDefinitions] = useState<string[]>(() => {
+    return [...pairesList.map((p) => p.definition)].sort(() => Math.random() - 0.5);
+  });
+  const [matched, setMatched] = useState<Record<string, string>>({});
+  const [selectedTerme, setSelectedTerme] = useState<string | null>(null);
+  const [errors, setErrors] = useState<Set<string>>(new Set());
+
+  if (pairesList.length === 0) return null;
+
+  const handleTermeClick = (terme: string) => {
+    if (matched[terme]) return;
+    setSelectedTerme(terme);
+    setErrors((prev) => { const next = new Set(prev); next.delete(terme); return next; });
+  };
+
+  const handleDefClick = (def: string) => {
+    if (!selectedTerme) return;
+    const correct = pairesList.find((p) => p.terme === selectedTerme);
+    if (correct && correct.definition === def) {
+      setMatched((prev) => ({ ...prev, [selectedTerme]: def }));
+    } else {
+      setErrors((prev) => new Set(prev).add(selectedTerme));
+    }
+    setSelectedTerme(null);
+  };
+
+  const restart = () => {
+    const defs = [...pairesList.map((p) => p.definition)].sort(() => Math.random() - 0.5);
+    setShuffledDefinitions(defs);
+    setMatched({});
+    setSelectedTerme(null);
+    setErrors(new Set());
+  };
+
+  const isComplete = Object.keys(matched).length === pairesList.length;
+
+  return (
+    <Card className="rounded-2xl border-2 border-dashed border-purple-300 dark:border-purple-700 bg-gradient-to-br from-purple-50/50 to-pink-50/50 dark:from-purple-950/20 dark:to-pink-950/20 overflow-hidden">
+      <CardHeader className="pb-3">
+        <CardTitle className="text-lg flex items-center gap-2">
+          <Star className="w-5 h-5 text-purple-500" />
+          {titre}
+        </CardTitle>
+        <p className="text-xs text-gray-500 dark:text-gray-400">Clique sur un terme, puis clique sur sa définition</p>
+      </CardHeader>
+      <CardContent className="space-y-6">
+        {!isComplete ? (
+          <>
+            <div>
+              <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Termes arabes</p>
+              <div className="flex flex-wrap gap-2">
+                {pairesList.map((p) => {
+                  const isMatched = !!matched[p.terme];
+                  const isSelected = selectedTerme === p.terme;
+                  const isError = errors.has(p.terme);
+                  return (
+                    <button
+                      key={p.terme}
+                      onClick={() => handleTermeClick(p.terme)}
+                      disabled={isMatched}
+                      className={`px-3 py-2 rounded-xl text-sm font-bold transition-all border-2 ${
+                        isMatched ? "bg-emerald-100 dark:bg-emerald-900/50 border-emerald-300 dark:border-emerald-700 text-emerald-700 dark:text-emerald-300 opacity-60"
+                        : isSelected ? "bg-purple-100 dark:bg-purple-900/50 border-purple-400 dark:border-purple-600 text-purple-700 dark:text-purple-300 ring-2 ring-purple-400"
+                        : isError ? "bg-red-50 dark:bg-red-900/30 border-red-300 dark:border-red-700 text-red-600 dark:text-red-400 animate-pulse"
+                        : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-700 cursor-pointer text-gray-700 dark:text-gray-300"
+                      }`}
+                    >
+                      {p.terme}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+            <div>
+              <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Définitions</p>
+              <div className="flex flex-wrap gap-2">
+                {shuffledDefinitions.map((def) => {
+                  const isMatched = Object.values(matched).includes(def);
+                  return (
+                    <button
+                      key={def}
+                      onClick={() => handleDefClick(def)}
+                      disabled={isMatched}
+                      className={`px-3 py-2 rounded-xl text-sm transition-all border-2 ${
+                        isMatched ? "bg-emerald-100 dark:bg-emerald-900/50 border-emerald-300 dark:border-emerald-700 text-emerald-700 dark:text-emerald-300 opacity-60"
+                        : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-700 cursor-pointer text-gray-600 dark:text-gray-400"
+                      }`}
+                    >
+                      {def}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+            <Button onClick={restart} variant="outline" className="w-full border-purple-300 dark:border-purple-700 text-purple-600 dark:text-purple-400">
+              <RefreshCw className="w-4 h-4 mr-1" /> Recommencer
+            </Button>
+          </>
+        ) : (
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-4 space-y-4">
+            <div className="text-4xl">🏆</div>
+            <p className="text-lg font-bold text-purple-600 dark:text-purple-400">Bravo ! Tu as tout associé !</p>
+            <Button onClick={restart} variant="outline" className="border-purple-300 dark:border-purple-700 text-purple-600 dark:text-purple-400">
+              <RefreshCw className="w-4 h-4 mr-1" /> Recommencer
+            </Button>
+          </motion.div>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
+
+// ========================================
 // MAIN PAGE COMPONENT
 // ========================================
 
 export default function HomePage() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
-  const [completedSections, setCompletedSections] = useState<string[]>([]);
+  const [completedSections, setCompletedSections] = useState<string[]>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const saved = localStorage.getItem("islam-facile-progress");
+        return saved ? JSON.parse(saved) : [];
+      } catch {
+        return [];
+      }
+    }
+    return [];
+  });
   const [glossaryOpen, setGlossaryOpen] = useState(false);
+  const [revisionMode, setRevisionMode] = useState(false);
+  const [activeBilan, setActiveBilan] = useState(false);
+
+  // Save progress to localStorage
+  useEffect(() => {
+    try {
+      localStorage.setItem("islam-facile-progress", JSON.stringify(completedSections));
+    } catch {
+      // ignore
+    }
+  }, [completedSections]);
 
   const goHome = () => {
     setActiveSection(null);
+    setActiveBilan(false);
+    setRevisionMode(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const goToSection = (id: string) => {
     setActiveSection(id);
+    setActiveBilan(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -802,7 +1156,7 @@ export default function HomePage() {
   const progressPercent = (completedSections.length / rubriques.length) * 100;
 
   // ===================== HOME PAGE =====================
-  if (activeSection === null) {
+  if (activeSection === null && !activeBilan) {
     return (
       <div className="min-h-screen flex flex-col bg-white dark:bg-gray-950">
         <Header onHome={goHome} onGlossary={() => setGlossaryOpen(true)} />
@@ -963,6 +1317,30 @@ export default function HomePage() {
               </Card>
             </motion.div>
 
+            {/* Quiz Bilan Card */}
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.55 }}>
+              <Card
+                className="cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border-2 border-transparent hover:border-amber-300 dark:hover:border-amber-700 group rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20"
+                onClick={() => setActiveBilan(true)}
+              >
+                <CardContent className="pt-5 pb-5 flex items-center gap-4">
+                  <div className="p-3 rounded-xl bg-amber-100 dark:bg-amber-900 text-amber-600 dark:text-amber-400 group-hover:bg-amber-200 dark:group-hover:bg-amber-800 transition-colors">
+                    <Trophy className="w-7 h-7" />
+                  </div>
+                  <div className="flex-1">
+                    <CardTitle className="text-sm font-bold group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">Quiz Bilan</CardTitle>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Teste toutes tes connaissances sur les 5 rubriques !</p>
+                  </div>
+                  <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-amber-500 transition-colors" />
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Association Quiz on Home */}
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.57 }}>
+              <AssociationQuiz />
+            </motion.div>
+
             {/* Topic Cards Grid */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -981,6 +1359,7 @@ export default function HomePage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {rubriques.map((rub, index) => {
                   const isCompleted = completedSections.includes(rub.id);
+                  const rc = rubriqueColors[rub.id];
                   return (
                     <motion.div
                       key={rub.id}
@@ -989,16 +1368,16 @@ export default function HomePage() {
                       transition={{ delay: 0.1 * index }}
                     >
                       <Card
-                        className="cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border-2 border-transparent hover:border-emerald-300 dark:hover:border-emerald-700 group rounded-2xl"
+                        className={`cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border-2 border-transparent ${rc?.hoverBorder || "hover:border-emerald-300 dark:hover:border-emerald-700"} group rounded-2xl ${rc?.cardBg || ""}`}
                         onClick={() => goToSection(rub.id)}
                       >
                         <CardHeader className="pb-2">
                           <div className="flex items-center gap-3">
-                            <div className="p-3 rounded-xl bg-emerald-100 dark:bg-emerald-900 text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-200 dark:group-hover:bg-emerald-800 transition-colors">
+                            <div className={`p-3 rounded-xl ${rc?.iconBg || "bg-emerald-100 dark:bg-emerald-900"} ${rc?.iconText || "text-emerald-600 dark:text-emerald-400"} group-hover:opacity-80 transition-colors`}>
                               {iconMap[rub.icon]}
                             </div>
                             <div className="flex-1 min-w-0">
-                              <CardTitle className="text-sm leading-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                              <CardTitle className={`text-sm leading-tight ${rc?.text || "group-hover:text-emerald-600 dark:group-hover:text-emerald-400"} transition-colors`}>
                                 {rub.titre}
                               </CardTitle>
                             </div>
@@ -1006,7 +1385,7 @@ export default function HomePage() {
                               {isCompleted && (
                                 <CheckCircle2 className="w-5 h-5 text-emerald-500" />
                               )}
-                              <ChevronRight className="w-5 h-5 text-gray-300 dark:text-gray-600 group-hover:text-emerald-500 transition-colors" />
+                              <ChevronRight className={`w-5 h-5 text-gray-300 dark:text-gray-600 ${rc?.text || "group-hover:text-emerald-500"} transition-colors`} />
                             </div>
                           </div>
                         </CardHeader>
@@ -1017,7 +1396,7 @@ export default function HomePage() {
                           <div className="mt-3">
                             <Badge
                               variant="outline"
-                              className="text-xs border-emerald-200 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-50 dark:group-hover:bg-emerald-950 transition-colors"
+                              className={`text-xs ${rc?.badge || "border-emerald-200 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400"} group-hover:bg-emerald-50 dark:group-hover:bg-emerald-950 transition-colors`}
                             >
                               Commencer
                             </Badge>
@@ -1036,6 +1415,25 @@ export default function HomePage() {
     );
   }
 
+  // ===================== BILAN QUIZ VIEW =====================
+  if (activeBilan) {
+    return (
+      <div className="min-h-screen flex flex-col bg-white dark:bg-gray-950">
+        <Header onHome={goHome} onGlossary={() => setGlossaryOpen(true)} />
+        <GlossaryModal open={glossaryOpen} onClose={() => setGlossaryOpen(false)} />
+        <main className="flex-1 max-w-4xl mx-auto px-4 py-8 w-full">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-6">
+            <button onClick={() => setActiveBilan(false)} className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mb-4">
+              <ChevronLeft className="w-4 h-4" /> Retour
+            </button>
+            <MiniQuiz sectionId="bilan" />
+          </motion.div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
   // ===================== DETAIL PAGE WRAPPER =====================
   const renderDetailPage = (
     sectionId: string,
@@ -1043,6 +1441,7 @@ export default function HomePage() {
     title: string,
     childExp: string,
     icon: React.ReactNode,
+    colorId: string,
     content: React.ReactNode
   ) => {
     const isCompleted = completedSections.includes(sectionId);
@@ -1052,36 +1451,17 @@ export default function HomePage() {
         <GlossaryModal open={glossaryOpen} onClose={() => setGlossaryOpen(false)} />
         <main className="flex-1 max-w-4xl mx-auto px-4 py-8 w-full">
           <div className="flex items-center justify-between mb-6">
-            <Button
-              variant="ghost"
-              onClick={goHome}
-              className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-200"
+            <button onClick={goHome} className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+              <ChevronLeft className="w-4 h-4" />
+              Retour
+            </button>
+            <button
+              onClick={() => setRevisionMode(!revisionMode)}
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${revisionMode ? "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300 border border-amber-200 dark:border-amber-700" : "bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400 border border-gray-200 dark:border-gray-700"}`}
             >
-              <ChevronLeft className="w-4 h-4 mr-1" />
-              Accueil
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => toggleComplete(sectionId)}
-              className={
-                isCompleted
-                  ? "bg-emerald-100 text-emerald-700 border-emerald-300 dark:bg-emerald-900 dark:text-emerald-300 dark:border-emerald-700"
-                  : ""
-              }
-            >
-              {isCompleted ? (
-                <>
-                  <CheckCircle2 className="w-4 h-4 mr-1" />
-                  Termine
-                </>
-              ) : (
-                <>
-                  <Star className="w-4 h-4 mr-1" />
-                  Marquer comme termine
-                </>
-              )}
-            </Button>
+              <BookOpen className="w-3.5 h-3.5" />
+              {revisionMode ? "Mode complet" : "Mode révision"}
+            </button>
           </div>
 
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -1090,6 +1470,7 @@ export default function HomePage() {
               childExplanation={childExp}
               rubrique={rubriqueNum}
               icon={icon}
+              colorId={colorId}
             />
             {content}
           </motion.div>
@@ -1105,27 +1486,32 @@ export default function HomePage() {
       "statuts", 27, statutsLegauxIntro.titre,
       statutsLegauxIntro.explicationEnfant,
       <Scale className="w-10 h-10" />,
+      "statuts",
       <div className="space-y-6">
         {/* Intro */}
-        <Card className="rounded-2xl border-emerald-200 dark:border-emerald-800">
+        <Card className="rounded-2xl border-blue-200 dark:border-blue-800">
           <CardContent className="pt-6">
             <ChildBubble text={statutsLegauxIntro.explicationEnfant} />
-            <div className="mt-4">
-              <ShortText short={statutsLegauxIntro.resumeEnfant} full={statutsLegauxIntro.contenu} />
-            </div>
+            {!revisionMode && (
+              <div className="mt-4">
+                <ShortText short={statutsLegauxIntro.resumeEnfant} full={statutsLegauxIntro.contenu} />
+              </div>
+            )}
           </CardContent>
         </Card>
 
         {/* L'intention */}
-        <Card className="rounded-2xl border-teal-200 dark:border-teal-800 bg-teal-50/50 dark:bg-teal-950/20">
+        <Card className="rounded-2xl border-blue-200 dark:border-blue-800 bg-blue-50/50 dark:bg-blue-950/20">
           <CardHeader>
             <CardTitle className="text-lg flex items-center gap-2">
-              <Star className="w-5 h-5 text-teal-500" />
+              <Star className="w-5 h-5 text-blue-500" />
               L&apos;importance de l&apos;intention
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <ShortText short={statutsLegauxIntro.resumeIntention} full={statutsLegauxIntro.intention} />
+            {!revisionMode && (
+              <ShortText short={statutsLegauxIntro.resumeIntention} full={statutsLegauxIntro.intention} />
+            )}
           </CardContent>
         </Card>
 
@@ -1157,13 +1543,15 @@ export default function HomePage() {
                   </CardHeader>
                   <CardContent>
                     <ChildBubble text={item.data.explicationEnfant} />
-                    <div className="mt-3">
-                      <ShortText short={item.data.resumeEnfant} full={item.data.contenu} />
-                    </div>
-                    {item.data.resumeCategories && (
+                    {!revisionMode && (
+                      <div className="mt-3">
+                        <ShortText short={item.data.resumeEnfant} full={item.data.contenu} />
+                      </div>
+                    )}
+                    {!revisionMode && item.data.resumeCategories && (
                       <Accordion type="single" collapsible className="mt-4">
                         <AccordionItem value="details" className="border-0">
-                          <AccordionTrigger className="text-sm text-emerald-600 dark:text-emerald-400 hover:no-underline py-2">
+                          <AccordionTrigger className="text-sm text-blue-600 dark:text-blue-400 hover:no-underline py-2">
                             En savoir plus
                           </AccordionTrigger>
                           <AccordionContent>
@@ -1180,7 +1568,10 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-        <MiniQuiz sectionId="statuts" />
+        <div className="mt-8 space-y-6">
+          <VraiFauxQuiz sectionId="statuts" />
+          <MiniQuiz sectionId="statuts" />
+        </div>
       </div>
     );
   }
@@ -1191,6 +1582,7 @@ export default function HomePage() {
       "purification", 28, purificationIntro.titre,
       purificationIntro.explicationEnfant,
       <Droplets className="w-10 h-10" />,
+      "purification",
       <div className="space-y-6">
         {/* Les Ablutions */}
         <Card className="rounded-2xl border-teal-200 dark:border-teal-800">
@@ -1204,17 +1596,19 @@ export default function HomePage() {
             <ChildBubble text={lesAblutions.explicationEnfant} />
 
             {/* Verset du Coran */}
-            <div className="mt-4 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-xl p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <BookOpen className="w-5 h-5 text-emerald-600" />
-                <span className="font-semibold text-emerald-700 dark:text-emerald-400 text-sm">
-                  Verset du Coran (5:6)
-                </span>
+            {!revisionMode && (
+              <div className="mt-4 bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800 rounded-xl p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <BookOpen className="w-5 h-5 text-teal-600" />
+                  <span className="font-semibold text-teal-700 dark:text-teal-400 text-sm">
+                    Verset du Coran (5:6)
+                  </span>
+                </div>
+                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line italic">
+                  {lesAblutions.versetCoran}
+                </p>
               </div>
-              <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line italic">
-                {lesAblutions.versetCoran}
-              </p>
-            </div>
+            )}
 
             {/* Les 9 étapes */}
             <div className="mt-6">
@@ -1240,7 +1634,7 @@ export default function HomePage() {
                       <p className="text-sm text-gray-700 dark:text-gray-300 mt-1 leading-relaxed">
                         {etape.detailCourt || etape.detail}
                       </p>
-                      {etape.detail && etape.detailCourt && etape.detail !== etape.detailCourt && (
+                      {!revisionMode && etape.detail && etape.detailCourt && etape.detail !== etape.detailCourt && (
                         <Accordion type="single" collapsible className="mt-1">
                           <AccordionItem value="full" className="border-0">
                             <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
@@ -1261,58 +1655,62 @@ export default function HomePage() {
             </div>
 
             {/* Remarques */}
-            <div className="mt-6 space-y-3">
-              <div className="bg-amber-50 dark:bg-amber-950/30 rounded-xl p-4 border border-amber-200 dark:border-amber-800">
-                <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-                  {lesAblutions.resumeRemarques}
+            {!revisionMode && (
+              <div className="mt-6 space-y-3">
+                <div className="bg-amber-50 dark:bg-amber-950/30 rounded-xl p-4 border border-amber-200 dark:border-amber-800">
+                  <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+                    {lesAblutions.resumeRemarques}
+                  </div>
+                  <Accordion type="single" collapsible className="mt-2">
+                    <AccordionItem value="remarques-full" className="border-0">
+                      <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
+                        📖 Texte complet
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
+                          {lesAblutions.remarques}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
                 </div>
-                <Accordion type="single" collapsible className="mt-2">
-                  <AccordionItem value="remarques-full" className="border-0">
-                    <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
-                      📖 Texte complet
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
-                        {lesAblutions.remarques}
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-              </div>
-              <div className="bg-teal-50 dark:bg-teal-950/30 rounded-xl p-4 border border-teal-200 dark:border-teal-800">
-                <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-                  {lesAblutions.resumeRemarquesCoran}
+                <div className="bg-teal-50 dark:bg-teal-950/30 rounded-xl p-4 border border-teal-200 dark:border-teal-800">
+                  <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+                    {lesAblutions.resumeRemarquesCoran}
+                  </div>
+                  <Accordion type="single" collapsible className="mt-2">
+                    <AccordionItem value="coran-full" className="border-0">
+                      <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
+                        📖 Texte complet
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
+                          {lesAblutions.remarquesCoran}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
                 </div>
-                <Accordion type="single" collapsible className="mt-2">
-                  <AccordionItem value="coran-full" className="border-0">
-                    <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
-                      📖 Texte complet
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
-                        {lesAblutions.remarquesCoran}
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
               </div>
-            </div>
+            )}
           </CardContent>
         </Card>
 
         {/* Piliers des ablutions */}
-        <Card className="rounded-2xl border-emerald-200 dark:border-emerald-800">
+        <Card className="rounded-2xl border-teal-200 dark:border-teal-800">
           <CardHeader>
             <CardTitle className="text-lg flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-emerald-500" />
+              <CheckCircle2 className="w-5 h-5 text-teal-500" />
               {piliersAblutions.titre}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <ChildBubble text={piliersAblutions.explicationEnfant} />
-            <div className="mt-4">
-              <ShortText short={piliersAblutions.resumeEnfant} full={piliersAblutions.versets.join('\n\n')} />
-            </div>
+            {!revisionMode && (
+              <div className="mt-4">
+                <ShortText short={piliersAblutions.resumeEnfant} full={piliersAblutions.versets.join('\n\n')} />
+              </div>
+            )}
           </CardContent>
         </Card>
 
@@ -1326,25 +1724,32 @@ export default function HomePage() {
           </CardHeader>
           <CardContent>
             <ChildBubble text={sunnasAblutions.explicationEnfant} />
-            <div className="mt-4">
-              <ShortText short={sunnasAblutions.resumeEnfant} full={sunnasAblutions.versets.join('\n\n')} />
-            </div>
+            {!revisionMode && (
+              <div className="mt-4">
+                <ShortText short={sunnasAblutions.resumeEnfant} full={sunnasAblutions.versets.join('\n\n')} />
+              </div>
+            )}
           </CardContent>
         </Card>
 
         {/* Enchaînement */}
-        <Card className="rounded-2xl border-purple-200 dark:border-purple-800">
-          <CardHeader>
-            <CardTitle className="text-lg flex items-center gap-2">
-              <Info className="w-5 h-5 text-purple-500" />
-              {enchainementAblutions.titre}
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ShortText short={enchainementAblutions.resumeEnfant} full={enchainementAblutions.contenu} />
-          </CardContent>
-        </Card>
-        <MiniQuiz sectionId="purification" />
+        {!revisionMode && (
+          <Card className="rounded-2xl border-teal-200 dark:border-teal-800">
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center gap-2">
+                <Info className="w-5 h-5 text-teal-500" />
+                {enchainementAblutions.titre}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ShortText short={enchainementAblutions.resumeEnfant} full={enchainementAblutions.contenu} />
+            </CardContent>
+          </Card>
+        )}
+        <div className="mt-8 space-y-6">
+          <VraiFauxQuiz sectionId="purification" />
+          <MiniQuiz sectionId="purification" />
+        </div>
       </div>
     );
   }
@@ -1355,18 +1760,19 @@ export default function HomePage() {
       "priere", 29, priereIntro.titre,
       priereIntro.explicationEnfant,
       <Moon className="w-10 h-10" />,
+      "priere",
       <div className="space-y-6">
         {/* Iqama */}
-        <Card className="rounded-2xl border-teal-200 dark:border-teal-800">
+        <Card className="rounded-2xl border-amber-200 dark:border-amber-800">
           <CardHeader>
             <CardTitle className="text-lg flex items-center gap-2">
-              <Volume2 className="w-5 h-5 text-teal-500" />
+              <Volume2 className="w-5 h-5 text-amber-500" />
               {iqama.titre}
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="bg-teal-50 dark:bg-teal-950/40 rounded-xl p-4 mb-4 border border-teal-100 dark:border-teal-800">
-              <p className="text-sm font-semibold text-teal-700 dark:text-teal-400 mb-2">
+            <div className="bg-amber-50 dark:bg-amber-950/40 rounded-xl p-4 mb-4 border border-amber-100 dark:border-amber-800">
+              <p className="text-sm font-semibold text-amber-700 dark:text-amber-400 mb-2">
                 Formule de l&apos;Iqâma :
               </p>
               <p className="text-base text-gray-800 dark:text-gray-200 leading-relaxed whitespace-pre-line font-medium">
@@ -1376,114 +1782,124 @@ export default function HomePage() {
                 {iqama.sourceNote}
               </p>
             </div>
-            <div className="bg-teal-50/70 dark:bg-teal-950/30 rounded-xl p-4">
+            <div className="bg-amber-50/70 dark:bg-amber-950/30 rounded-xl p-4">
               <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
                 {iqama.resumeEnfant}
               </div>
-              <Accordion type="single" collapsible className="mt-2">
-                <AccordionItem value="remarques" className="border-0">
-                  <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
-                    📖 Texte complet
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
-                      {iqama.remarques}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+              {!revisionMode && (
+                <Accordion type="single" collapsible className="mt-2">
+                  <AccordionItem value="remarques" className="border-0">
+                    <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
+                      📖 Texte complet
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
+                        {iqama.remarques}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              )}
             </div>
           </CardContent>
         </Card>
 
         {/* Fatiha */}
-        <Card className="rounded-2xl border-emerald-200 dark:border-emerald-800">
+        <Card className="rounded-2xl border-amber-200 dark:border-amber-800">
           <CardHeader>
             <CardTitle className="text-lg flex items-center gap-2">
-              <BookOpen className="w-5 h-5 text-emerald-500" />
+              <BookOpen className="w-5 h-5 text-amber-500" />
               {fatiha.titre}
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <ArabicBlock arabe={fatiha.arabe} traduction={fatiha.traduction} />
+            <ArabicBlock arabe={fatiha.arabe} traduction={fatiha.traduction} colorId="priere" />
             <p className="text-xs text-gray-500 dark:text-gray-400 italic mt-2">{fatiha.remarqueAmîn}</p>
           </CardContent>
         </Card>
 
         {/* Sourates */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Card className="rounded-2xl border-teal-200 dark:border-teal-800">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">{sourateIkhlas.titre}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ArabicBlock arabe={sourateIkhlas.arabe} traduction={sourateIkhlas.traduction} />
-            </CardContent>
-          </Card>
-          <Card className="rounded-2xl border-teal-200 dark:border-teal-800">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">{sourateNasr.titre}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ArabicBlock arabe={sourateNasr.arabe} traduction={sourateNasr.traduction} />
-            </CardContent>
-          </Card>
-        </div>
+        {!revisionMode && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Card className="rounded-2xl border-amber-200 dark:border-amber-800">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-base">{sourateIkhlas.titre}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ArabicBlock arabe={sourateIkhlas.arabe} traduction={sourateIkhlas.traduction} colorId="priere" />
+              </CardContent>
+            </Card>
+            <Card className="rounded-2xl border-amber-200 dark:border-amber-800">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-base">{sourateNasr.titre}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ArabicBlock arabe={sourateNasr.arabe} traduction={sourateNasr.traduction} colorId="priere" />
+              </CardContent>
+            </Card>
+          </div>
+        )}
 
         {/* Tashahhud du milieu */}
-        <Card className="rounded-2xl border-amber-200 dark:border-amber-800 bg-amber-50/30 dark:bg-amber-950/20">
-          <CardHeader>
-            <CardTitle className="text-lg flex items-center gap-2">
-              <Star className="w-5 h-5 text-amber-500" />
-              {tashahhudMilieu.titre}
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ArabicBlock
-              arabe={tashahhudMilieu.arabe}
-              className="bg-amber-50 dark:bg-amber-950/40 rounded-xl p-4 border border-amber-200 dark:border-amber-800 mb-3"
-            />
-            <p className="text-xs text-gray-500 dark:text-gray-400 italic">{tashahhudMilieu.explication}</p>
-          </CardContent>
-        </Card>
+        {!revisionMode && (
+          <Card className="rounded-2xl border-amber-200 dark:border-amber-800 bg-amber-50/30 dark:bg-amber-950/20">
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center gap-2">
+                <Star className="w-5 h-5 text-amber-500" />
+                {tashahhudMilieu.titre}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ArabicBlock
+                arabe={tashahhudMilieu.arabe}
+                colorId="priere"
+              />
+              <p className="text-xs text-gray-500 dark:text-gray-400 italic">{tashahhudMilieu.explication}</p>
+            </CardContent>
+          </Card>
+        )}
 
         {/* Priere d'Abraham */}
-        <Card className="rounded-2xl border-teal-200 dark:border-teal-800">
-          <CardHeader>
-            <CardTitle className="text-lg flex items-center gap-2">
-              <HeartHandshake className="w-5 h-5 text-teal-500" />
-              {priereAbraham.titre}
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ArabicBlock arabe={priereAbraham.arabe} traduction={priereAbraham.traduction} />
-          </CardContent>
-        </Card>
+        {!revisionMode && (
+          <Card className="rounded-2xl border-amber-200 dark:border-amber-800">
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center gap-2">
+                <HeartHandshake className="w-5 h-5 text-amber-500" />
+                {priereAbraham.titre}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ArabicBlock arabe={priereAbraham.arabe} traduction={priereAbraham.traduction} colorId="priere" />
+            </CardContent>
+          </Card>
+        )}
 
         {/* Tashahhud Final */}
-        <Card className="rounded-2xl border-emerald-300 dark:border-emerald-700 bg-emerald-50/30 dark:bg-emerald-950/20 ring-2 ring-emerald-200 dark:ring-emerald-800">
-          <CardHeader>
-            <CardTitle className="text-lg flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-              {tashahhudFinal.titre}
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <Badge className="mb-3 bg-emerald-100 text-emerald-700 border-emerald-300 dark:bg-emerald-900 dark:text-emerald-300 dark:border-emerald-700">
-              Important
-            </Badge>
-            <ArabicBlock arabe={tashahhudFinal.arabe} />
-            <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line bg-emerald-50 dark:bg-emerald-950/30 rounded-xl p-3 mt-2">
-              {tashahhudFinal.explication}
-            </div>
-          </CardContent>
-        </Card>
+        {!revisionMode && (
+          <Card className="rounded-2xl border-amber-300 dark:border-amber-700 bg-amber-50/30 dark:bg-amber-950/20 ring-2 ring-amber-200 dark:ring-amber-800">
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 text-amber-600" />
+                {tashahhudFinal.titre}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Badge className="mb-3 bg-amber-100 text-amber-700 border-amber-300 dark:bg-amber-900 dark:text-amber-300 dark:border-amber-700">
+                Important
+              </Badge>
+              <ArabicBlock arabe={tashahhudFinal.arabe} colorId="priere" />
+              <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line bg-amber-50 dark:bg-amber-950/30 rounded-xl p-3 mt-2">
+                {tashahhudFinal.explication}
+              </div>
+            </CardContent>
+          </Card>
+        )}
 
         {/* Etapes de la prière */}
-        <Card className="rounded-2xl border-teal-200 dark:border-teal-800">
+        <Card className="rounded-2xl border-amber-200 dark:border-amber-800">
           <CardHeader>
             <CardTitle className="text-xl flex items-center gap-2">
-              <Moon className="w-6 h-6 text-teal-500" />
+              <Moon className="w-6 h-6 text-amber-500" />
               {etapesPriere.titre}
             </CardTitle>
           </CardHeader>
@@ -1491,20 +1907,20 @@ export default function HomePage() {
             <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">{etapesPriere.introduction}</p>
 
             <div className="mb-6">
-              <h4 className="font-bold text-teal-700 dark:text-teal-300 mb-3 flex items-center gap-2">
-                <span className="bg-teal-500 text-white rounded-full w-7 h-7 flex items-center justify-center text-sm">1</span>
+              <h4 className="font-bold text-amber-700 dark:text-amber-300 mb-3 flex items-center gap-2">
+                <span className="bg-amber-500 text-white rounded-full w-7 h-7 flex items-center justify-center text-sm">1</span>
                 {etapesPriere.premiereRaka.titre}
               </h4>
               <div className="space-y-3">
                 {etapesPriere.premiereRaka.etapes.map((etape) => (
-                  <div key={etape.numero} className="flex gap-3 items-start bg-teal-50/70 dark:bg-teal-950/30 rounded-xl p-3">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-500 text-white flex items-center justify-center font-bold text-sm">
+                  <div key={etape.numero} className="flex gap-3 items-start bg-amber-50/70 dark:bg-amber-950/30 rounded-xl p-3">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-sm">
                       {etape.numero}
                     </div>
                     <div>
-                      <h5 className="font-semibold text-teal-800 dark:text-teal-200 text-sm">{etape.titre}</h5>
+                      <h5 className="font-semibold text-amber-800 dark:text-amber-200 text-sm">{etape.titre}</h5>
                       <p className="text-sm text-gray-700 dark:text-gray-300 mt-1 leading-relaxed">{etape.detailCourt || etape.detail}</p>
-                      {etape.detail && etape.detailCourt && etape.detail !== etape.detailCourt && (
+                      {!revisionMode && etape.detail && etape.detailCourt && etape.detail !== etape.detailCourt && (
                         <Accordion type="single" collapsible className="mt-1">
                           <AccordionItem value="full" className="border-0">
                             <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
@@ -1524,77 +1940,90 @@ export default function HomePage() {
               </div>
             </div>
 
-            <hr className="my-4 border-gray-200 dark:border-gray-700" />
+            {!revisionMode && (
+              <>
+                <hr className="my-4 border-gray-200 dark:border-gray-700" />
 
-            <div className="mb-6">
-              <h4 className="font-bold text-teal-700 dark:text-teal-300 mb-3 flex items-center gap-2">
-                <span className="bg-teal-500 text-white rounded-full w-7 h-7 flex items-center justify-center text-sm">2</span>
-                {etapesPriere.deuxiemeRaka.titre}
-              </h4>
-              <div className="bg-teal-50/70 dark:bg-teal-950/30 rounded-xl p-3">
-                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                  {etapesPriere.deuxiemeRaka.detailCourt || etapesPriere.deuxiemeRaka.detail}
-                </p>
-                {etapesPriere.deuxiemeRaka.detail && etapesPriere.deuxiemeRaka.detailCourt && etapesPriere.deuxiemeRaka.detail !== etapesPriere.deuxiemeRaka.detailCourt && (
-                  <Accordion type="single" collapsible className="mt-2">
-                    <AccordionItem value="full" className="border-0">
-                      <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
-                        Détails
-                      </AccordionTrigger>
-                      <AccordionContent>
-                        <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
-                          {etapesPriere.deuxiemeRaka.detail}
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
-                )}
-              </div>
-            </div>
+                <div className="mb-6">
+                  <h4 className="font-bold text-amber-700 dark:text-amber-300 mb-3 flex items-center gap-2">
+                    <span className="bg-amber-500 text-white rounded-full w-7 h-7 flex items-center justify-center text-sm">2</span>
+                    {etapesPriere.deuxiemeRaka.titre}
+                  </h4>
+                  <div className="bg-amber-50/70 dark:bg-amber-950/30 rounded-xl p-3">
+                    <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {etapesPriere.deuxiemeRaka.detailCourt || etapesPriere.deuxiemeRaka.detail}
+                    </p>
+                    {etapesPriere.deuxiemeRaka.detail && etapesPriere.deuxiemeRaka.detailCourt && etapesPriere.deuxiemeRaka.detail !== etapesPriere.deuxiemeRaka.detailCourt && (
+                      <Accordion type="single" collapsible className="mt-2">
+                        <AccordionItem value="full" className="border-0">
+                          <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
+                            Détails
+                          </AccordionTrigger>
+                          <AccordionContent>
+                            <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
+                              {etapesPriere.deuxiemeRaka.detail}
+                            </div>
+                          </AccordionContent>
+                        </AccordionItem>
+                      </Accordion>
+                    )}
+                  </div>
+                </div>
+              </>
+            )}
           </CardContent>
         </Card>
 
         {/* Priere de Dhor */}
-        <Card className="rounded-2xl border-2 border-teal-300 dark:border-teal-700 bg-teal-50/20 dark:bg-teal-950/20">
+        <Card className="rounded-2xl border-2 border-amber-300 dark:border-amber-700 bg-amber-50/20 dark:bg-amber-950/20">
           <CardHeader>
-            <CardTitle className="text-xl flex items-center gap-2 text-teal-800 dark:text-teal-200">
-              <Sparkles className="w-6 h-6 text-teal-500" />
+            <CardTitle className="text-xl flex items-center gap-2 text-amber-800 dark:text-amber-200">
+              <Sparkles className="w-6 h-6 text-amber-500" />
               {priereDhor.titre}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <ChildBubble text={priereDhor.explicationEnfant} />
-            <div className="mt-4">
-              <ShortText short={priereDhor.resumeEnfant} full={priereDhor.contenu} />
-            </div>
-            <div className="mt-6 space-y-4">
-              {priereDhor.etapesDetaillees.map((rakat) => (
-                <div key={rakat.rakat}>
-                  <h4 className="font-bold text-teal-700 dark:text-teal-300 mb-2 flex items-center gap-2">
-                    <span className="bg-teal-500 text-white rounded-full w-7 h-7 flex items-center justify-center text-sm">
-                      {rakat.rakat}
-                    </span>
-                    {rakat.titre}
-                  </h4>
-                  <div className="space-y-2">
-                    {rakat.etapes.map((etape, idx) => (
-                      <div key={idx} className="flex gap-2 items-start bg-teal-50/70 dark:bg-teal-950/30 rounded-lg p-2 text-sm">
-                        <ChevronRight className="w-4 h-4 text-teal-400 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700 dark:text-gray-300">{etape}</span>
-                      </div>
-                    ))}
+            {!revisionMode && (
+              <div className="mt-4">
+                <ShortText short={priereDhor.resumeEnfant} full={priereDhor.contenu} />
+              </div>
+            )}
+            {!revisionMode && (priereDhor as Record<string, unknown>).exemplesEnfant && (
+              <div className="mt-4">
+                <ChildBubble text={(priereDhor as Record<string, unknown>).exemplesEnfant as string} />
+              </div>
+            )}
+            {!revisionMode && (
+              <div className="mt-6 space-y-4">
+                {priereDhor.etapesDetaillees.map((rakat) => (
+                  <div key={rakat.rakat}>
+                    <h4 className="font-bold text-amber-700 dark:text-amber-300 mb-2 flex items-center gap-2">
+                      <span className="bg-amber-500 text-white rounded-full w-7 h-7 flex items-center justify-center text-sm">
+                        {rakat.rakat}
+                      </span>
+                      {rakat.titre}
+                    </h4>
+                    <div className="space-y-2">
+                      {rakat.etapes.map((etape, idx) => (
+                        <div key={idx} className="flex gap-2 items-start bg-amber-50/70 dark:bg-amber-950/30 rounded-lg p-2 text-sm">
+                          <ChevronRight className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-700 dark:text-gray-300">{etape}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </CardContent>
         </Card>
 
         {/* Les 5 prières */}
-        <Card className="rounded-2xl border-teal-200 dark:border-teal-800">
+        <Card className="rounded-2xl border-amber-200 dark:border-amber-800">
           <CardHeader>
             <CardTitle className="text-xl flex items-center gap-2">
-              <Sun className="w-6 h-6 text-teal-500" />
+              <Sun className="w-6 h-6 text-amber-500" />
               {cinqPrieres.titre}
             </CardTitle>
           </CardHeader>
@@ -1605,7 +2034,7 @@ export default function HomePage() {
                   <AccordionItem value={`priere-${idx}`} className="border rounded-xl px-3">
                     <AccordionTrigger className="hover:no-underline py-3">
                       <div className="flex items-center gap-3 text-left">
-                        <div className="w-8 h-8 rounded-full bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 flex items-center justify-center font-bold text-sm flex-shrink-0">
+                        <div className="w-8 h-8 rounded-full bg-amber-100 dark:bg-amber-900 text-amber-700 dark:text-amber-300 flex items-center justify-center font-bold text-sm flex-shrink-0">
                           {idx + 1}
                         </div>
                         <div>
@@ -1621,7 +2050,7 @@ export default function HomePage() {
                       <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line pb-2 pl-11">
                         {p.detailCourt || p.detail}
                       </div>
-                      {p.detail && p.detailCourt && p.detail !== p.detailCourt && (
+                      {!revisionMode && p.detail && p.detailCourt && p.detail !== p.detailCourt && (
                         <Accordion type="single" collapsible className="pl-11">
                           <AccordionItem value="full" className="border-0">
                             <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
@@ -1641,45 +2070,50 @@ export default function HomePage() {
               ))}
             </div>
 
-            <div className="my-4 space-y-3">
-              <div className="bg-teal-50 dark:bg-teal-950/30 rounded-xl p-4">
-                <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-                  {cinqPrieres.resumeVoix}
+            {!revisionMode && (
+              <div className="my-4 space-y-3">
+                <div className="bg-amber-50 dark:bg-amber-950/30 rounded-xl p-4">
+                  <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+                    {cinqPrieres.resumeVoix}
+                  </div>
+                  <Accordion type="single" collapsible className="mt-2">
+                    <AccordionItem value="voix-full" className="border-0">
+                      <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
+                        📖 Texte complet
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
+                          {cinqPrieres.notesVoix}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
                 </div>
-                <Accordion type="single" collapsible className="mt-2">
-                  <AccordionItem value="voix-full" className="border-0">
-                    <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
-                      📖 Texte complet
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
-                        {cinqPrieres.notesVoix}
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-              </div>
-              <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4">
-                <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-                  {cinqPrieres.resumePosition}
+                <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4">
+                  <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+                    {cinqPrieres.resumePosition}
+                  </div>
+                  <Accordion type="single" collapsible className="mt-2">
+                    <AccordionItem value="position-full" className="border-0">
+                      <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
+                        📖 Texte complet
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
+                          {cinqPrieres.positionAssise}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
                 </div>
-                <Accordion type="single" collapsible className="mt-2">
-                  <AccordionItem value="position-full" className="border-0">
-                    <AccordionTrigger className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:no-underline py-1">
-                      📖 Texte complet
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
-                        {cinqPrieres.positionAssise}
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
               </div>
-            </div>
+            )}
           </CardContent>
         </Card>
-        <MiniQuiz sectionId="priere" />
+        <div className="mt-8 space-y-6">
+          <VraiFauxQuiz sectionId="priere" />
+          <MiniQuiz sectionId="priere" />
+        </div>
       </div>
     );
   }
@@ -1690,64 +2124,82 @@ export default function HomePage() {
       "zakat", 30, zakatIntro.titre,
       zakatIntro.explicationEnfant,
       <HeartHandshake className="w-10 h-10" />,
+      "zakat",
       <div className="space-y-6">
-        <Card className="rounded-2xl border-emerald-200 dark:border-emerald-800">
+        <Card className="rounded-2xl border-rose-200 dark:border-rose-800">
           <CardContent className="pt-6">
             <ChildBubble text={zakatIntro.explicationEnfant} />
-            <div className="mt-4">
-              <ShortText short={zakatIntro.resumeEnfant} full={zakatIntro.contenu} />
-            </div>
+            {!revisionMode && (
+              <div className="mt-4">
+                <ShortText short={zakatIntro.resumeEnfant} full={zakatIntro.contenu} />
+              </div>
+            )}
           </CardContent>
         </Card>
 
-        <Card className="rounded-2xl border-teal-200 dark:border-teal-800">
+        <Card className="rounded-2xl border-rose-200 dark:border-rose-800">
           <CardHeader>
             <CardTitle className="text-lg flex items-center gap-2">
-              <Scale className="w-5 h-5 text-teal-500" />
+              <Scale className="w-5 h-5 text-rose-500" />
               Le Niçâb (minimum imposable)
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <ShortText short={zakatIntro.resumeNisab} full={zakatIntro.nisab} />
+            {!revisionMode && (
+              <ShortText short={zakatIntro.resumeNisab} full={zakatIntro.nisab} />
+            )}
           </CardContent>
         </Card>
 
-        <Card className="rounded-2xl border-amber-200 dark:border-amber-800">
+        <Card className="rounded-2xl border-rose-200 dark:border-rose-800">
           <CardHeader>
             <CardTitle className="text-lg flex items-center gap-2">
-              <Star className="w-5 h-5 text-amber-500" />
+              <Star className="w-5 h-5 text-rose-500" />
               Exemples de calcul
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <ShortText short={zakatIntro.resumeExemplesCalcul} full={zakatIntro.exemplesCalcul} />
+            {!revisionMode && (
+              <ShortText short={zakatIntro.resumeExemplesCalcul} full={zakatIntro.exemplesCalcul} />
+            )}
           </CardContent>
         </Card>
 
-        <Card className="rounded-2xl border-purple-200 dark:border-purple-800">
+        {!revisionMode && (zakatIntro as Record<string, unknown>).exemplesEnfant && (
+          <ChildBubble text={(zakatIntro as Record<string, unknown>).exemplesEnfant as string} />
+        )}
+
+        <Card className="rounded-2xl border-rose-200 dark:border-rose-800">
           <CardHeader>
             <CardTitle className="text-lg flex items-center gap-2">
-              <HeartHandshake className="w-5 h-5 text-purple-500" />
+              <HeartHandshake className="w-5 h-5 text-rose-500" />
               À qui donner la Zakât ?
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <ShortText short={zakatIntro.resumeAQuiDonner} full={zakatIntro.aQuiDonner} />
+            {!revisionMode && (
+              <ShortText short={zakatIntro.resumeAQuiDonner} full={zakatIntro.aQuiDonner} />
+            )}
           </CardContent>
         </Card>
 
-        <Card className="rounded-2xl border-teal-200 dark:border-teal-800">
-          <CardHeader>
-            <CardTitle className="text-lg flex items-center gap-2">
-              <BookOpen className="w-5 h-5 text-teal-500" />
-              Spécificités de l&apos;école malikite
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ShortText short={zakatIntro.resumeSpecificsMalikite} full={zakatIntro.specificsMalikite} />
-          </CardContent>
-        </Card>
-        <MiniQuiz sectionId="zakat" />
+        {!revisionMode && (
+          <Card className="rounded-2xl border-rose-200 dark:border-rose-800">
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center gap-2">
+                <BookOpen className="w-5 h-5 text-rose-500" />
+                Spécificités de l&apos;école malikite
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ShortText short={zakatIntro.resumeSpecificsMalikite} full={zakatIntro.specificsMalikite} />
+            </CardContent>
+          </Card>
+        )}
+        <div className="mt-8 space-y-6">
+          <VraiFauxQuiz sectionId="zakat" />
+          <MiniQuiz sectionId="zakat" />
+        </div>
       </div>
     );
   }
@@ -1758,16 +2210,26 @@ export default function HomePage() {
       "jeune", 31, jeuneIntro.titre,
       jeuneIntro.explicationEnfant,
       <Sun className="w-10 h-10" />,
+      "jeune",
       <div className="space-y-6">
-        <Card className="rounded-2xl border-amber-200 dark:border-amber-800">
+        <Card className="rounded-2xl border-orange-200 dark:border-orange-800">
           <CardContent className="pt-6">
             <ChildBubble text={jeuneIntro.explicationEnfant} />
-            <div className="mt-4 text-sm text-gray-600 dark:text-gray-400 leading-relaxed text-center">
-              Le contenu détaillé sera ajouté progressivement.
-            </div>
+            {!revisionMode && (
+              <div className="mt-4 text-sm text-gray-600 dark:text-gray-400 leading-relaxed text-center">
+                Le contenu détaillé sera ajouté progressivement.
+              </div>
+            )}
           </CardContent>
         </Card>
-        <MiniQuiz sectionId="jeune" />
+
+        {!revisionMode && (jeuneIntro as Record<string, unknown>).exemplesEnfant && (
+          <ChildBubble text={(jeuneIntro as Record<string, unknown>).exemplesEnfant as string} />
+        )}
+        <div className="mt-8 space-y-6">
+          <VraiFauxQuiz sectionId="jeune" />
+          <MiniQuiz sectionId="jeune" />
+        </div>
       </div>
     );
   }

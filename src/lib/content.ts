@@ -560,6 +560,12 @@ Dans la prière en groupe derrière l'Imâm, en plus de ce premier Salâm (qui e
 • Après la 2ème : Tashahhud du milieu, puis se lever
 • 3ème et 4ème : Fâtiha SEULEMENT (pas de sourate)
 • À la fin : Tashahhud FINAL complet + Salâm à droite 👋`,
+  exemplesEnfant: `💡 Exemples concrets :
+• Tu pries le Fajr (2 Rak'at) : tu fais la Fâtiha + sourate dans la 1ère et la 2ème Rak'a, puis le Tashahhud final + prière sur le Prophète + Salâm ✅
+• Tu oublies de dire Âmîn après la Fâtiha → ta prière est toujours valide (c'est recommandé, pas obligatoire) ✅
+• Tu es l'Imâm et tu finis la prière → tu fais le Salâm à droite seulement (pas à gauche) ✅
+• Tu pries seul chez toi → tu fais l'Iqâma à voix basse, puis tu commences 🤫
+• Tu pries le Maghrib (3 Rak'at) : les 2 premières avec Fâtiha + sourate, la 3ème avec juste la Fâtiha 🌙`,
   etapesDetaillees: [
     {
       rakat: 1,
@@ -782,6 +788,11 @@ Il est détestable de dire aux pauvres et nécessiteux qu'il s'agit de la zakât
 • Pas de Zakât sur les chevaux 🐎
 • Pas de Zakât sur le miel, les fruits frais et les légumes (sauf pour vendre) 🍯
 • Détestable de dire "c'est la Zakât" en donnant aux pauvres 🤫`,
+  exemplesEnfant: `💡 Exemples concrets :
+• Ton père a économisé 5000 euros pendant 1 an → il doit calculer 2,5% de Zakât = 125 euros à donner aux pauvres 💰
+• Tu as 50 euros d'économie → 50 x 2,5% = 1,25 euro. Ça fait peu mais c'est important ! 🪙
+• La Zakât se donne chaque année, pas chaque mois 📅
+• On peut la donner en nourriture, en vêtements ou en argent 🍚`,
 };
 
 
@@ -796,15 +807,21 @@ export const jeuneIntro = {
   // Note: Le contenu détaillé des sous-pages doit être fetché séparément
   // Les sous-pages incluent : Introduction, Traduction des vers d'Ibn Ashir, Croyants concernés,
   // Quand est-il interdit de jeûner, Expiation ou rattrapage, etc.
+  exemplesEnfant: `💡 Exemples concrets :
+• Tu as 10 ans et tu veux jeûner → c'est bien pour s'entraîner ! Mais ce n'est pas obligatoire encore 👦
+• Tu as 13 ans et tu es pubère → le jeûne du Ramadan est OBLIGATOIRE pour toi ⚡
+• Tu as accidentellement bu de l'eau → ton jeûne est annulé, tu rattraperas ce jour après le Ramadan 🔄
+• Le Suhûr (repas avant l'aube) te donne de l'énergie pour la journée → c'est une Sunna à ne pas rater ! 🌅
+• Pendant le jeûne, on ne mange pas, on ne boit pas, et on ne se dispute pas 🤫`,
 };
 
 // Toutes les rubriques disponibles
 export const rubriques = [
-  { id: "statuts", titre: "Les statuts légaux en Islam", icon: "scale", rubrique: 27, description: "Apprends les 5 statuts : obligatoire, interdit, recommandé, détestable et permis" },
-  { id: "purification", titre: "La purification rituelle", icon: "droplets", rubrique: 28, description: "Apprends comment faire les ablutions et être pur avant de prier" },
-  { id: "priere", titre: "La prière canonique", icon: "moon", rubrique: 29, description: "Apprends comment prier avec toutes les étapes et le Tashahhud" },
-  { id: "zakat", titre: "La Zakât", icon: "heart-handshake", rubrique: 30, description: "Apprends ce qu'est l'aumône obligatoire et à qui la donner" },
-  { id: "jeune", titre: "Le jeûne du Ramadan", icon: "sun", rubrique: 31, description: "Découvrez le jeûne du mois de Ramadan et ses règles" },
+  { id: "statuts", titre: "Les statuts légaux en Islam", icon: "scale", rubrique: 27, description: "Apprends les 5 statuts : obligatoire, interdit, recommandé, détestable et permis", couleur: "blue" as const },
+  { id: "purification", titre: "La purification rituelle", icon: "droplets", rubrique: 28, description: "Apprends comment faire les ablutions et être pur avant de prier", couleur: "teal" as const },
+  { id: "priere", titre: "La prière canonique", icon: "moon", rubrique: 29, description: "Apprends comment prier avec toutes les étapes et le Tashahhud", couleur: "amber" as const },
+  { id: "zakat", titre: "La Zakât", icon: "heart-handshake", rubrique: 30, description: "Apprends ce qu'est l'aumône obligatoire et à qui la donner", couleur: "rose" as const },
+  { id: "jeune", titre: "Le jeûne du Ramadan", icon: "sun", rubrique: 31, description: "Découvrez le jeûne du mois de Ramadan et ses règles", couleur: "orange" as const },
 ];
 
 // ========================================
@@ -891,4 +908,96 @@ export const quizzes: Record<string, { titre: string; questions: QuizQuestion[] 
       { question: "Les enfants doivent-ils jeûner ?", options: ["Oui, toujours", "Non, jamais", "Ce n'est pas obligatoire avant la puberté", "Seulement le vendredi"], correctIndex: 2, explication: "Le jeûne n'est obligatoire qu'à partir de la puberté" },
     ],
   },
+  bilan: {
+    titre: "Quiz Bilan — Teste tout ce que tu sais !",
+    questions: [
+      { question: "Combien y a-t-il de piliers dans les ablutions ?", options: ["5", "6", "7", "8"], correctIndex: 2, explication: "Les ablutions ont 7 piliers : frottement, enchaînement, intention, visage, bras, tête, pieds." },
+      { question: "Quel est le statut légal de l'acte qu'on ne doit PAS faire mais qui n'est pas un péché grave ?", options: ["Harâm", "Makrûh", "Fard", "Sunna"], correctIndex: 1, explication: "Le Makrûh est détestable. L'éviter est récompensé, le faire n'est pas un péché grave." },
+      { question: "Combien de fois lave-t-on les pieds dans les ablutions ?", options: ["3 fois", "2 fois", "1 seule fois", "Ça dépend"], correctIndex: 2, explication: "Les pieds se lavent 1 SEULE fois, contrairement aux autres membres du corps." },
+      { question: "Que signifie Fard 'Ayn ?", options: ["Obligation communautaire", "Acte recommandé", "Obligation individuelle", "Acte interdit"], correctIndex: 2, explication: "Fard 'Ayn = obligation que CHAQUE musulman doit faire individuellement (comme les 5 prières)." },
+      { question: "Quand on prie seul, à quelle voix fait-on l'Iqâma ?", options: ["Haute", "Basse", "On ne la fait pas", "Moyenne"], correctIndex: 1, explication: "Selon la Mudawwana de Sahnûn, l'homme qui prie seul fait l'Iqâma à voix basse." },
+      { question: "Le Tashahhud du milieu a été choisi par l'Imâm Mâlik. De qui est-il ?", options: ["Du Prophète directement", "De 'Umar", "D'Abû Bakr", "D'Alî"], correctIndex: 1, explication: "C'est le tashahhud de 'Umar qu'il enseignait aux gens depuis le minbar." },
+      { question: "Si tu oublies de laver ton visage (pilier) pendant les ablutions, que fais-tu ?", options: ["Rien, c'est juste une sunna", "Laver le visage et refaire tout ce qui suit", "Recommencer tout depuis le début", "Juste laver le visage"], correctIndex: 1, explication: "Pour un pilier oublié, tu dois le faire ET refaire tout ce qui suit (visage → bras → tête → pieds)." },
+      { question: "La Zakât est le quel pilier de l'Islam ?", options: ["2ème", "3ème", "4ème", "5ème"], correctIndex: 1, explication: "La Zakât est le 3ème pilier de l'Islam, entre la prière et le jeûne." },
+    ],
+  },
+};
+
+// ========================================
+// QUIZ VRAI/FAUX
+// ========================================
+
+export const quizVF: Record<string, { titre: string; questions: { affirmation: string; reponse: boolean; explication: string }[] }> = {
+  statuts: {
+    titre: "Vrai ou Faux — Les statuts légaux",
+    questions: [
+      { affirmation: "Le Fard 'Ayn est une obligation que toute la communauté doit faire ensemble", reponse: false, explication: "Non ! Le Fard 'Ayn est une obligation INDIVIDUELLE. C'est le Fard Kifâya qui est communautaire." },
+      { affirmation: "Si on fait un acte Harâm et qu'on demande pardon sincèrement, Allah nous pardonne", reponse: true, explication: "Oui ! Allah est Très Miséricordieux. Mais il ne faut pas abuser de Sa miséricorde." },
+      { affirmation: "Le Makrûh est interdit en Islam", reponse: false, explication: "Non ! Le Makrûh est détestable mais PAS interdit. Si on le fait, ce n'est pas un péché grave." },
+      { affirmation: "Le Mubâh = ni obligatoire ni interdit", reponse: true, explication: "Exactement ! Le Mubâh est permis. On peut le faire ou pas, c'est égal." },
+      { affirmation: "Sourire à quelqu'un est une Sunna", reponse: true, explication: "Oui ! C'est un acte recommandé. Tu es récompensé si tu le fais, pas péché si tu ne le fais pas." },
+    ],
+  },
+  purification: {
+    titre: "Vrai ou Faux — La purification",
+    questions: [
+      { affirmation: "Laver le visage est un pilier (wâjib) des ablutions", reponse: true, explication: "Oui ! C'est le pilier numéro 4 sur 7." },
+      { affirmation: "Il faut laver les pieds 3 fois comme les bras", reponse: false, explication: "Non ! Les pieds se lavent 1 SEULE fois. C'est les bras qu'on lave 3 fois." },
+      { affirmation: "Rincer la bouche est un pilier des ablutions", reponse: false, explication: "Non ! Rincer la bouche est une SUNNA, pas un pilier. Si tu l'oublies, tes ablutions sont valides." },
+      { affirmation: "Si ton eau se renverse et tu en retrouves tout de suite, tu continues où tu en étais", reponse: true, explication: "Oui ! C'est le cas numéro 1 de l'enchaînement." },
+      { affirmation: "On peut toucher le Coran en français sans ablutions", reponse: true, explication: "Oui ! Le Coran traduit en français peut être touché même sans woudou." },
+    ],
+  },
+  priere: {
+    titre: "Vrai ou Faux — La prière",
+    questions: [
+      { affirmation: "Le Salâm (fin de la prière) se dit une fois à droite et c'est obligatoire", reponse: true, explication: "Oui ! Le Salâm est Fard (obligatoire). En groupe on peut aussi le faire à gauche (sunna)." },
+      { affirmation: "La Fâtiha se lit dans les 4 Rak'at de la prière du Zuhr", reponse: false, explication: "Non ! On lit la Fâtiha + une sourate dans les 2 premières Rak'at seulement. Les 2 dernières, juste la Fâtiha." },
+      { affirmation: "Celui qui prie seul ne fait pas le Salâm à gauche", reponse: true, explication: "Exactement ! Seul l'Imâm le fait en face, et le dirigé le fait à gauche." },
+      { affirmation: "L'Iqâma se fait à voix haute même quand on prie seul", reponse: false, explication: "Non ! Quand on prie seul, l'Iqâma se fait à voix basse." },
+      { affirmation: "On doit réciter la Fâtiha dans chaque Rak'a", reponse: true, explication: "Oui ! La Fâtiha est obligatoire dans chaque Rak'a de la prière." },
+    ],
+  },
+  zakat: {
+    titre: "Vrai ou Faux — La Zakât",
+    questions: [
+      { affirmation: "La Zakât est la 3ème pilier de l'Islam", reponse: true, explication: "Oui ! C'est le pilier entre la prière et le jeûne." },
+      { affirmation: "La Zakât se donne seulement pendant le Ramadan", reponse: false, explication: "Non ! La Zakât se donne quand les conditions sont remplies, pas seulement pendant le Ramadan." },
+      { affirmation: "On ne donne la Zakât que sous forme d'argent", reponse: false, explication: "Non ! La Zakât peut se donner en argent, en nourriture, en bétail selon ce qu'on possède." },
+      { affirmation: "Celui qui possède le Nisab (montant minimum) doit payer la Zakât", reponse: true, explication: "Oui ! Le Nisab est le seuil à partir duquel la Zakât devient obligatoire." },
+    ],
+  },
+  jeune: {
+    titre: "Vrai ou Faux — Le jeûne",
+    questions: [
+      { affirmation: "Le jeûne du Ramadan est obligatoire pour chaque musulman pubère", reponse: true, explication: "Oui ! C'est un Fard 'Ayn pour tout musulman responsable (pubère et sain d'esprit)." },
+      { affirmation: "Les enfants de 10 ans doivent jeûner le Ramadan complet", reponse: false, explication: "Non ! Le jeûne n'est obligatoire qu'à partir de la puberté. Avant, c'est pour s'entraîner." },
+      { affirmation: "Manger ou boire intentionnellement annule le jeûne", reponse: true, explication: "Oui ! C'est l'un des annulatifs principaux du jeûne." },
+      { affirmation: "Le Suhûr (repas avant l'aube) est obligatoire", reponse: false, explication: "Non ! Le Suhûr est fortement recommandé (Sunna) mais pas obligatoire." },
+    ],
+  },
+};
+
+// ========================================
+// QUIZ ASSOCIATION DE TERMES
+// ========================================
+
+export interface AssociationPair { terme: string; definition: string }
+
+export const quizAssociation: { titre: string; paires: AssociationPair[] } = {
+  titre: "Associe chaque terme à sa définition",
+  paires: [
+    { terme: "Fard", definition: "Obligatoire" },
+    { terme: "Harâm", definition: "Interdit" },
+    { terme: "Sunna", definition: "Recommandé" },
+    { terme: "Makrûh", definition: "Détestable" },
+    { terme: "Mubâh", definition: "Permis" },
+    { terme: "Wudû'", definition: "Petites ablutions" },
+    { terme: "Ghusl", definition: "Grande ablution" },
+    { terme: "Rak'a", definition: "Unité de prière" },
+    { terme: "Sujûd", definition: "Prosternation" },
+    { terme: "Niyya", definition: "Intention" },
+    { terme: "Iqâma", definition: "Annonce avant la prière" },
+    { terme: "Tayammum", definition: "Ablution sèche (avec de la terre)" },
+  ],
 };
