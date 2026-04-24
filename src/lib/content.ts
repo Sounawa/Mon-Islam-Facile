@@ -157,7 +157,7 @@ Ce verset cite exclusivement les obligations de l'ablution humide (woudou).`,
     {
       numero: 9,
       titre: "Pieds",
-      detail: `Laver et frictionner avec de l'eau tout le pied incluant les chevilles en commençant par le côté droit (le pied droit). Faire ceci 3 fois pour chaque pied.`
+      detail: `Laver et frictionner avec de l'eau tout le pied incluant les chevilles en commençant par le côté droit (le pied droit). Faire ceci une seule fois pour chaque pied.`
     },
   ],
   remarques: `Remarques importantes :
