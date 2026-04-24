@@ -308,10 +308,12 @@ S'il le fait de suite avant le long moment, là il est considéré comme le cas 
 
 2️⃣ Ton eau se renverse, et tu mets DU TEMPS avant d'en retrouver → Recommence tout depuis le début 🔄
 
-3️⃣ Tu t'aperçois que tu as OUBLIÉ une étape obligatoire :
+3️⃣ Tu t'aperçois que tu as OUBLIÉ un PILIER (étape obligatoire : visage, bras, tête, pieds) :
    → Tout de suite ? Fais l'étape manquante, puis reprends tout ce qui suit ⬅️
       Exemple : tu as sauté le visage et les bras, tu es passé à la tête et tu t'en rends compte → lave le visage, lave les bras, re-essuie la tête, puis lave les pieds
    → Plus tard ? Fais juste l'étape manquante ✏️
+
+💡 Si c'est une sunna que tu as oublié (bouche, nez, oreilles) : pas besoin de refaire ce qui suit, fais-la juste quand tu t'en rappelles !
 
 ⚠️ Attention : si tu as prié avec une ablution incomplète (il manquait un pilier), ta prière n'est pas valide. Refais-la ! ❌`,
 };
