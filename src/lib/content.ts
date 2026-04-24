@@ -59,7 +59,8 @@ Une obligation communautaire (solidaire) ou « exonératoire » (fardu kifâya) 
 • Si on le fait → récompense ✅
 • Si on ne le fait pas → péché ❌
 • 2 types : individuel (chacun doit faire) et communautaire (si quelqu'un le fait, c'est bon pour tous)
-• Exemples : les 5 prières, le jeûne du Ramadan, la Zakât`,
+• Exemples : les 5 prières, le jeûne du Ramadan, la Zakât
+• Exemple : la prière du Fajr est un Fard 'Ayn — chaque musulman doit la faire`,
 };
 
 export const statutIllicite = {
@@ -98,7 +99,8 @@ Et une Sunna communautaire (solidaire) ou « exonératoire » : il suffit que qu
 • Si on le fait → récompense ✅
 • Si on ne le fait pas → pas de péché ✅
 • C'est pour suivre l'exemple du Prophète ﷺ
-• Exemples : prier le Witr, saluer les gens, les prières sunnas`,
+• Exemples : prier le Witr, saluer les gens, les prières sunnas
+• Exemple : sourire à quelqu'un est une Sunna — tu es récompensé si tu le fais, pas péché si tu ne le fais pas`,
 };
 
 export const statutDetestable = {
@@ -255,7 +257,8 @@ export const piliersAblutions = {
 4. Laver le visage 😊
 5. Laver les bras jusqu'aux coudes (en incluant les coudes !) 💪
 6. Essuyer la tête 🧠
-7. Laver les pieds jusqu'aux chevilles (en incluant les chevilles !) 🦶`,
+7. Laver les pieds jusqu'aux chevilles (en incluant les chevilles !) 🦶
+💡 Exemple : si tu oublies de laver tes pieds (pilier 7), tes ablutions ne sont PAS valides ! Mais si tu oublies de rincer ta bouche (sunna), elles le sont.`,
 };
 
 export const sunnasAblutions = {
@@ -383,7 +386,8 @@ La femme ne fait pas l'Adhân.`,
 • Seul : on la fait à voix basse 🤫
 • Si on l'oublie → la prière est quand même valide ✅
 • L'Adhân (l'appel à la prière) = pour appeler les gens, c'est différent 🔔
-• La femme ne fait ni l'Adhân ni l'Iqâma pour les autres 👩`,
+• La femme ne fait ni l'Adhân ni l'Iqâma pour les autres 👩
+• Exemple : tu pries seul chez toi → tu fais l'Iqâma à voix basse 🤫`,
 };
 
 // LA FÂTIHA - source exacte du site
@@ -802,3 +806,89 @@ export const rubriques = [
   { id: "zakat", titre: "La Zakât", icon: "heart-handshake", rubrique: 30, description: "Apprends ce qu'est l'aumône obligatoire et à qui la donner" },
   { id: "jeune", titre: "Le jeûne du Ramadan", icon: "sun", rubrique: 31, description: "Découvrez le jeûne du mois de Ramadan et ses règles" },
 ];
+
+// ========================================
+// GLOSSAIRE DES TERMES ARABES
+// ========================================
+
+export const glossaire = [
+  { terme: "Fard (فَرْض)", definition: "Obligatoire — ce qu'Allah nous ordonne de faire", exemple: "Les 5 prières journalières sont un Fard" },
+  { terme: "Sunna (سُنَّة)", definition: "Recommandé — ce que le Prophète faisait régulièrement", exemple: "Prier 2 Rak'at avant le Fajr est une Sunna" },
+  { terme: "Wâjib (وَاجِب)", definition: "Pilier obligatoire — sans quoi l'acte n'est pas valide", exemple: "Laver le visage est un Wâjib des ablutions" },
+  { terme: "Harâm (حَرَام)", definition: "Interdit — ce qu'Allah nous défend de faire", exemple: "Mentir est Harâm" },
+  { terme: "Makrûh (مَكْرُوه)", definition: "Détestable — il vaut mieux éviter", exemple: "Gaspiller l'eau est Makrûh" },
+  { terme: "Mubâh (مُبَاح)", definition: "Permis — ni obligatoire ni interdit", exemple: "Manger un fruit halal est Mubâh" },
+  { terme: "Niyya (نِيَّة)", definition: "L'intention — dans le cœur, avant chaque acte", exemple: "Dire dans son cœur : 'je fais mes ablutions pour Allah'" },
+  { terme: "Wudû' (وُضُوء)", definition: "Les petites ablutions — lavage avec de l'eau", exemple: "On fait le Wudû' avant chaque prière" },
+  { terme: "Rak'a (رَكْعَة)", definition: "Une unité de prière — un cycle complet", exemple: "La prière du Fajr a 2 Rak'at" },
+  { terme: "Rukû' (رُكُوع)", definition: "L'inclinaison — se pencher pendant la prière", exemple: "On dit 'Subhana Rabbiyal-'Azîm' dans le Rukû'" },
+  { terme: "Sujûd (سُجُود)", definition: "La prosternation — front sur le sol", exemple: "C'est le moment où on est le plus proche d'Allah" },
+  { terme: "Tashahhud (تَشَهُّد)", definition: "La formule de témoignage — récité assis", exemple: "On le dit à la 2ème Rak'a et à la fin de la prière" },
+  { terme: "Salâm (سَلَام)", definition: "La salutation finale — tourner la tête à droite", exemple: "On dit 'As-salâmu 'alaykum' à la fin de la prière" },
+  { terme: "Iqâma (إِقَامَة)", definition: "L'annonce juste avant la prière", exemple: "On fait l'Iqâma à voix haute en groupe" },
+  { terme: "Fard 'Ayn (فَرْضُ عَيْن)", definition: "Obligation individuelle — chacun doit la faire", exemple: "Les 5 prières sont un Fard 'Ayn" },
+  { terme: "Fard Kifâya (فَرْضُ كِفَايَة)", definition: "Obligation communautaire — si quelqu'un la fait, les autres sont déchargés", exemple: "Laver le mort est un Fard Kifâya" },
+  { terme: "Tayammum (تَيَمُّم)", definition: "Ablution sèche — avec de la terre propre quand il n'y a pas d'eau", exemple: "En voyage sans eau, on fait le Tayammum" },
+  { terme: "Ghusl (غُسْل)", definition: "La grande ablution — douche complète rituelle", exemple: "On fait le Ghusl après un grand impureté" },
+  { terme: "Waswâs (وَسْوَاس)", definition: "Les doutes excessifs — insufflations du diable", exemple: "Si tu doutes avoir lavé ton visage, ignore le Waswâs" },
+  { terme: "Al-fawr (الفَوْر)", definition: "L'enchaînement — faire les ablutions sans pause", exemple: "C'est un pilier des ablutions : ne pas s'arrêter entre les étapes" },
+];
+
+// ========================================
+// MINI-QUIZZ PAR RUBRIQUE
+// ========================================
+
+export interface QuizQuestion {
+  question: string;
+  options: string[];
+  correctIndex: number;
+  explication?: string;
+}
+
+export const quizzes: Record<string, { titre: string; questions: QuizQuestion[] }> = {
+  statuts: {
+    titre: "Quiz : Les statuts légaux",
+    questions: [
+      { question: "Combien y a-t-il de statuts légaux en Islam ?", options: ["3", "4", "5", "6"], correctIndex: 2, explication: "Il y a 5 statuts : Fard, Harâm, Sunna, Makrûh, Mubâh" },
+      { question: "Quel est le statut de la prière ?", options: ["Sunna", "Fard", "Mubâh", "Makrûh"], correctIndex: 1, explication: "La prière est obligatoire (Fard)" },
+      { question: "Sourire aux gens est un acte...", options: ["Harâm", "Makrûh", "Sunna", "Fard"], correctIndex: 2, explication: "Le Prophète a dit que sourire est une Sadaqa (bonne action)" },
+      { question: "Si on ne fait pas un Fard, c'est...", options: ["Récompensé", "Rien", "Un péché", "Recommandé"], correctIndex: 2, explication: "Ne pas faire un Fard = péché" },
+    ],
+  },
+  purification: {
+    titre: "Quiz : La purification",
+    questions: [
+      { question: "Combien y a-t-il de piliers obligatoires dans les ablutions ?", options: ["5", "6", "7", "8"], correctIndex: 2, explication: "7 piliers : frottement, enchaînement, intention, visage, bras, tête, pieds" },
+      { question: "Laver les mains au début des ablutions est...", options: ["Un pilier (Wâjib)", "Une Sunna", "Makrûh", "Fard"], correctIndex: 1, explication: "Laver les mains au début est une Sunna, pas un pilier" },
+      { question: "Si tu oublies de laver ton visage (pilier) et t'en rends compte tout de suite...", options: ["Tu fais juste le visage", "Tu fais le visage + tout ce qui suit", "Tu recommences tout", "Tes ablutions sont cassées"], correctIndex: 1, explication: "Pour un pilier oublié : faire la partie manquante puis toutes les parties suivantes" },
+      { question: "Le nez est-il un pilier des ablutions ?", options: ["Oui", "Non, c'est une Sunna", "Ça dépend", "Seulement pour les hommes"], correctIndex: 1, explication: "Le nez est une Sunna (recommandée), pas un pilier obligatoire" },
+    ],
+  },
+  priere: {
+    titre: "Quiz : La prière",
+    questions: [
+      { question: "Combien de prières obligatoires par jour ?", options: ["3", "4", "5", "7"], correctIndex: 2, explication: "5 prières : Fajr, Zuhr, Asr, Maghrib, Isha" },
+      { question: "Que dit-on au début de la prière en levant les mains ?", options: ["Bismillah", "Allahu Akbar", "Subhana Allah", "Alhamdulillah"], correctIndex: 1, explication: "On dit 'Allahu Akbar' (Takbîrat al-Ihrâm)" },
+      { question: "Combien de Rak'at a la prière du Maghrib ?", options: ["2", "3", "4", "5"], correctIndex: 1, explication: "Le Maghrib a 3 Rak'at" },
+      { question: "Le Tashahhud du milieu se fait à quelle Rak'a ?", options: ["1ère", "2ème", "3ème", "4ème"], correctIndex: 1, explication: "On s'assoit pour le Tashahhud à la fin de la 2ème Rak'a" },
+    ],
+  },
+  zakat: {
+    titre: "Quiz : La Zakât",
+    questions: [
+      { question: "La Zakât est le quel pilier de l'Islam ?", options: ["1er", "2ème", "3ème", "4ème"], correctIndex: 2, explication: "La Zakât est le 3ème pilier de l'Islam" },
+      { question: "Que signifie le mot Zakât ?", options: ["Richesse", "Purification", "Prière", "Jeûne"], correctIndex: 1, explication: "Zakât signifie purification en arabe" },
+      { question: "C'est combien de pourcent ?", options: ["1%", "2,5%", "5%", "10%"], correctIndex: 1, explication: "La Zakât est de 2,5% des économies gardées pendant un an" },
+      { question: "Peut-on donner la Zakât à un orphelin ?", options: ["Non", "Oui", "Seulement aux adultes", "Seulement aux pauvres"], correctIndex: 1, explication: "Les orphelins font partie des 8 catégories de bénéficiaires" },
+    ],
+  },
+  jeune: {
+    titre: "Quiz : Le Ramadan",
+    questions: [
+      { question: "Le Ramadan est le quel pilier ?", options: ["2ème", "3ème", "4ème", "5ème"], correctIndex: 2, explication: "Le jeûne du Ramadan est le 4ème pilier" },
+      { question: "Comment s'appelle le repas avant l'aube ?", options: ["Iftar", "Suhur", "Tarawih", "Fajr"], correctIndex: 1, explication: "Le Suhur est le repas pris avant l'aube" },
+      { question: "La Nuit du Destin vaut mieux que combien de mois ?", options: ["100", "500", "1000", "2000"], correctIndex: 2, explication: "Laylatul Qadr vaut mieux que 1000 mois" },
+      { question: "Les enfants doivent-ils jeûner ?", options: ["Oui, toujours", "Non, jamais", "Ce n'est pas obligatoire avant la puberté", "Seulement le vendredi"], correctIndex: 2, explication: "Le jeûne n'est obligatoire qu'à partir de la puberté" },
+    ],
+  },
+};

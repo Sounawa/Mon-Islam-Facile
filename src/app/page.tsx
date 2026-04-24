@@ -24,6 +24,9 @@ import {
   GraduationCap,
   Quote,
   RefreshCw,
+  Search,
+  X,
+  BookMarked,
 } from "lucide-react";
 import {
   Card,
@@ -67,7 +70,10 @@ import {
   cinqPrieres,
   zakatIntro,
   jeuneIntro,
+  glossaire,
+  quizzes,
 } from "@/lib/content";
+import type { QuizQuestion } from "@/lib/content";
 
 // ========================================
 // CONSTANTS & MAPPINGS
@@ -366,7 +372,7 @@ function ThemeToggle() {
   );
 }
 
-function Header({ onHome }: { onHome?: () => void }) {
+function Header({ onHome, onGlossary }: { onHome?: () => void; onGlossary?: () => void }) {
   return (
     <header className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-emerald-100 dark:border-emerald-900 sticky top-0 z-50">
       <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -388,6 +394,13 @@ function Header({ onHome }: { onHome?: () => void }) {
           >
             Ecole Malikite
           </Badge>
+          <button
+            onClick={onGlossary}
+            className="p-2 rounded-full hover:bg-emerald-50 dark:hover:bg-emerald-950 transition-colors text-emerald-600 dark:text-emerald-400"
+            aria-label="Glossaire"
+          >
+            <BookMarked className="w-5 h-5" />
+          </button>
           <ThemeToggle />
         </div>
       </div>
@@ -509,12 +522,266 @@ function ShortText({ short, full }: { short: string; full: string }) {
 }
 
 // ========================================
+// GLOSSARY MODAL
+// ========================================
+
+function GlossaryModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const [search, setSearch] = useState("");
+  const filtered = glossaire.filter(
+    (item) =>
+      item.terme.toLowerCase().includes(search.toLowerCase()) ||
+      item.definition.toLowerCase().includes(search.toLowerCase())
+  );
+
+  return (
+    <AnimatePresence>
+      {open && (
+        <>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100]"
+            onClick={onClose}
+          />
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 50, scale: 0.95 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            className="fixed inset-x-4 top-[10%] sm:inset-x-auto sm:left-1/2 sm:-translate-x-1/2 sm:w-full sm:max-w-lg max-h-[80vh] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-emerald-200 dark:border-emerald-800 z-[101] overflow-hidden flex flex-col"
+          >
+            <div className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white p-5 flex-shrink-0">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <BookMarked className="w-5 h-5" />
+                  <h2 className="text-lg font-bold">Glossaire</h2>
+                </div>
+                <button
+                  onClick={onClose}
+                  className="p-1.5 rounded-full hover:bg-white/20 transition-colors"
+                  aria-label="Fermer"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              <div className="relative">
+                <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-emerald-200" />
+                <input
+                  type="text"
+                  placeholder="Chercher un terme..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="w-full pl-9 pr-4 py-2 rounded-xl bg-white/20 text-white placeholder:text-emerald-100 text-sm outline-none focus:ring-2 focus:ring-white/30"
+                  autoFocus
+                />
+              </div>
+            </div>
+            <div className="overflow-y-auto flex-1 p-4 space-y-3">
+              {filtered.length === 0 ? (
+                <p className="text-center text-gray-400 dark:text-gray-500 text-sm py-8">
+                  Aucun terme trouvé
+                </p>
+              ) : (
+                filtered.map((item, idx) => (
+                  <motion.div
+                    key={item.terme}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.03 }}
+                    className="bg-emerald-50/70 dark:bg-emerald-950/30 rounded-xl p-4 border border-emerald-100 dark:border-emerald-800"
+                  >
+                    <h3 className="font-bold text-emerald-700 dark:text-emerald-300 text-sm mb-1" dir="rtl">
+                      {item.terme}
+                    </h3>
+                    <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {item.definition}
+                    </p>
+                    <div className="mt-2 flex items-start gap-1.5 bg-amber-50 dark:bg-amber-950/30 rounded-lg p-2 border border-amber-100 dark:border-amber-800">
+                      <span className="text-xs">💡</span>
+                      <p className="text-xs text-amber-700 dark:text-amber-300 leading-relaxed italic">
+                        {item.exemple}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))
+              )}
+            </div>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
+  );
+}
+
+// ========================================
+// MINI QUIZ COMPONENT
+// ========================================
+
+function MiniQuiz({ sectionId }: { sectionId: string }) {
+  const quizData = quizzes[sectionId];
+  const [currentQ, setCurrentQ] = useState(0);
+  const [selected, setSelected] = useState<number | null>(null);
+  const [score, setScore] = useState(0);
+  const [finished, setFinished] = useState(false);
+  const [answered, setAnswered] = useState(false);
+
+  if (!quizData) return null;
+
+  const questions = quizData.questions;
+  const question: QuizQuestion = questions[currentQ];
+
+  const handleSelect = (idx: number) => {
+    if (answered) return;
+    setSelected(idx);
+    setAnswered(true);
+    if (idx === question.correctIndex) {
+      setScore((s) => s + 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentQ < questions.length - 1) {
+      setCurrentQ((q) => q + 1);
+      setSelected(null);
+      setAnswered(false);
+    } else {
+      setFinished(true);
+    }
+  };
+
+  const handleRestart = () => {
+    setCurrentQ(0);
+    setSelected(null);
+    setScore(0);
+    setFinished(false);
+    setAnswered(false);
+  };
+
+  const percent = (score / questions.length) * 100;
+  const stars = percent >= 100 ? 3 : percent >= 75 ? 2 : percent >= 50 ? 1 : 0;
+
+  return (
+    <Card className="rounded-2xl border-2 border-dashed border-emerald-300 dark:border-emerald-700 bg-gradient-to-br from-emerald-50/50 to-teal-50/50 dark:from-emerald-950/20 dark:to-teal-950/20 overflow-hidden">
+      <CardHeader className="pb-3">
+        <CardTitle className="text-lg flex items-center gap-2">
+          <Trophy className="w-5 h-5 text-emerald-500" />
+          {quizData.titre}
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        {!finished ? (
+          <div>
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+                Question {currentQ + 1} / {questions.length}
+              </span>
+              <Progress value={((currentQ + 1) / questions.length) * 100} className="h-2 w-24" />
+            </div>
+            <p className="text-sm font-semibold text-gray-800 dark:text-gray-100 mb-4 leading-relaxed">
+              {question.question}
+            </p>
+            <div className="space-y-2">
+              {question.options.map((opt, idx) => {
+                let btnClass = "border-2 rounded-xl p-3 text-sm text-left transition-all w-full ";
+                if (!answered) {
+                  btnClass += "border-gray-200 dark:border-gray-700 hover:border-emerald-300 dark:hover:border-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 cursor-pointer";
+                } else if (idx === question.correctIndex) {
+                  btnClass += "border-emerald-400 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-200";
+                } else if (idx === selected) {
+                  btnClass += "border-red-400 bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200";
+                } else {
+                  btnClass += "border-gray-200 dark:border-gray-700 opacity-50";
+                }
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => handleSelect(idx)}
+                    className={btnClass}
+                    disabled={answered}
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-xs font-bold flex-shrink-0">
+                        {String.fromCharCode(65 + idx)}
+                      </span>
+                      <span>{opt}</span>
+                      {answered && idx === question.correctIndex && (
+                        <span className="ml-auto">✅</span>
+                      )}
+                      {answered && idx === selected && idx !== question.correctIndex && (
+                        <span className="ml-auto">❌</span>
+                      )}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+            {answered && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-4 space-y-3"
+              >
+                <div className={`text-sm p-3 rounded-xl ${selected === question.correctIndex ? "bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-200 border border-emerald-200 dark:border-emerald-800" : "bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-200 border border-amber-200 dark:border-amber-800"}`}>
+                  {selected === question.correctIndex
+                    ? ` Bravo ! ${question.explication || ""}`
+                    : `La bonne réponse était : ${question.options[question.correctIndex]}. ${question.explication || ""}`}
+                </div>
+                <Button
+                  onClick={handleNext}
+                  className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white"
+                >
+                  {currentQ < questions.length - 1 ? "Question suivante →" : "Voir le résultat 🏆"}
+                </Button>
+              </motion.div>
+            )}
+          </div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="text-center py-4 space-y-4"
+          >
+            <div className="text-4xl">
+              {"⭐".repeat(stars)}{"☆".repeat(3 - stars)}
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">
+                {score} / {questions.length}
+              </p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                {stars === 3
+                  ? "Parfait ! Tu maîtrises ce sujet ! 🎉"
+                  : stars === 2
+                    ? "Très bien ! Continue comme ça ! 💪"
+                    : stars === 1
+                      ? "Pas mal ! Relis la leçon et réessaie 📖"
+                      : "Essaie encore après avoir relu le cours ! 📚"}
+              </p>
+            </div>
+            <Button
+              onClick={handleRestart}
+              variant="outline"
+              className="border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400"
+            >
+              <RefreshCw className="w-4 h-4 mr-1" />
+              Recommencer
+            </Button>
+          </motion.div>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
+
+// ========================================
 // MAIN PAGE COMPONENT
 // ========================================
 
 export default function HomePage() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [completedSections, setCompletedSections] = useState<string[]>([]);
+  const [glossaryOpen, setGlossaryOpen] = useState(false);
 
   const goHome = () => {
     setActiveSection(null);
@@ -538,7 +805,8 @@ export default function HomePage() {
   if (activeSection === null) {
     return (
       <div className="min-h-screen flex flex-col bg-white dark:bg-gray-950">
-        <Header onHome={goHome} />
+        <Header onHome={goHome} onGlossary={() => setGlossaryOpen(true)} />
+        <GlossaryModal open={glossaryOpen} onClose={() => setGlossaryOpen(false)} />
         <main className="flex-1">
           {/* Bismillah Header */}
           <section className="bg-gradient-to-br from-emerald-500 via-teal-500 to-emerald-600 text-white py-10 px-4 relative overflow-hidden">
@@ -782,7 +1050,8 @@ export default function HomePage() {
     const isCompleted = completedSections.includes(sectionId);
     return (
       <div className="min-h-screen flex flex-col bg-white dark:bg-gray-950">
-        <Header onHome={goHome} />
+        <Header onHome={goHome} onGlossary={() => setGlossaryOpen(true)} />
+        <GlossaryModal open={glossaryOpen} onClose={() => setGlossaryOpen(false)} />
         <main className="flex-1 max-w-4xl mx-auto px-4 py-8 w-full">
           <div className="flex items-center justify-between mb-6">
             <Button
@@ -913,6 +1182,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+        <MiniQuiz sectionId="statuts" />
       </div>
     );
   }
@@ -1076,6 +1346,7 @@ export default function HomePage() {
             <ShortText short={enchainementAblutions.resumeEnfant} full={enchainementAblutions.contenu} />
           </CardContent>
         </Card>
+        <MiniQuiz sectionId="purification" />
       </div>
     );
   }
@@ -1410,6 +1681,7 @@ export default function HomePage() {
             </div>
           </CardContent>
         </Card>
+        <MiniQuiz sectionId="priere" />
       </div>
     );
   }
@@ -1477,6 +1749,7 @@ export default function HomePage() {
             <ShortText short={zakatIntro.resumeSpecificsMalikite} full={zakatIntro.specificsMalikite} />
           </CardContent>
         </Card>
+        <MiniQuiz sectionId="zakat" />
       </div>
     );
   }
@@ -1496,6 +1769,7 @@ export default function HomePage() {
             </div>
           </CardContent>
         </Card>
+        <MiniQuiz sectionId="jeune" />
       </div>
     );
   }

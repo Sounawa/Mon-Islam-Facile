@@ -169,3 +169,39 @@ Stage Summary:
 - Pattern: short summary always visible, full text hidden behind accordion
 - Home page (activeSection === null) was NOT modified
 - All utility components (DailyVerseCard, ThemeToggle, Header, Footer, ChildBubble, SectionHero, ArabicBlock) were NOT modified
+
+---
+Task ID: 1
+Agent: Fullstack Developer
+Task: Add glossary + quiz + examples (3 features)
+
+Work Log:
+- Read worklog.md, content.ts (805 lines), and page.tsx (1505 lines) to understand full project structure
+- Added 4 concrete examples to existing resumeEnfant fields in content.ts:
+  - statutObligation: Fard 'Ayn example with Fajr prayer
+  - statutRecommande: Sunna example with smiling
+  - piliersAblutions: Example differentiating pillar vs sunna (feet vs mouth)
+  - iqama: Example of praying alone (low voice)
+- Added glossaire array (20 Arabic terms) at end of content.ts with terme, definition, exemple
+- Added QuizQuestion interface and quizzes record (5 rubriques × 4 questions each) at end of content.ts
+- Added new lucide-react imports: Search, X, BookMarked
+- Added glossaire and quizzes imports from content.ts (plus QuizQuestion type)
+- Created GlossaryModal component: animated modal with search/filter, emerald/teal gradient header, term cards with RTL Arabic text, definition, and example
+- Created MiniQuiz component: per-section quiz with question progress, 4-option buttons, correct/wrong feedback with explanations, next button, star-based score summary (3★=100%, 2★=75%+, 1★=50%+, 0=<50%), restart button
+- Updated Header component to accept onGlossary prop and render BookMarked glossary button next to ThemeToggle
+- Updated HomePage component: added glossaryOpen state, passed onGlossary to Header and GlossaryModal to all renders (home + detail pages)
+- Added <MiniQuiz sectionId="..." /> at bottom of all 5 rubrique detail sections (statuts, purification, priere, zakat, jeune)
+
+Technical Notes:
+- ESLint: 0 errors, 0 warnings
+- Build: successful (static pages generated in 153.4ms)
+- No existing content or structure was modified — only additions
+- MiniQuiz state is local per component instance (resets when navigating away)
+- GlossaryModal uses AnimatePresence + motion.div for smooth open/close animation
+- Quiz uses dashed border card style to distinguish from content cards
+
+Stage Summary:
+- 3 features implemented: Glossary modal, Mini-quiz per rubrique, Concrete examples
+- Glossary accessible from any page via book icon in header
+- Each rubrique now has a 4-question quiz at the bottom of its detail page
+- 4 new concrete examples added to key sections for better understanding
