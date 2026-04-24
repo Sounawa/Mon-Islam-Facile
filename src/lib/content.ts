@@ -311,7 +311,8 @@ S'il le fait de suite avant le long moment, là il est considéré comme le cas 
 3️⃣ Tu t'aperçois que tu as OUBLIÉ une étape :
 
    a) Tu as oublié une SUNNA (bouche, nez, oreilles) :
-      Exemple : tu as fait bouche → visage → bras → tête, puis tu te rappelles que tu as oublié le nez → fais juste le nez, et continue normalement ✅
+      Exemple : tu as fait bouche → visage → bras → tête, puis tu te rappelles que tu as oublié le nez → finis d'abord tes pieds (pilier), puis fais le nez après ✅
+      ⚡ Ne t'arrête PAS entre 2 piliers pour faire une sunna, sinon tu casses l'enchaînement !
 
    b) Tu as oublié un PILIER obligatoire (visage, bras, tête, pieds) :
       Exemple : tu as sauté le visage et les bras, tu es passé à la tête et tu t'en rends compte → lave le visage, lave les bras, re-essuie la tête, puis lave les pieds ⬅️
