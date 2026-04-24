@@ -304,9 +304,9 @@ S'il le fait de suite avant le long moment, là il est considéré comme le cas 
 
 🔥 3 cas à retenir :
 
-1️⃣ Tu perds l'eau et tu la retrouves TOUT DE SUITE → Continue où tu en étais ✅
+1️⃣ Ton eau se renverse pendant les ablutions, et tu en trouves TOUT DE SUITE → Continue où tu en étais ✅
 
-2️⃣ Tu perds l'eau et tu la retrouves BIEN PLUS TARD → Recommence tout depuis le début 🔄
+2️⃣ Ton eau se renverse, et tu mets DU TEMPS avant d'en retrouver → Recommence tout depuis le début 🔄
 
 3️⃣ Tu t'aperçois que tu as OUBLIÉ une étape obligatoire :
    → Tout de suite ? Fais l'étape manquante, puis reprends tout ce qui suit ⬅️
