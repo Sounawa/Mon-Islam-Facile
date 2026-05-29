@@ -1369,25 +1369,30 @@ export default function HomePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.55 }}
             >
-              <Card
-                className="border-0 shadow-md cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 border-2 border-transparent hover:border-emerald-300 dark:hover:border-emerald-700 group"
+              <button
+                type="button"
+                className="w-full text-left"
                 onClick={() => setActiveRecapitulatif(true)}
               >
-                <CardContent className="p-6 flex items-center gap-4">
-                  <div className="p-4 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 text-white group-hover:opacity-80 transition-colors">
-                    <Trophy className="w-8 h-8" />
-                  </div>
-                  <div className="flex-1">
-                    <CardTitle className="text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors mb-1">
-                      🕌 Récapitulatif — Mes prières du jour
-                    </CardTitle>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      Coche tes prières, consulte l&apos;Iqâma et les infos sur les 5 prières
-                    </p>
-                  </div>
-                  <ChevronRight className="w-6 h-6 text-gray-300 dark:text-gray-600 group-hover:text-emerald-500 transition-colors" />
-                </CardContent>
-              </Card>
+                <Card
+                  className="border-0 shadow-md cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 border-2 border-transparent hover:border-emerald-300 dark:hover:border-emerald-700 group"
+                >
+                  <CardContent className="p-6 flex items-center gap-4">
+                    <div className="p-4 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 text-white group-hover:opacity-80 transition-colors">
+                      <Trophy className="w-8 h-8" />
+                    </div>
+                    <div className="flex-1">
+                      <CardTitle className="text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors mb-1">
+                        🕌 Récapitulatif — Mes prières du jour
+                      </CardTitle>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Coche tes prières, consulte l&apos;Iqâma et les infos sur les 5 prières
+                      </p>
+                    </div>
+                    <ChevronRight className="w-6 h-6 text-gray-300 dark:text-gray-600 group-hover:text-emerald-500 transition-colors" />
+                  </CardContent>
+                </Card>
+              </button>
             </motion.div>
 
             {/* Sujets */}
