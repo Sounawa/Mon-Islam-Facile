@@ -1,4 +1,4 @@
 1:"$Sreact.fragment"
 2:I[39756,["/Mon-Islam-Facile/_next/static/chunks/e7f91c5178abe2c3.js","/Mon-Islam-Facile/_next/static/chunks/72219e0ad2532fb0.js","/Mon-Islam-Facile/_next/static/chunks/33d3f2c0cda968c7.js"],"default"]
 3:I[37457,["/Mon-Islam-Facile/_next/static/chunks/e7f91c5178abe2c3.js","/Mon-Islam-Facile/_next/static/chunks/72219e0ad2532fb0.js","/Mon-Islam-Facile/_next/static/chunks/33d3f2c0cda968c7.js"],"default"]
-0:{"buildId":"WCkJIJVKUd4TE3pq-3E2L","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"IG49bjHSEESB0P495mn8x","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}

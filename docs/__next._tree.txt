@@ -1,7 +1,7 @@
-:HL["/Mon-Islam-Facile/_next/static/chunks/856702bc2e90d9ec.css","style"]
-:HL["/Mon-Islam-Facile/_next/static/chunks/34a61d4a3e9ecb11.css","style"]
+:HL["/Mon-Islam-Facile/_next/static/chunks/d635b4a394a44763.css","style"]
+:HL["/Mon-Islam-Facile/_next/static/chunks/bfe5485a677cd417.css","style"]
 :HL["/Mon-Islam-Facile/_next/static/media/05d29f0ed5b0e698-s.p.6d7a8113.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/Mon-Islam-Facile/_next/static/media/291696193ea1e96b-s.p.6ef5e8dc.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/Mon-Islam-Facile/_next/static/media/797e433ab948586e-s.p.dbea232f.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/Mon-Islam-Facile/_next/static/media/caa3a2e1cccd8315-s.p.853070df.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"buildId":"WCkJIJVKUd4TE3pq-3E2L","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+:HL["/Mon-Islam-Facile/_next/static/media/797e433ab948586e-s.p.479bea2b.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/Mon-Islam-Facile/_next/static/media/caa3a2e1cccd8315-s.p.3b6cae6d.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"buildId":"IG49bjHSEESB0P495mn8x","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
