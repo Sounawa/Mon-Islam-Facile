@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Amiri } from "next/font/google";
+import { Geist, Geist_Mono, Scheherazade_New } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "next-themes";
@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const amiri = Amiri({
-  variable: "--font-arabic",
+const scheherazade = Scheherazade_New({
+  variable: "--font-scheherazade",
   subsets: ["arabic"],
   weight: ["400", "700"],
   display: "swap",
@@ -48,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="fr" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${amiri.variable} antialiased bg-white dark:bg-gray-950 text-foreground`}
+        className={`${geistSans.variable} ${geistMono.variable} ${scheherazade.variable} antialiased bg-white dark:bg-gray-950 text-foreground`}
       >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}

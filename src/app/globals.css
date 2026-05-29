@@ -120,6 +120,6 @@
     @apply bg-background text-foreground;
   }
   [dir="rtl"], .arabic-text {
-    font-family: var(--font-arabic), "Amiri", "Traditional Arabic", "Arabic Typesetting", serif;
+    font-family: var(--font-scheherazade), "Scheherazade New", "Amiri", "Traditional Arabic", serif;
   }
 }

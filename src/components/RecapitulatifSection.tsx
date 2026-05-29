@@ -37,22 +37,22 @@ interface PrayerDay {
 // ============ DATA ============
 
 const iqamaLines = [
-  { arabic: "اللهُ أَكْبَرُ، اللهُ أَكْبَرُ", phonetic: "Allahu akbar, Allahu akbar", french: "Allah est le plus Grand, Allah est le plus Grand" },
-  { arabic: "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللهُ", phonetic: "Ashhadu an lâ ilâha illa Allah", french: "J'atteste qu'il n'y a de divinité qu'Allah" },
-  { arabic: "أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللهِ", phonetic: "Ashhadu Anna Muhammadan rasûlu Allah", french: "J'atteste que Muhammad est le Messager d'Allah" },
-  { arabic: "حَيَّ عَلَى الصَّلَاةِ", phonetic: "Hayya 'Ala as-salâti", french: "Venez à la prière" },
-  { arabic: "حَيَّ عَلَى الْفَلَاحِ", phonetic: "Hayya 'alâ al-falâh", french: "Venez au succès" },
-  { arabic: "قَدْ قَامَتِ الصَّلَاةُ", phonetic: "Qad qâmati as-salât", french: "La prière est sur le point de commencer" },
-  { arabic: "اللهُ أَكْبَرُ، اللهُ أَكْبَرُ", phonetic: "Allahu akbar, Allahu akbar", french: "Allah est le plus Grand, Allah est le plus Grand" },
-  { arabic: "لَا إِلَٰهَ إِلَّا اللهُ", phonetic: "Lâ ilâha illa Allah", french: "Il n'y a de divinité qu'Allah" },
+  { arabic: "اَللَّهُ أَكْبَرُ، اَللَّهُ أَكْبَرُ", phonetic: "Allâhu akbar, Allâhu akbar", french: "Allah est le plus Grand, Allah est le plus Grand" },
+  { arabic: "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اَللَّهُ", phonetic: "Ash-hadu an lâ ilâha illâ Allâh", french: "J'atteste qu'il n'y a de divinité qu'Allah" },
+  { arabic: "أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اَللَّهِ", phonetic: "Ash-hadu anna Muḥammadan rasûlu Allâh", french: "J'atteste que Muḥammad est le Messager d'Allah" },
+  { arabic: "حَيَّ عَلَى اَلصَّلَاةِ", phonetic: "Hayya 'alâ aṣ-ṣalâh", french: "Venez à la prière" },
+  { arabic: "حَيَّ عَلَى الْفَلَاحِ", phonetic: "Hayya 'alâ l-falâḥ", french: "Venez au succès" },
+  { arabic: "قَدْ قَامَتِ اَلصَّلَاةُ", phonetic: "Qad qâmati aṣ-ṣalâh", french: "La prière est sur le point de commencer" },
+  { arabic: "اَللَّهُ أَكْبَرُ، اَللَّهُ أَكْبَرُ", phonetic: "Allâhu akbar, Allâhu akbar", french: "Allah est le plus Grand, Allah est le plus Grand" },
+  { arabic: "لَا إِلَٰهَ إِلَّا اَللَّهُ", phonetic: "Lâ ilâha illâ Allâh", french: "Il n'y a de divinité qu'Allah" },
 ];
 
 const fivePrayers = [
-  { id: "fajr" as const, num: 1, namePhonetic: "Subh", nameArabic: "الفجر", nameFr: "Prière de l'aube", icon: Sunrise, rakat: "2 Rak'at", voice: "À voix haute", detail: "2 Rak'at à voix haute", color: "from-orange-100 to-amber-50 dark:from-orange-950/30 dark:to-amber-950/20", iconColor: "text-orange-500", borderHover: "hover:border-orange-300 dark:hover:border-orange-700" },
-  { id: "dhuhr" as const, num: 2, namePhonetic: "Zuhr", nameArabic: "الظهر", nameFr: "Milieu de journée", icon: Sun, rakat: "4 Rak'at", voice: "À voix basse", detail: "4 Rak'at à voix basse. Tashahhud après la 2ème. Les 2 dernières : Fâtiha seule", color: "from-yellow-100 to-amber-50 dark:from-yellow-950/30 dark:to-amber-950/20", iconColor: "text-yellow-500", borderHover: "hover:border-yellow-300 dark:hover:border-yellow-700" },
-  { id: "asr" as const, num: 3, namePhonetic: "'Asr", nameArabic: "العصر", nameFr: "Après-midi", icon: Clock, rakat: "4 Rak'at", voice: "À voix basse", detail: "4 Rak'at à voix basse, exactement comme Zuhr", color: "from-teal-100 to-cyan-50 dark:from-teal-950/30 dark:to-cyan-950/20", iconColor: "text-teal-500", borderHover: "hover:border-teal-300 dark:hover:border-teal-700" },
-  { id: "maghrib" as const, num: 4, namePhonetic: "Maghrib", nameArabic: "المغرب", nameFr: "Coucher du soleil", icon: Sunset, rakat: "3 Rak'at", voice: "Mixte", detail: "2 Rak'at à voix haute, 1 Rak'at à voix basse", color: "from-rose-100 to-pink-50 dark:from-rose-950/30 dark:to-pink-950/20", iconColor: "text-rose-500", borderHover: "hover:border-rose-300 dark:hover:border-rose-700" },
-  { id: "isha" as const, num: 5, namePhonetic: "'Ishâ", nameArabic: "العشاء", nameFr: "Prière de la nuit", icon: MoonStar, rakat: "4 Rak'at", voice: "Mixte", detail: "2 Rak'at à voix haute, 2 Rak'at à voix basse", color: "from-indigo-100 to-violet-50 dark:from-indigo-950/30 dark:to-violet-950/20", iconColor: "text-indigo-500", borderHover: "hover:border-indigo-300 dark:hover:border-indigo-700" },
+  { id: "fajr" as const, num: 1, namePhonetic: "Ṣubḥ", nameArabic: "اَلصُّبْحُ", nameArabicFull: "صَلَاةُ اَلصُّبْحِ", nameFr: "Prière de l'aube", icon: Sunrise, rakat: "2 Rak'at", voice: "À voix haute", detail: "2 Rak'at à voix haute", color: "from-orange-100 to-amber-50 dark:from-orange-950/30 dark:to-amber-950/20", iconColor: "text-orange-500", borderHover: "hover:border-orange-300 dark:hover:border-orange-700" },
+  { id: "dhuhr" as const, num: 2, namePhonetic: "Ẓuhr", nameArabic: "اَلظُّهْرُ", nameArabicFull: "صَلَاةُ اَلظُّهْرِ", nameFr: "Milieu de journée", icon: Sun, rakat: "4 Rak'at", voice: "À voix basse", detail: "4 Rak'at à voix basse. Tashahhud après la 2ème. Les 2 dernières : Fâtiḥah seule", color: "from-yellow-100 to-amber-50 dark:from-yellow-950/30 dark:to-amber-950/20", iconColor: "text-yellow-500", borderHover: "hover:border-yellow-300 dark:hover:border-yellow-700" },
+  { id: "asr" as const, num: 3, namePhonetic: "'Aṣr", nameArabic: "اَلْعَصْرُ", nameArabicFull: "صَلَاةُ اَلْعَصْرِ", nameFr: "Après-midi", icon: Clock, rakat: "4 Rak'at", voice: "À voix basse", detail: "4 Rak'at à voix basse, exactement comme Ẓuhr", color: "from-teal-100 to-cyan-50 dark:from-teal-950/30 dark:to-cyan-950/20", iconColor: "text-teal-500", borderHover: "hover:border-teal-300 dark:hover:border-teal-700" },
+  { id: "maghrib" as const, num: 4, namePhonetic: "Maġrib", nameArabic: "اَلْمَغْرِبُ", nameArabicFull: "صَلَاةُ اَلْمَغْرِبِ", nameFr: "Coucher du soleil", icon: Sunset, rakat: "3 Rak'at", voice: "Mixte", detail: "2 Rak'at à voix haute, 1 Rak'at à voix basse", color: "from-rose-100 to-pink-50 dark:from-rose-950/30 dark:to-pink-950/20", iconColor: "text-rose-500", borderHover: "hover:border-rose-300 dark:hover:border-rose-700" },
+  { id: "isha" as const, num: 5, namePhonetic: "'Ishâ'", nameArabic: "اَلْعِشَاءُ", nameArabicFull: "صَلَاةُ اَلْعِشَاءِ", nameFr: "Prière de la nuit", icon: MoonStar, rakat: "4 Rak'at", voice: "Mixte", detail: "2 Rak'at à voix haute, 2 Rak'at à voix basse", color: "from-indigo-100 to-violet-50 dark:from-indigo-950/30 dark:to-violet-950/20", iconColor: "text-indigo-500", borderHover: "hover:border-indigo-300 dark:hover:border-indigo-700" },
 ];
 
 // ============ ANIMATION ============
@@ -120,7 +120,7 @@ function PrayerCard({ prayer, completed, onToggle }: { prayer: (typeof fivePraye
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-0.5">
-            <span className="text-lg font-bold text-gray-800 dark:text-gray-100" dir="rtl">{prayer.nameArabic}</span>
+            <span className="text-xl font-bold text-gray-800 dark:text-gray-100 font-[family-name:var(--font-scheherazade)]" dir="rtl">{prayer.nameArabic}</span>
             <span className="text-xs text-gray-400">|</span>
             <span className="font-semibold text-sm text-gray-700 dark:text-gray-300">{prayer.namePhonetic}</span>
           </div>
@@ -257,7 +257,7 @@ export default function RecapitulatifSection() {
                     <td className="p-3 text-sm font-bold text-gray-400">{prayer.num}</td>
                     <td className="p-3 text-sm font-medium text-gray-700 dark:text-gray-300">{prayer.nameFr}</td>
                     <td className="p-3 text-sm font-semibold text-gray-800 dark:text-gray-100">{prayer.namePhonetic}</td>
-                    <td className="p-3 text-sm font-medium text-gray-600 dark:text-gray-400 hidden sm:table-cell" dir="rtl">{prayer.nameArabic}</td>
+                    <td className="p-3 text-lg font-bold text-gray-700 dark:text-gray-300 hidden sm:table-cell font-[family-name:var(--font-scheherazade)]" dir="rtl">{prayer.nameArabic}</td>
                     <td className="p-3 text-sm text-gray-600 dark:text-gray-400">{prayer.rakat}</td>
                     <td className="p-3 text-sm text-gray-600 dark:text-gray-400">{prayer.voice}</td>
                   </motion.tr>
@@ -309,7 +309,7 @@ export default function RecapitulatifSection() {
             <div className="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-6 border border-gray-100 dark:border-gray-700">
               <div className="space-y-3">
                 {iqamaLines.map((line, index) => (
-                  <p key={index} className="text-xl md:text-2xl text-gray-800 dark:text-gray-100 text-right leading-loose font-medium" dir="rtl">{line.arabic}</p>
+                  <p key={index} className="text-2xl md:text-3xl text-gray-800 dark:text-gray-100 text-right leading-loose font-bold font-[family-name:var(--font-scheherazade)]" dir="rtl">{line.arabic}</p>
                 ))}
               </div>
             </div>
