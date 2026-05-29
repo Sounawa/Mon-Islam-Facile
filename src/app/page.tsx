@@ -76,6 +76,7 @@ import {
   quizAssociation,
 } from "@/lib/content";
 import type { QuizQuestion, AssociationPair } from "@/lib/content";
+import RecapitulatifSection from "@/components/RecapitulatifSection";
 
 // ========================================
 // CONSTANTS & MAPPINGS
@@ -1130,6 +1131,7 @@ export default function HomePage() {
   const [glossaryOpen, setGlossaryOpen] = useState(false);
   const [revisionMode, setRevisionMode] = useState(false);
   const [activeBilan, setActiveBilan] = useState(false);
+  const [activeRecapitulatif, setActiveRecapitulatif] = useState(false);
 
   // Load progress from localStorage on client mount
   useEffect(() => {
@@ -1155,6 +1157,7 @@ export default function HomePage() {
   const goHome = () => {
     setActiveSection(null);
     setActiveBilan(false);
+    setActiveRecapitulatif(false);
     setRevisionMode(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -1360,6 +1363,34 @@ export default function HomePage() {
             </motion.div>
 
             {/* Topic Cards Grid */}
+            {/* Carte Récapitulatif - Mes prières du jour */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.55 }}
+            >
+              <Card
+                className="border-0 shadow-md cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 border-2 border-transparent hover:border-emerald-300 dark:hover:border-emerald-700 group"
+                onClick={() => setActiveRecapitulatif(true)}
+              >
+                <CardContent className="p-6 flex items-center gap-4">
+                  <div className="p-4 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 text-white group-hover:opacity-80 transition-colors">
+                    <Trophy className="w-8 h-8" />
+                  </div>
+                  <div className="flex-1">
+                    <CardTitle className="text-base font-bold group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors mb-1">
+                      🕌 Récapitulatif — Mes prières du jour
+                    </CardTitle>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      Coche tes prières, consulte l&apos;Iqâma et les infos sur les 5 prières
+                    </p>
+                  </div>
+                  <ChevronRight className="w-6 h-6 text-gray-300 dark:text-gray-600 group-hover:text-emerald-500 transition-colors" />
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Sujets */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -1445,6 +1476,25 @@ export default function HomePage() {
               <ChevronLeft className="w-4 h-4" /> Retour
             </button>
             <MiniQuiz sectionId="bilan" />
+          </motion.div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  // ===================== RECAPITULATIF VIEW =====================
+  if (activeRecapitulatif) {
+    return (
+      <div className="min-h-screen flex flex-col bg-white dark:bg-gray-950">
+        <Header onHome={goHome} onGlossary={() => setGlossaryOpen(true)} />
+        <GlossaryModal open={glossaryOpen} onClose={() => setGlossaryOpen(false)} />
+        <main className="flex-1 max-w-4xl mx-auto px-4 py-8 w-full">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-6">
+            <button onClick={() => setActiveRecapitulatif(false)} className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mb-4">
+              <ChevronLeft className="w-4 h-4" /> Retour
+            </button>
+            <RecapitulatifSection />
           </motion.div>
         </main>
         <Footer />
