@@ -1177,7 +1177,7 @@ export default function HomePage() {
   const progressPercent = (completedSections.length / rubriques.length) * 100;
 
   // ===================== HOME PAGE =====================
-  if (activeSection === null && !activeBilan) {
+  if (activeSection === null && !activeBilan && !activeRecapitulatif) {
     return (
       <div className="min-h-screen flex flex-col bg-white dark:bg-gray-950">
         <Header onHome={goHome} onGlossary={() => setGlossaryOpen(true)} />
